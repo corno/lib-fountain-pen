@@ -3,16 +3,12 @@ import * as fp from "../../../../pub"
 import { CSimpleExample } from "../../interface"
 
 export function simpleExample(
-    $d: {
-        trimRight: ($: string) => string
-    }
 ): CSimpleExample {
     return ($i) => {
         fp.$.createContext(
             {
                 'indentation': `    `, //usually 4 spaces or a tab character
-                'newline': `\r\n`, //usually `\r\n` or `\n`,
-                'trimLines': true, //removes whitespace at the end of the line
+                'newline': `\r\n`, //usually `\r\n` or `\n`
             },
             ($i) => {
                 $i.line({}, ($i) => {//the fp.line function concatenates all content on one line, except for indented content
@@ -53,9 +49,6 @@ export function simpleExample(
             },
             {
                 consumer: $i,
-            },
-            {
-                trimRight: $d.trimRight
             }
         )
     }

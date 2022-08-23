@@ -5,7 +5,6 @@ export const createContext: iface.CreateContext = (
     $,
     $c,
     $i,
-    $d,
 ) => {
     let isFirstLine = true
     function createSubBlock(
@@ -27,7 +26,7 @@ export const createContext: iface.CreateContext = (
                             currentIndentation + $.indentation,
                             () => {
                                 if (currentLine !== null) {
-                                    $i.consumer.onData($.trimLines ? $d.trimRight(currentLine) : currentLine)
+                                    $i.consumer.onData(currentLine)
                                     currentLine = null
                                 }
                             },
@@ -44,7 +43,7 @@ export const createContext: iface.CreateContext = (
                     },
                 })
                 if (currentLine !== null) {
-                    $i.consumer.onData($.trimLines ? $d.trimRight(currentLine) : currentLine)
+                    $i.consumer.onData(currentLine)
                 }
             },
         })

@@ -22,7 +22,6 @@ export function runTests(
                         {
                             'newline': `\r\n`,
                             'indentation': `    `,
-                            'trimLines': $.trim,
                         },
                         ($) => {
                             $c($)
@@ -40,9 +39,6 @@ export function runTests(
                                     })
                                 },
                             }
-                        },
-                        {
-                            trimRight: ($) => $
                         }
                     )
                 }

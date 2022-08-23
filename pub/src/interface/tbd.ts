@@ -8,8 +8,5 @@ export type CreateContext = (
     $c: ($: IBlock) => void,
     $i: {
         consumer: IStreamConsumer<string, null>,
-    },
-    $d: {
-        trimRight: (str: string) => string
-    },
+    }
 ) => void
