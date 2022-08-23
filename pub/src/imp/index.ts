@@ -1,10 +1,10 @@
 import * as api from "../interface"
-import { processBlock } from "./processBlock"
+import { createContext } from "./createContext"
 
 type API = {
-    processBlock: api.ProcessBlock
+    createContext: api.CreateContext
 }
 
 export const $: API = {
-    processBlock: processBlock
+    createContext: createContext
 }

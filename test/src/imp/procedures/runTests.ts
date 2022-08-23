@@ -1,9 +1,8 @@
-import * as api from "../../../../pub"
+import * as pub from "../../../../pub"
 import { CRunTests } from "../../interface"
 
 
 export function runTests(
-    fountainPen: api.CProcessBlock,
 ): CRunTests {
     return ($i) => {
         $i.subset(
@@ -15,23 +14,11 @@ export function runTests(
                         readonly "trim": boolean,
                         readonly "expected": string,
                     },
-                    $c: ($: api.IBlock) => void,
+                    $c: ($: pub.IBlock) => void,
                 ): void {
                     let out = ``
 
-                    fountainPen(
-                        {
-                            'onData': ($) => {
-                                out += $
-                            },
-                            'onEnd': () => {
-                                $i.testString({
-                                    'testName': $.name,
-                                    'expected': $.expected,
-                                    'actual': out,
-                                })
-                            },
-                        },
+                    pub.$.createContext(
                         {
                             'newline': `\r\n`,
                             'indentation': `    `,
@@ -39,6 +26,23 @@ export function runTests(
                         },
                         ($) => {
                             $c($)
+                        },
+                        {
+                            consumer: {
+                                'onData': ($) => {
+                                    out += $
+                                },
+                                'onEnd': () => {
+                                    $i.testString({
+                                        'testName': $.name,
+                                        'expected': $.expected,
+                                        'actual': out,
+                                    })
+                                },
+                            }
+                        },
+                        {
+                            trimRight: ($) => $
                         }
                     )
                 }

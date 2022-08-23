@@ -3,11 +3,12 @@ import * as fp from "../../../../pub"
 import { CSimpleExample } from "../../interface"
 
 export function simpleExample(
-    processBlock: fp.CProcessBlock,
+    $d: {
+        trimRight: ($: string) => string
+    }
 ): CSimpleExample {
     return ($i) => {
-        processBlock(
-            $i,
+        fp.$.createContext(
             {
                 'indentation': `    `, //usually 4 spaces or a tab character
                 'newline': `\r\n`, //usually `\r\n` or `\n`,
@@ -49,8 +50,13 @@ export function simpleExample(
                     console.log(str)
                 }
                 */
+            },
+            {
+                consumer: $i,
+            },
+            {
+                trimRight: $d.trimRight
             }
-
         )
     }
 

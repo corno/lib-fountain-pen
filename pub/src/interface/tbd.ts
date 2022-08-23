@@ -1,6 +1,15 @@
-import { CProcessBlock } from "."
+import { IBlock } from "./interfaces"
+import { IStreamConsumer } from "./interfaces/IStreamConsumer"
+import { TBlockData } from "./types"
 
-export type ProcessBlock = (
-    trimRight: (str: string) => string,
-) => CProcessBlock
 
+export type CreateContext = (
+    $: TBlockData,
+    $c: ($: IBlock) => void,
+    $i: {
+        consumer: IStreamConsumer<string, null>,
+    },
+    $d: {
+        trimRight: (str: string) => string
+    },
+) => void
