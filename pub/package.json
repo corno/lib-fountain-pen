@@ -21,7 +21,7 @@
     "pareto-core-lib": "^0.1.0"
   },
   "scripts": {},
-  "version": "0.0.0",
+  "version": "0.1.0",
   "interface-fingerprint": "b635975d932108d629d3028874d2442336bf7928",
   "content-fingerprint": "ff0eeae939b9814a6f9e108323d3d0029a27df00"
 }
