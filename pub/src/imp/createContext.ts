@@ -55,5 +55,5 @@ export const createContext: iface.CreateContext = (
         },
         $c,
     )
-    $i.consumer.onEnd(null)
+    $i.consumer.onEnd()
 }

@@ -1,12 +1,4 @@
-
-export type IBlock = {
-    readonly "line": (
-        $: {},
-        $i: (
-            line: ILine
-        ) => void
-    ) => void
-}
+import { IBlock } from "./Block"
 
 export type ILine = {
     readonly "snippet": (

@@ -1,10 +1,6 @@
-
-export type IStreamConsumer<D, E> = {
-    onData: (d: D) => void
-    onEnd: (e: E) => void
-}
+import * as pub from "../../../../pub"
 
 export type CSimpleExample = (
-    $i: IStreamConsumer<string, null>,
+    $i: pub.IStreamConsumer,
     $: {},
 ) => void

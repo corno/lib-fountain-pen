@@ -1,5 +1,5 @@
-import { IBlock } from "./interfaces"
-import { IStreamConsumer } from "./interfaces/IStreamConsumer"
+import { IBlock } from "./interfaces/Block"
+import { IStreamConsumer } from "./interfaces/StreamConsumer"
 import { TBlockData } from "./types"
 
 
@@ -7,6 +7,6 @@ export type CreateContext = (
     $: TBlockData,
     $c: ($: IBlock) => void,
     $i: {
-        consumer: IStreamConsumer<string, null>,
+        consumer: IStreamConsumer,
     }
 ) => void
