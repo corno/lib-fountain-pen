@@ -1,11 +1,7 @@
 
 import * as iface from "../interface"
 
-export const createContext: iface.CreateContext = (
-    $,
-    $c,
-    $i,
-) => {
+export const createContext: iface.CreateContext = ($, $c, $i,) => {
     let isFirstLine = true
     function createSubBlock(
         currentIndentation: string,

@@ -5,7 +5,7 @@ import { CSimpleExample } from "../../interface"
 export function simpleExample(
 ): CSimpleExample {
     return ($i) => {
-        fp.$.createContext(
+        fp.createContext(
             {
                 'indentation': `    `, //usually 4 spaces or a tab character
                 'newline': `\r\n`, //usually `\r\n` or `\n`

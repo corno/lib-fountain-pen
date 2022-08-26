@@ -18,7 +18,7 @@ export function runTests(
                 ): void {
                     let out = ``
 
-                    pub.$.createContext(
+                    pub.createContext(
                         {
                             'newline': `\r\n`,
                             'indentation': `    `,

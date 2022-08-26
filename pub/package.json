@@ -18,10 +18,10 @@
     "url": "git+https://github.com/corno/lib-fountain-pen.git"
   },
   "dependencies": {
-    "pareto-core-lib": "^0.2.0"
+    "pareto-core-lib": "^0.4.0"
   },
   "scripts": {},
   "version": "0.4.0",
   "interface-fingerprint": "f46b0d2fc27e4ae44a37f1820153cc5c6bddfc96",
-  "content-fingerprint": "346020d7a7ec2ffc59043b08c8166cd6aae57dd6"
+  "content-fingerprint": "1b2c545d873d5026174ab6836ae0bd8e43852ad6"
 }
