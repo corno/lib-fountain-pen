@@ -1,3 +1,4 @@
+import * as pl from "pareto-core-lib"
 
 import * as iface from "../interface"
 
@@ -21,7 +22,7 @@ export const createContext: iface.CreateContext = ($, $c, $i,) => {
                         createSubBlock(
                             currentIndentation + $.indentation,
                             () => {
-                                if (currentLine !== null) {
+                                if (pl.isNotNull(currentLine)) {
                                     $i.consumer.onData(currentLine)
                                     currentLine = null
                                 }
@@ -30,7 +31,7 @@ export const createContext: iface.CreateContext = ($, $c, $i,) => {
                         )
                     },
                     'snippet': ($2) => {
-                        if (currentLine !== null) {
+                        if (pl.isNotNull(currentLine)) {
                             currentLine += `${$2}`
                         } else {
                             $i.consumer.onData($.newline)
@@ -38,7 +39,7 @@ export const createContext: iface.CreateContext = ($, $c, $i,) => {
                         }
                     },
                 })
-                if (currentLine !== null) {
+                if (pl.isNotNull(currentLine)) {
                     $i.consumer.onData(currentLine)
                 }
             },

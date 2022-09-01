@@ -1,2 +1,1 @@
-import * as api from "../interface"
-export { createContext } from "./createContext"
+export * from "./createContext"
