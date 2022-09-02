@@ -1,4 +1,5 @@
 
+import * as p2 from "pareto-core-tostring"
 import * as pa from "pareto-core-async"
 import * as pm from "pareto-core-state"
 import * as pl from "pareto-core-lib"
@@ -24,7 +25,7 @@ export function createGetTestSet($d: {}): test.GetTestSet {
             },
             $c: ($: pub.IBlock) => void,
         ): void {
-            let out = ``
+            let out = pm.createArrayBuilder<string>()
 
             pub.createContext(
                 {
@@ -37,13 +38,13 @@ export function createGetTestSet($d: {}): test.GetTestSet {
                 {
                     consumer: {
                         'onData': ($) => {
-                            out += $
+                            out.push($)
                         },
                         'onEnd': () => {
                             builder.add($.name, {
                                 type: ["test", {
                                     type: ["simple string", {
-                                        actual: out,
+                                        actual: p2.getArrayAsString(out.getArray(), ""),
                                         expected: $.expected
                                     }]
                                 }]

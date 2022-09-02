@@ -1,4 +1,6 @@
 import * as pl from "pareto-core-lib"
+import * as pm from "pareto-core-state"
+import * as p2 from "pareto-core-tostring"
 
 import * as iface from "../interface"
 
@@ -11,7 +13,8 @@ export const createContext: iface.CreateContext = ($, $c, $i,) => {
     ): void {
         $c({
             'line': ($_, $i2) => {
-                let currentLine: null | string = currentIndentation
+                let currentLine: null | pm.ArrayBuilder<string> = pm.createArrayBuilder()
+                currentLine.push(currentIndentation)
                 flush({})
                 if (!isFirstLine) {
                     $i.consumer.onData($.newline)
@@ -20,10 +23,10 @@ export const createContext: iface.CreateContext = ($, $c, $i,) => {
                 $i2({
                     'indent': ($_, $i3) => {
                         createSubBlock(
-                            currentIndentation + $.indentation,
+                            p2.joinNestedStrings([currentIndentation, $.indentation]),
                             () => {
                                 if (pl.isNotNull(currentLine)) {
-                                    $i.consumer.onData(currentLine)
+                                    $i.consumer.onData(p2.getArrayAsString(currentLine.getArray(), ""))
                                     currentLine = null
                                 }
                             },
@@ -32,15 +35,17 @@ export const createContext: iface.CreateContext = ($, $c, $i,) => {
                     },
                     'snippet': ($2) => {
                         if (pl.isNotNull(currentLine)) {
-                            currentLine += `${$2}`
+                            currentLine.push($2)
                         } else {
                             $i.consumer.onData($.newline)
-                            currentLine = `${currentIndentation}${$2}`
+                            currentLine = pm.createArrayBuilder()
+                            currentLine.push(currentIndentation)
+                            currentLine.push($2)
                         }
                     },
                 })
                 if (pl.isNotNull(currentLine)) {
-                    $i.consumer.onData(currentLine)
+                    $i.consumer.onData(p2.getArrayAsString(currentLine.getArray(), ""))
                 }
             },
         })
