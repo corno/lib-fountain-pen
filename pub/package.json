@@ -23,7 +23,7 @@
     "pareto-core-tostring": "^0.4.0"
   },
   "scripts": {},
-  "version": "0.4.4",
+  "version": "0.4.5",
   "interface-fingerprint": "f46b0d2fc27e4ae44a37f1820153cc5c6bddfc96",
   "content-fingerprint": "d69781a05ccc70212d66e561590676e701073ca5"
 }
