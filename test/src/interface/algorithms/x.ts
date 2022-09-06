@@ -1,6 +1,6 @@
 import * as test from "lib-pareto-test"
 import { DDependencies } from "../../../../pub"
 
-export type XCreateGetTestset = (
+export type FCreateGetTestset = (
     $d: DDependencies
 ) => test.GetTestSet
