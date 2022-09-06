@@ -4,4 +4,4 @@ export * from "./interfaces/StreamConsumer"
 export * from "./interfaces/Block"
 export * from "./interfaces/Line"
 
-export * from "./tbd"
+export * from "./algorithms/tbd"

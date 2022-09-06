@@ -3,8 +3,8 @@ import { ILine } from "./Line"
 export type IBlock = {
     readonly "line": (
         $: {},
-        $i: (
-            line: ILine
+        $c: (
+            $i: ILine
         ) => void
     ) => void
 }

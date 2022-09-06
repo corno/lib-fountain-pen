@@ -2,9 +2,9 @@ import * as pl from "pareto-core-lib"
 import * as pm from "pareto-core-state"
 import * as p2 from "pareto-core-tostring"
 
-import * as iface from "../interface"
+import * as iface from "../../interface"
 
-export const createContext: iface.CreateContext = ($, $c, $i,) => {
+export const createContext: iface.PCreateContext = ($, $c, $i,) => {
     let isFirstLine = true
     function createSubBlock(
         currentIndentation: string,
@@ -16,7 +16,8 @@ export const createContext: iface.CreateContext = ($, $c, $i,) => {
                 let currentLine: null | pm.ArrayBuilder<string> = pm.createArrayBuilder()
                 currentLine.push(currentIndentation)
                 flush({})
-                if (!isFirstLine) {
+                if (isFirstLine) {
+                } else {
                     $i.consumer.onData($.newline)
                 }
                 isFirstLine = false

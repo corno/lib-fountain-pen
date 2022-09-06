@@ -1,5 +1,5 @@
 
 export type IStreamConsumer = {
-    onData: (data: string) => void
-    onEnd: () => void
+    readonly onData: ($: string) => void
+    readonly  onEnd: () => void
 }
