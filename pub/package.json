@@ -24,7 +24,7 @@
     "res-pareto-tostring": "^0.1.0"
   },
   "scripts": {},
-  "version": "0.4.5",
+  "version": "0.5.0",
   "interface-fingerprint": "6ef6c1ce981205d17ff60fcd06fc96e35668a556",
   "content-fingerprint": "988a631ffecba46de9afe46a798b2804e31877ca"
 }
