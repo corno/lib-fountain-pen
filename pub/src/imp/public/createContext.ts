@@ -1,10 +1,9 @@
 import * as pl from "pareto-core-lib"
 import * as pm from "pareto-core-state"
-import * as p2 from "pareto-core-tostring"
 
 import * as iface from "../../interface"
 
-export const createContext: iface.PCreateContext = ($, $c, $i,) => {
+export const createContext: iface.PCreateContext = ($, $c, $i, $d) => {
     let isFirstLine = true
     function createSubBlock(
         currentIndentation: string,
@@ -12,7 +11,7 @@ export const createContext: iface.PCreateContext = ($, $c, $i,) => {
         $c: ($i: iface.IBlock) => void,
     ): void {
         $c({
-            'line': ($_, $i2) => {
+            'line': ($$c) => {
                 let currentLine: null | pm.ArrayBuilder<string> = pm.createArrayBuilder()
                 currentLine.push(currentIndentation)
                 flush({})
@@ -21,17 +20,23 @@ export const createContext: iface.PCreateContext = ($, $c, $i,) => {
                     $i.consumer.onData($.newline)
                 }
                 isFirstLine = false
-                $i2({
-                    'indent': ($_, $i3) => {
+                $$c({
+                    'indent': ($c) => {
                         createSubBlock(
-                            p2.joinNestedStrings([currentIndentation, $.indentation]),
+                            $d.joinNestedStrings({
+                                strings: [currentIndentation, $.indentation],
+                                separator: ""
+                            }),
                             () => {
                                 if (pl.isNotNull(currentLine)) {
-                                    $i.consumer.onData(p2.getArrayAsString(currentLine.getArray(), ""))
+                                    $i.consumer.onData($d.getArrayAsString({
+                                        array: currentLine.getArray(),
+                                        separator: ""
+                                    }))
                                     currentLine = null
                                 }
                             },
-                            $i3
+                            $c
                         )
                     },
                     'snippet': ($2) => {
@@ -46,7 +51,10 @@ export const createContext: iface.PCreateContext = ($, $c, $i,) => {
                     },
                 })
                 if (pl.isNotNull(currentLine)) {
-                    $i.consumer.onData(p2.getArrayAsString(currentLine.getArray(), ""))
+                    $i.consumer.onData($d.getArrayAsString({
+                        array: currentLine.getArray(),
+                        separator: ""
+                    }))
                 }
             },
         })

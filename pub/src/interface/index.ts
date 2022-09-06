@@ -5,3 +5,4 @@ export * from "./interfaces/Block"
 export * from "./interfaces/Line"
 
 export * from "./algorithms/tbd"
+export * from "./dependencies/dependencies"

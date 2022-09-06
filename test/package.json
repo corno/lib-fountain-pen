@@ -5,6 +5,7 @@
     "pareto-core-lib": "^0.8.0",
     "pareto-core-tostring": "^0.4.0",
     "res-pareto-diff": "^0.9.0",
-    "res-pareto-filesystem": "^0.23.0"
+    "res-pareto-filesystem": "^0.23.0",
+    "res-pareto-tostring": "^0.1.0"
   }
 }

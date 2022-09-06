@@ -53,7 +53,8 @@ export const createGetTestset: api.XCreateGetTestset = ($d) => {
                             })
                         },
                     }
-                }
+                },
+                $d
             )
         }
         doTest(
@@ -63,7 +64,7 @@ export const createGetTestset: api.XCreateGetTestset = ($d) => {
                 'expected': `A`,
             },
             ($) => {
-                $.line({}, ($) => {
+                $.line(($) => {
                     $.snippet(`A`)
                 })
             },
@@ -75,7 +76,7 @@ export const createGetTestset: api.XCreateGetTestset = ($d) => {
                 'expected': `XYZ`,
             },
             ($) => {
-                $.line({}, ($) => {
+                $.line(($) => {
                     $.snippet(`X`)
                     $.snippet(`Y`)
                     $.snippet(`Z`)
@@ -89,10 +90,10 @@ export const createGetTestset: api.XCreateGetTestset = ($d) => {
                 'expected': `BEFORE\r\n    B\r\nAFTER`,
             },
             ($) => {
-                $.line({}, ($) => {
+                $.line(($) => {
                     $.snippet(`BEFORE`)
-                    $.indent({}, ($) => {
-                        $.line({}, ($) => {
+                    $.indent(($) => {
+                        $.line(($) => {
                             $.snippet(`B`)
                         })
                     })
@@ -119,7 +120,7 @@ export const createGetTestset: api.XCreateGetTestset = ($d) => {
                 'expected': `line ending with spaces     `,
             },
             ($) => {
-                $.line({}, ($) => {
+                $.line(($) => {
                     $.snippet(`line ending with spaces     `)
                 })
             },

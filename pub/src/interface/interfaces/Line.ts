@@ -5,7 +5,6 @@ export type ILine = {
         $: string,
     ) => void
     readonly "indent": (
-        $: {},
         $c: ($i: IBlock) => void
     ) => void
 }
