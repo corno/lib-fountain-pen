@@ -10,9 +10,8 @@ import * as api from "../../interface"
 
 import * as pub from "../../../../pub"
 
-export const createGetTestset: api.FCreateGetTestset = ($d) => {
+export const f_createGetTestset: api.FCreateGetTestset = ($d) => {
     return () => {
-
         const builder = pm.createDictionaryBuilder<test.TTestElement>(
             ["ignore", {}],
             () => {
@@ -29,7 +28,7 @@ export const createGetTestset: api.FCreateGetTestset = ($d) => {
         ): void {
             let out = pm.createArrayBuilder<string>()
 
-            pub.createContext(
+            pub.f_createContext(
                 {
                     'newline': `\r\n`,
                     'indentation': `    `,
@@ -37,25 +36,19 @@ export const createGetTestset: api.FCreateGetTestset = ($d) => {
                 ($) => {
                     $c($)
                 },
-                {
-                    consumer: {
-                        'onData': ($) => {
-                            out.push($)
-                        },
-                        'onEnd': () => {
-                            builder.add($.name, {
-                                type: ["test", {
-                                    type: ["simple string", {
-                                        actual: p2.getArrayAsString(out.getArray(), ""),
-                                        expected: $.expected
-                                    }]
-                                }]
-                            })
-                        },
-                    }
+                ($) => {
+                    out.push($)
                 },
-                $d
+                $d,
             )
+            builder.add($.name, {
+                type: ["test", {
+                    type: ["simple string", {
+                        actual: p2.getArrayAsString(out.getArray(), ""),
+                        expected: $.expected
+                    }]
+                }]
+            })
         }
         doTest(
             {

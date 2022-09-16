@@ -1,8 +1,7 @@
 
-export * from "./types/Configuration"
-export * from "./interfaces/StreamConsumer"
-export * from "./interfaces/Block"
-export * from "./interfaces/Line"
+export * from "./types/Configuration.p"
+export * from "./interfaces/Block.p"
+export * from "./interfaces/Line.p"
 
-export * from "./algorithms/tbd"
-export * from "./dependencies/dependencies"
+export * from "./functions/algorithms.p"
+export * from "./dependencies/dependencies.p"

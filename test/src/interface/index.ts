@@ -1,1 +1,1 @@
-export * from "./algorithms/x"
+export * from "./functions/functions.p"

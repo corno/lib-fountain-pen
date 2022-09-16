@@ -3,7 +3,7 @@ import * as pm from "pareto-core-state"
 
 import * as iface from "../../interface"
 
-export const createContext: iface.PCreateContext = ($, $c, $i, $d) => {
+export const f_createContext: iface.FCreateContext = ($, $c, $i, $d) => {
     let isFirstLine = true
     function createSubBlock(
         currentIndentation: string,
@@ -17,7 +17,7 @@ export const createContext: iface.PCreateContext = ($, $c, $i, $d) => {
                 flush({})
                 if (isFirstLine) {
                 } else {
-                    $i.consumer.onData($.newline)
+                    $i($.newline)
                 }
                 isFirstLine = false
                 $$c({
@@ -29,7 +29,7 @@ export const createContext: iface.PCreateContext = ($, $c, $i, $d) => {
                             }),
                             () => {
                                 if (pl.isNotNull(currentLine)) {
-                                    $i.consumer.onData($d.getArrayAsString({
+                                    $i($d.getArrayAsString({
                                         array: currentLine.getArray(),
                                         separator: ""
                                     }))
@@ -43,7 +43,7 @@ export const createContext: iface.PCreateContext = ($, $c, $i, $d) => {
                         if (pl.isNotNull(currentLine)) {
                             currentLine.push($2)
                         } else {
-                            $i.consumer.onData($.newline)
+                            $i($.newline)
                             currentLine = pm.createArrayBuilder()
                             currentLine.push(currentIndentation)
                             currentLine.push($2)
@@ -51,7 +51,7 @@ export const createContext: iface.PCreateContext = ($, $c, $i, $d) => {
                     },
                 })
                 if (pl.isNotNull(currentLine)) {
-                    $i.consumer.onData($d.getArrayAsString({
+                    $i($d.getArrayAsString({
                         array: currentLine.getArray(),
                         separator: ""
                     }))
@@ -66,5 +66,4 @@ export const createContext: iface.PCreateContext = ($, $c, $i, $d) => {
         },
         $c,
     )
-    $i.consumer.onEnd()
 }

@@ -1,4 +1,4 @@
-import { ILine } from "./Line"
+import { ILine } from "./Line.p"
 
 export type IBlock = {
     readonly "line": (
