@@ -23,7 +23,7 @@
     "res-pareto-tostring": "^0.3.0"
   },
   "scripts": {},
-  "version": "0.5.0",
+  "version": "0.6.0",
   "interface-fingerprint": "78277fb5583b9ee153900b75ea1384dd2e883ca8",
   "content-fingerprint": "78f2aebca460c52cce3c789899344b804452d120"
 }
