@@ -16,6 +16,6 @@ pe.runProgram(
                 dependencies
             ),
             dependencies: test.dependencies,
-        }
+        },
     )
 )
