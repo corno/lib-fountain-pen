@@ -1,6 +1,4 @@
 
-import * as p2 from "pareto-core-tostring"
-import * as pa from "pareto-core-async"
 import * as pm from "pareto-core-state"
 import * as pl from "pareto-core-lib"
 
@@ -44,7 +42,10 @@ export const f_createGetTestset: api.FCreateGetTestset = ($d) => {
             builder.add($.name, {
                 type: ["test", {
                     type: ["simple string", {
-                        actual: p2.getArrayAsString(out.getArray(), ""),
+                        actual: $d.getArrayAsString({
+                            array: out.getArray(),
+                            separator: ""
+                        }),
                         expected: $.expected
                     }]
                 }]
@@ -130,7 +131,7 @@ export const f_createGetTestset: api.FCreateGetTestset = ($d) => {
             })
         }
 
-        return pa.value({
+        return pl.asyncValue({
             elements: builder.getDictionary()
         })
     }

@@ -3,4 +3,4 @@ import { DDependencies } from "../../../../pub/dist"
 
 export type FCreateGetTestset = (
     $d: DDependencies
-) => test.GetTestSet
+) => test.FGetTestSet
