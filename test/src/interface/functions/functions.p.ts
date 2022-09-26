@@ -1,6 +1,7 @@
 import * as test from "lib-pareto-test"
-import { DDependencies } from "../../../../pub/dist"
+import { DDependencies } from "../../../../pub"
 
 export type FCreateGetTestset = (
-    $d: DDependencies
+    $: null,
+    $d: DDependencies,
 ) => test.FGetTestSet

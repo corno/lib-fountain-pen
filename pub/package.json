@@ -20,10 +20,10 @@
   "dependencies": {
     "pareto-core-lib": "^0.13.0",
     "pareto-core-state": "^0.10.0",
-    "res-pareto-tostring": "^0.3.0"
+    "res-pareto-tostring": "^0.4.0"
   },
   "scripts": {},
   "version": "0.6.0",
   "interface-fingerprint": "78277fb5583b9ee153900b75ea1384dd2e883ca8",
-  "content-fingerprint": "78f2aebca460c52cce3c789899344b804452d120"
+  "content-fingerprint": "96d20eb762c1d4f5f13f9cc5dc0f395f754d7bb6"
 }
