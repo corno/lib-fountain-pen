@@ -1,7 +1,7 @@
 
 import * as tostring from "res-pareto-tostring"
 
-import * as api from "../interface"
+import * as api from "../api"
 
 
 export const dependencies: api.DDependencies = {

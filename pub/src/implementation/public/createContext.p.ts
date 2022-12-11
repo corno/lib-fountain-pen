@@ -1,7 +1,7 @@
 import * as pl from "pareto-core-lib"
 import * as pm from "pareto-core-state"
 
-import * as iface from "../../interface"
+import * as iface from "../../api"
 
 export const f_createContext: iface.FCreateContext = ($, $c, $i, $d) => {
     let isFirstLine = true

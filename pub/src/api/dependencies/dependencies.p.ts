@@ -1,4 +1,4 @@
-import * as toString from "api-pareto-tostring"
+import * as toString from "res-pareto-tostring"
 
 
 export type DDependencies = {
