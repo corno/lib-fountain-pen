@@ -21,9 +21,10 @@
     "pareto-core-lib": "^0.17.0",
     "pareto-core-raw": "^0.7.0",
     "pareto-core-state": "^0.12.0",
+    "res-pareto-filesystem": "^0.26.1",
     "res-pareto-tostring": "^0.4.1"
   },
   "scripts": {},
   "version": "0.7.0",
-  "content-fingerprint": "64e95e4e0440c68c7840df92d51d454f449c89a7"
+  "content-fingerprint": "95f2126f39cec689a30f4608e9dd62229f9565fe"
 }

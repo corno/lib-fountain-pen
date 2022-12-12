@@ -1,6 +1,9 @@
 
+import { IWriter } from "./algorithms.p"
 import { IBlock } from "./interfaces/Block.p"
 import { TConfiguration } from "./types/Configuration.p"
+
+import * as fs from "res-pareto-filesystem"
 
 export type CCreateFountainPen = (
     $: TConfiguration,
@@ -8,11 +11,9 @@ export type CCreateFountainPen = (
     $c: ($i: IBlock) => void,
 ) => void
 
-
-// export type FCreateWriter = (
-//     $: fs.TPath,
-//     $i: {
-//         onError: fs.IOnWriteFileError
-//     },
-//     $d: DCreateWriter
-// ) => pareto.IWriter
+export type CCreateWriter = (
+    $: fs.TPath,
+    $i: {
+        onError: fs.IOnWriteFileError
+    }
+) => IWriter
