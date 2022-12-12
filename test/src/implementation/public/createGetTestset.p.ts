@@ -21,18 +21,14 @@ export const createGetTestset: api.FCreateGetTestset = ($, $d) => {
         ): void {
             let out = pm.createArrayBuilder<string>()
 
-            pub.f_createContext(
-                {
-                    'newline': `\r\n`,
-                    'indentation': `    `,
-                },
-                ($) => {
-                    $c($)
-                },
+            pub.$a.createFountainPen(
+                pub._defaultSettings,
                 ($) => {
                     out.push($)
                 },
-                $d,
+                ($i) => {
+                    $c($i)
+                },
             )
             builder.add($.name, {
                 type: ["test", {

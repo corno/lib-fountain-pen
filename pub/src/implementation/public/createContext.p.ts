@@ -2,8 +2,9 @@ import * as pl from "pareto-core-lib"
 import * as pm from "pareto-core-state"
 
 import * as iface from "../../api"
+import { CCreateFountainPen } from "../creators.p"
 
-export const f_createContext: iface.FCreateContext = ($, $c, $i, $d) => {
+export const f_createContext: CCreateFountainPen = ($, $i, $f, $c) => {
     let isFirstLine = true
     function createSubBlock(
         currentIndentation: string,
@@ -23,13 +24,13 @@ export const f_createContext: iface.FCreateContext = ($, $c, $i, $d) => {
                 $$c({
                     'indent': ($c) => {
                         createSubBlock(
-                            $d.joinNestedStrings({
+                            $f.joinNestedStrings({
                                 strings: [currentIndentation, $.indentation],
                                 separator: ""
                             }),
                             () => {
                                 if (pl.isNotNull(currentLine)) {
-                                    $i($d.getArrayAsString({
+                                    $i($f.getArrayAsString({
                                         array: currentLine.getArray(),
                                         separator: ""
                                     }))
@@ -51,7 +52,7 @@ export const f_createContext: iface.FCreateContext = ($, $c, $i, $d) => {
                     },
                 })
                 if (pl.isNotNull(currentLine)) {
-                    $i($d.getArrayAsString({
+                    $i($f.getArrayAsString({
                         array: currentLine.getArray(),
                         separator: ""
                     }))

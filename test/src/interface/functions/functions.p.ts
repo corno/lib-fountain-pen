@@ -1,7 +1,10 @@
 import * as test from "lib-pareto-test"
-import { DDependencies } from "../../../../pub"
+
+import * as tostring from "res-pareto-tostring"
 
 export type FCreateGetTestset = (
     $: null,
-    $d: DDependencies,
+    $d: {
+        getArrayAsString: tostring.FGetArrayAsString
+    },
 ) => test.FGetTestSet

@@ -1,3 +1,7 @@
 import * as pub from "../../../pub"
 
-export const dependencies: pub.DDependencies = pub.dependencies
+import * as res from "res-pareto-tostring"
+
+export const dependencies = {
+    getArrayAsString: res.f_getArrayAsString
+}
