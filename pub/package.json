@@ -25,6 +25,6 @@
     "res-pareto-tostring": "^0.4.1"
   },
   "scripts": {},
-  "version": "0.7.0",
+  "version": "0.8.0",
   "content-fingerprint": "95f2126f39cec689a30f4608e9dd62229f9565fe"
 }
