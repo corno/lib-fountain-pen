@@ -12,7 +12,10 @@ export type CCreateFountainPen = (
 ) => void
 
 export type CCreateWriter = (
-    $: fs.TPath,
+    $: {
+        path: fs.TPath,
+        configuration: TConfiguration,
+    },
     $i: {
         onError: fs.IOnWriteFileError
     }

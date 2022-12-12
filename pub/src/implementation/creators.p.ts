@@ -2,6 +2,7 @@
 import * as fs from "res-pareto-filesystem"
 import * as toString from "res-pareto-tostring"
 import * as api from "../api"
+import { TConfiguration } from "../api"
 
 export type CCreateFountainPen = (
     $: api.TConfiguration,
@@ -14,7 +15,10 @@ export type CCreateFountainPen = (
 ) => void
 
 export type CCreateWriter = (
-    $: fs.TPath,
+    $: {
+        path: fs.TPath,
+        configuration: TConfiguration,
+    },
     $i: {
         onError: fs.IOnWriteFileError
     },
