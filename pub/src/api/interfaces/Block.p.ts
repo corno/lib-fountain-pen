@@ -6,4 +6,8 @@ export type IBlock = {
             $i: ILine
         ) => void
     ) => void
+
+    readonly "literal": (
+        $: string,
+    ) => void
 }

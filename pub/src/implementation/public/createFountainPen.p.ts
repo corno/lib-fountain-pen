@@ -5,6 +5,7 @@ import * as iface from "../../api"
 import { CCreateFountainPen } from "../creators.p"
 
 export const f_createContext: CCreateFountainPen = ($, $i, $f, $c) => {
+    const config = $
     let isFirstLine = true
     function createSubBlock(
         currentIndentation: string,
@@ -12,6 +13,11 @@ export const f_createContext: CCreateFountainPen = ($, $i, $f, $c) => {
         $c: ($i: iface.IBlock) => void,
     ): void {
         $c({
+            'literal': ($) => {
+                $i(currentIndentation)
+                $i($)
+                $i(config.newline)
+            },
             'line': ($$c) => {
                 let currentLine: null | pm.ArrayBuilder<string> = pm.createArrayBuilder()
                 currentLine.push(currentIndentation)
