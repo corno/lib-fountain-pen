@@ -12,57 +12,61 @@ export const f_createContext: CCreateFountainPen = ($, $i, $f, $c) => {
         flush: ($: {}) => void,
         $c: ($i: iface.IBlock) => void,
     ): void {
+        function line($$c: ($i: iface.ILine) => void)  {
+
+            let currentLine: null | pm.ArrayBuilder<string> = pm.createArrayBuilder()
+            currentLine.push(currentIndentation)
+            flush({})
+            if (isFirstLine) {
+            } else {
+                $i($.newline)
+            }
+            isFirstLine = false
+            $$c({
+                'indent': ($c) => {
+                    createSubBlock(
+                        $f.joinNestedStrings({
+                            strings: [currentIndentation, $.indentation],
+                            separator: ""
+                        }),
+                        () => {
+                            if (pl.isNotNull(currentLine)) {
+                                $i($f.getArrayAsString({
+                                    array: currentLine.getArray(),
+                                    separator: ""
+                                }))
+                                currentLine = null
+                            }
+                        },
+                        $c
+                    )
+                },
+                'snippet': ($2) => {
+                    if (pl.isNotNull(currentLine)) {
+                        currentLine.push($2)
+                    } else {
+                        $i($.newline)
+                        currentLine = pm.createArrayBuilder()
+                        currentLine.push(currentIndentation)
+                        currentLine.push($2)
+                    }
+                },
+            })
+            if (pl.isNotNull(currentLine)) {
+                $i($f.getArrayAsString({
+                    array: currentLine.getArray(),
+                    separator: ""
+                }))
+            }
+        }
         $c({
             'literal': ($) => {
-                $i(currentIndentation)
-                $i($)
-                $i(config.newline)
+                line(($i) => {
+                    $i.snippet($)
+                })
             },
             'line': ($$c) => {
-                let currentLine: null | pm.ArrayBuilder<string> = pm.createArrayBuilder()
-                currentLine.push(currentIndentation)
-                flush({})
-                if (isFirstLine) {
-                } else {
-                    $i($.newline)
-                }
-                isFirstLine = false
-                $$c({
-                    'indent': ($c) => {
-                        createSubBlock(
-                            $f.joinNestedStrings({
-                                strings: [currentIndentation, $.indentation],
-                                separator: ""
-                            }),
-                            () => {
-                                if (pl.isNotNull(currentLine)) {
-                                    $i($f.getArrayAsString({
-                                        array: currentLine.getArray(),
-                                        separator: ""
-                                    }))
-                                    currentLine = null
-                                }
-                            },
-                            $c
-                        )
-                    },
-                    'snippet': ($2) => {
-                        if (pl.isNotNull(currentLine)) {
-                            currentLine.push($2)
-                        } else {
-                            $i($.newline)
-                            currentLine = pm.createArrayBuilder()
-                            currentLine.push(currentIndentation)
-                            currentLine.push($2)
-                        }
-                    },
-                })
-                if (pl.isNotNull(currentLine)) {
-                    $i($f.getArrayAsString({
-                        array: currentLine.getArray(),
-                        separator: ""
-                    }))
-                }
+                line($$c)
             },
         })
     }
