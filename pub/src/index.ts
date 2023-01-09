@@ -1,3 +1,4 @@
+export { $a } from "./modules/main"
+export * from "./modules/main/api"
+
 export * from "./data"
-export * from "./implementation"
-export * from "./api"

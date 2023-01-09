@@ -17,12 +17,14 @@ export const createGetTestset: api.FCreateGetTestset = ($, $d) => {
                 readonly "trim": boolean,
                 readonly "expected": string,
             },
-            $c: ($: pub.IBlock) => void,
+            $c: ($: pub.BBlock) => void,
         ): void {
             let out = pm.createArrayBuilder<string>()
 
-            pub.$a.createFountainPen(
+            pub.$a.createFountainPenCreator(
                 pub._defaultSettings,
+                {}
+            )(
                 ($) => {
                     out.push($)
                 },
@@ -32,7 +34,7 @@ export const createGetTestset: api.FCreateGetTestset = ($, $d) => {
             )
             builder.add($.name, {
                 type: ["test", {
-                    type: ["simple string", {
+                    type: ["short string", {
                         actual: $d.getArrayAsString({
                             array: out.getArray(),
                             separator: ""
@@ -114,7 +116,7 @@ export const createGetTestset: api.FCreateGetTestset = ($, $d) => {
         function createTest(name: string, actual: string, expected: string) {
             builder.add(name, {
                 type: ["test", {
-                    type: ["simple string", {
+                    type: ["short string", {
                         actual: actual,
                         expected: expected
                     }]

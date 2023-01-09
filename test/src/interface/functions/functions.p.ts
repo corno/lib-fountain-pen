@@ -7,4 +7,4 @@ export type FCreateGetTestset = (
     $d: {
         getArrayAsString: tostring.FGetArrayAsString
     },
-) => test.FGetTestSet
+) => test.AGetTestSet
