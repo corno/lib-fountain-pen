@@ -44,9 +44,7 @@ export const icreateWriterCreator: api.CcreateWriterCreator = ($, $d) => {
                         [newPath, $],
                         ($i) => {
                             $d.pipeFountainPen(
-                                ($) => {
-                                    $i($)
-                                },
+                                $i,
                                 $c,
                             )
                         },

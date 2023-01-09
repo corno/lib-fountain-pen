@@ -12,7 +12,7 @@ export type BBlock = {
     "literal": ($: string, ) => void
 }
 
-export type BCreateWriteStream = ($: mcommon.TPath, $c: ($i: BBlock) => void) => void
+export type BCreateWriteStream = ($: mcommon.TPath, $c: ($i: ($: string) => void) => void) => void
 
 export type BLine = {
     "indent": ($c: ($i: BBlock) => void) => void
