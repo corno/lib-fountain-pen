@@ -3,16 +3,16 @@ import * as pm from "pareto-core-state"
 
 import * as api from "../api"
 
-export const icreateUnboundFountainPenCreator: api.CcreateUnboundFountainPenCreator = ($, $d) => {
+export const icreateUnboundFountainPen: api.CcreateUnboundFountainPen = ($, $d) => {
     return ($i, $c) => {
         const config = $
         let isFirstLine = true
         function createSubBlock(
             currentIndentation: string,
             flush: ($: {}) => void,
-            $c: ($i: api.BBlock) => void,
+            $c: ($i: api.IBlock) => void,
         ): void {
-            function line($$c: ($i: api.BLine) => void) {
+            function line($$c: ($i: api.ILine) => void) {
 
                 let currentLine: null | pm.ArrayBuilder<string> = pm.createArrayBuilder()
                 currentLine.push(currentIndentation)
@@ -25,13 +25,13 @@ export const icreateUnboundFountainPenCreator: api.CcreateUnboundFountainPenCrea
                 $$c({
                     'indent': ($c) => {
                         createSubBlock(
-                            $d.joinNestedStrings({
+                            $d.sf_joinNestedStrings({
                                 strings: [currentIndentation, $.indentation],
                                 separator: ""
                             }),
                             () => {
                                 if (pl.isNotNull(currentLine)) {
-                                    $i($d.getArrayAsString({
+                                    $i($d.sf_getArrayAsString({
                                         array: currentLine.getArray(),
                                         separator: ""
                                     }))
@@ -53,7 +53,7 @@ export const icreateUnboundFountainPenCreator: api.CcreateUnboundFountainPenCrea
                     },
                 })
                 if (pl.isNotNull(currentLine)) {
-                    $i($d.getArrayAsString({
+                    $i($d.sf_getArrayAsString({
                         array: currentLine.getArray(),
                         separator: ""
                     }))

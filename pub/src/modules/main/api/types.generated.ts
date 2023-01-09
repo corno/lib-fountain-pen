@@ -1,37 +1,30 @@
 import * as pt from "pareto-core-types"
-
-import * as mcommon from "res-pareto-filesystem"
+import * as mcommon from "glo-pareto-common"
 
 export type TConfiguration = {
     readonly "indentation": string
     readonly "newline": string
 }
 
-export type BBlock = {
-    "line": ($c: ($i: BLine) => void) => void
+export type IBlock = {
+    "line": ($c: ($i: ILine) => void) => void
     "literal": ($: string, ) => void
 }
 
-export type BCreateWriteStream = ($: mcommon.TPath, $c: ($i: ($: string) => void) => void) => void
+export type ICreateWriter = ($: mcommon.TPath, $c: ($i: IWriter) => void) => void
 
-export type BLine = {
-    "indent": ($c: ($i: BBlock) => void) => void
+export type ICreateWriteStream = ($: mcommon.TPath, $c: ($i: IWriteString) => void) => void
+
+export type ILine = {
+    "indent": ($c: ($i: IBlock) => void) => void
     "snippet": ($: string, ) => void
 }
 
-export type BWriter = {
-    "createDirectory": ($: string, $c: ($i: BWriter) => void) => void
-    "createFile": ($: string, $c: ($i: BBlock) => void) => void
+export type IWriter = {
+    "createDirectory": ($: string, $c: ($i: IWriter) => void) => void
+    "createFile": ($: string, $c: ($i: IBlock) => void) => void
 }
 
-export type BCreateWriter = (
-    $: {
-        path: mcommon.TPath,
-    },
-    $c: ($i: BWriter) => void
-) => void
+export type IWriteString = ($: string, ) => void
 
-export type PPipeFountainPen = (
-    $i: ($: string, ) => void,
-    $c: ($i: BBlock) => void,
-) => void
+export type PFountainPen = ($i: IWriteString, $c: ($i: IBlock) => void) => void

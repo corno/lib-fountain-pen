@@ -3,36 +3,12 @@
 
 import * as api from "../api"
 
-import * as mfs from "res-pareto-filesystem"
-import * as mcommon from "res-pareto-filesystem"
+import * as mcommon from "glo-pareto-common"
 
-import { icreateFountainPenCreator } from "./createFountainPenCreator.p"
-// import { _defaultSettings } from "../../../data"
-
-// {
-//     //onError: $d.onError,
-//     createWriteStream: ($, $c) => mfs.f_createWriteStream(
-//         {
-//             path: [contextPath, $],
-//             createContainingDirectories: true,
-//         },
-//         $c,
-//         {
-//             onError: $d.onError,
-//         },
-//         ($, $i) => $._execute($i)
-//     ),
-//     pipeFountainPen: icreateFountainPenCreator(
-//         _defaultSettings,
-//         {},
-//     )
-// },
-
-
-export const icreateWriterCreator: api.CcreateWriterCreator = ($, $d) => {
+export const icreateWriterCreator: api.CcreateWriterCreator = ($d) => {
     return ($, $c) => {
         //const contextPath = $.path
-        function createWriterImp(newPath: mcommon.TPath): api.BWriter {
+        function createWriterImp(newPath: mcommon.TPath): api.IWriter {
             return {
                 createDirectory: ($, $c) => {
                     $c(createWriterImp(
@@ -40,10 +16,10 @@ export const icreateWriterCreator: api.CcreateWriterCreator = ($, $d) => {
                     ))
                 },
                 createFile: ($, $c) => {
-                    $d.createWriteStream(
+                    $d.if_createWriteStream(
                         [newPath, $],
                         ($i) => {
-                            $d.pipeFountainPen(
+                            $d.pi_pipeFountainPen(
                                 $i,
                                 $c,
                             )
@@ -53,7 +29,7 @@ export const icreateWriterCreator: api.CcreateWriterCreator = ($, $d) => {
             }
     
         }
-        $c(createWriterImp([$.path]))
+        $c(createWriterImp([$]))
     }
 }
 

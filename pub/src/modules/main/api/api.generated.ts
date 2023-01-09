@@ -1,39 +1,23 @@
 import * as pt from "pareto-core-types"
 
-
 import * as glo from "./types.generated"
 
-import * as common from "res-pareto-filesystem"
-import * as mfs from "res-pareto-filesystem"
 import * as mtostring from "res-pareto-tostring"
 
+export type CcreateFountainPen = ($d: {}) => glo.PFountainPen
 
-export type CcreateUnboundFountainPenCreator = (
-    $: glo.TConfiguration,
-    $d: {
-        readonly "joinNestedStrings": mtostring.FJoinNestedString
-        readonly "getArrayAsString": mtostring.FGetArrayAsString
-    },
-) => glo.PPipeFountainPen
+export type CcreateUnboundFountainPen = ($: glo.TConfiguration, $d: {
+    readonly "sf_getArrayAsString": mtostring.FGetArrayAsString
+    readonly "sf_joinNestedStrings": mtostring.FJoinNestedString
+}) => glo.PFountainPen
 
-export type CcreateFountainPenCreator = (
-    $: glo.TConfiguration,
-    $d: {},
-) => glo.PPipeFountainPen
-
-export type CcreateWriterCreator = (
-    $: {
-        //path: common.TPath,
-    },
-    $d: {
-        createWriteStream: glo.BCreateWriteStream
-        pipeFountainPen: glo.PPipeFountainPen
-        onError: mfs.IOnWriteFileError
-    }
-) => glo.BCreateWriter
+export type CcreateWriterCreator = ($d: {
+    readonly "if_createWriteStream": glo.ICreateWriteStream
+    readonly "pi_pipeFountainPen": glo.PFountainPen
+}) => glo.ICreateWriter
 
 export type API = {
-    createUnboundFountainPenCreator: CcreateUnboundFountainPenCreator
-    createFountainPenCreator: CcreateFountainPenCreator
+    createFountainPen: CcreateFountainPen
+    createUnboundFountainPen: CcreateUnboundFountainPen
     createWriterCreator: CcreateWriterCreator
 }

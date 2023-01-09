@@ -1,12 +1,12 @@
 import { API } from "./api"
-import { icreateFountainPenCreator } from "./implementations/createFountainPenCreator.p"
+import { icreateFountainPen } from "./implementations/createFountainPen.p"
+import { icreateUnboundFountainPen } from "./implementations/createUnboundFountainPen.p"
 import { icreateWriterCreator } from "./implementations/createWriterCreator.p"
-import { icreateUnboundFountainPenCreator } from "./implementations/createUnboundFountainPenCreator.p"
 
 export * from "./api"
 
 export const $a: API = {
-    "createFountainPenCreator": icreateFountainPenCreator,
+    "createFountainPen": icreateFountainPen,
+    "createUnboundFountainPen": icreateUnboundFountainPen,
     "createWriterCreator": icreateWriterCreator,
-    "createUnboundFountainPenCreator": icreateUnboundFountainPenCreator,
 }

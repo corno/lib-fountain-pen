@@ -17,12 +17,11 @@ export const createGetTestset: api.FCreateGetTestset = ($, $d) => {
                 readonly "trim": boolean,
                 readonly "expected": string,
             },
-            $c: ($: pub.BBlock) => void,
+            $c: ($: pub.IBlock) => void,
         ): void {
             let out = pm.createArrayBuilder<string>()
 
-            pub.$a.createFountainPenCreator(
-                pub._defaultSettings,
+            pub.$a.createFountainPen(
                 {}
             )(
                 ($) => {
