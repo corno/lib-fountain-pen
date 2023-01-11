@@ -22,7 +22,6 @@ function def($: mapi.TModuleDefinition): mapi.TModuleDefinition {
 
 
 export const project: NProject.TProject = {
-    'type': ["glossary", null],
     'modules': wd({
         "main": {
             'definition': {
