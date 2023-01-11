@@ -150,7 +150,7 @@ export const project: NProject.TProject = {
                                 'dependencies': wd({
                                     "joinNestedStrings": ['function', {
                                         'context': ['import', "tostring"],
-                                        'function': "JoinNestedString",
+                                        'function': "JoinNestedStrings",
                                     }],
                                     "getArrayAsString": ['function', {
                                         'context': ['import', "tostring"],

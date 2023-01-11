@@ -8,7 +8,7 @@ export type CcreateFountainPen = ($d: {}) => glo.PFountainPen
 
 export type CcreateUnboundFountainPen = ($: glo.TConfiguration, $d: {
     readonly "sf_getArrayAsString": mtostring.FGetArrayAsString
-    readonly "sf_joinNestedStrings": mtostring.FJoinNestedString
+    readonly "sf_joinNestedStrings": mtostring.FJoinNestedStrings
 }) => glo.PFountainPen
 
 export type CcreateWriterCreator = ($d: {

@@ -12,8 +12,8 @@ export const icreateFountainPen: api.CcreateFountainPen = ($d) => {
     return icreateUnboundFountainPen(
         _defaultSettings,
         {
-            sf_joinNestedStrings: mtostring.joinNestedStrings,
-            sf_getArrayAsString: mtostring.f_getArrayAsString,
+            sf_joinNestedStrings: mtostring.$a.joinNestedStrings,
+            sf_getArrayAsString: mtostring.$a.getArrayAsString,
         },
         
     )

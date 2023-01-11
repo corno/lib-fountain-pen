@@ -22,9 +22,9 @@
     "pareto-core-lib": "^0.17.0",
     "pareto-core-raw": "^0.7.0",
     "pareto-core-state": "^0.12.0",
-    "res-pareto-tostring": "^0.4.1"
+    "res-pareto-tostring": "^0.5.0"
   },
   "scripts": {},
   "version": "0.14.0",
-  "content-fingerprint": "26d19ad51fcbd098f1ad3949be99a2fb18287135"
+  "content-fingerprint": "3ce7a8224ffdc4cc3d977555d6aad3681931be5c"
 }
