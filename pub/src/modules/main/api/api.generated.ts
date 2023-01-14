@@ -13,7 +13,9 @@ export type CcreateUnboundFountainPen = ($: glo.TConfiguration, $d: {
 
 export type CcreateWriterCreator = ($d: {
     readonly "if_createWriteStream": glo.ICreateWriteStream
+    readonly "af_getNodes": glo.AGetNodes
     readonly "pi_pipeFountainPen": glo.PFountainPen
+    readonly "pr_reportSuperfluousNode": pt.Procedure<glo.TSuperfluousNode>
 }) => glo.ICreateWriter
 
 export type API = {

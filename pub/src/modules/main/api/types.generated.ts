@@ -6,6 +6,15 @@ export type TConfiguration = {
     readonly "newline": string
 }
 
+export type TNodes = pt.Dictionary<string>
+
+export type TSuperfluousNode = {
+    readonly "name": string
+    readonly "path": mcommon.TPath
+}
+
+export type AGetNodes = ($: mcommon.TPath) => pt.AsyncValue<TNodes>
+
 export type IBlock = {
     "line": ($c: ($i: ILine) => void) => void
     "literal": ($: string, ) => void
@@ -21,8 +30,9 @@ export type ILine = {
 }
 
 export type IWriter = {
-    "createDirectory": ($: string, $c: ($i: IWriter) => void) => void
-    "createFile": ($: string, $c: ($i: IBlock) => void) => void
+    "allowed": ($: string, ) => void
+    "directory": ($: string, $c: ($i: IWriter) => void) => void
+    "file": ($: string, $c: ($i: IBlock) => void) => void
 }
 
 export type IWriteString = ($: string, ) => void

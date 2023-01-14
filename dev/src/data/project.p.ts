@@ -33,16 +33,20 @@ export const project: NProject.TProject = {
                         "Configuration": group({
                             "indentation": member(str()),
                             "newline": member(str()),
-                        })
-                        // "Path": nested(str()),
-                        // "String": str(),
-                        // "Number": nr(),
-                        // "Boolean": bln(),
+                        }),
+                        "Nodes": dictionary(str()),
+                        "SuperfluousNode": group({
+                            "path": member(er("common", "Path")),
+                            "name": member(str()),
+                        }),
                     }),
-                    'functions': wd({}),
-                    // 'interfaces': wd({
-
-                    // }),
+                    'functions': wd({
+                        "GetNodes": {
+                            'async': true,
+                            'data': externalReference("common", "Path"),
+                            'return value': reference("Nodes"),
+                        },
+                    }),
                     'interfaces': wd({
                         "Block": ['group', {
                             'members': wd({
@@ -86,13 +90,17 @@ export const project: NProject.TProject = {
                         }],
                         "Writer": ['group', {
                             'members': wd({
-                                "createFile": ['method', {
+                                "allowed": ['method', {
+                                    'data': ['type', string()],
+                                    'interface': ['null', null]
+                                }],
+                                "file": ['method', {
                                     'data': ['type', string()],
                                     'interface': ['set', {
                                         'interface': "Block"
                                     }]
                                 }],
-                                "createDirectory": ['method', {
+                                "directory": ['method', {
                                     'data': ['type', string()],
                                     'interface': ['set', {
                                         'interface': "Writer"
@@ -174,8 +182,12 @@ export const project: NProject.TProject = {
                                     "pipeFountainPen": ['pipe', {
                                         'pipe': "FountainPen",
                                     }],
-                                    //"onError": ['procedure', ['type', externalReference("fs", "AnnotatedFSError<mfs.TWriteFileError>")]]
-                            
+                                    "getNodes": ['function', {
+                                        'function': "GetNodes",
+                                        'async': true,
+                                    }],
+                                    "reportSuperfluousNode": ['procedure', ['type', reference("SuperfluousNode")]]
+
                                 }),
                             }],
                         }
