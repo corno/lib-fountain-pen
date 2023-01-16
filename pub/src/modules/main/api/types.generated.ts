@@ -13,8 +13,6 @@ export type TSuperfluousNode = {
     readonly "path": mcommon.TPath
 }
 
-export type AGetNodes = ($: mcommon.TPath) => pt.AsyncValue<TNodes>
-
 export type IBlock = {
     "line": ($c: ($i: ILine) => void) => void
     "literal": ($: string, ) => void
@@ -36,5 +34,7 @@ export type IWriter = {
 }
 
 export type IWriteString = ($: string, ) => void
+
+export type AGetNodes = ($: mcommon.TPath) => pt.AsyncValue<TNodes>
 
 export type PFountainPen = ($i: IWriteString, $c: ($i: IBlock) => void) => void
