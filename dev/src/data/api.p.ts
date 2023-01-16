@@ -2,12 +2,12 @@ import * as pr from "pareto-core-raw"
 import {
     externalReference as er,
     string as str,
-    nullType,
-    type,
     reference as ref,
     boolean as bln,
     number as nr,
     nested,
+    externalTypeReference,
+    typeReference,
 } from "lib-pareto-typescript-project/dist/modules/glossary/api/shorthands.p"
 import { dictionary, group, member, taggedUnion, types, _function } from "lib-pareto-typescript-project/dist/modules/glossary/api/shorthands.p"
 
@@ -39,25 +39,25 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                 "Block": ['group', {
                     'members': d({
                         "line": ['method', {
-                            'data': ['null', null],
+                            'data': null,
                             'interface': ['set', {
                                 'interface': "Line"
                             }]
                         }],
                         "literal": ['method', {
-                            'data': ['type', string()],
+                            'data': externalTypeReference("common", "String"),
                             'interface': ['null', null]
                         }],
                     })
                 }],
                 "CreateWriteStream": ['method', {
-                    'data': ['type', externalReference("common", "Path")],
+                    'data':  externalTypeReference("common", "Path"),
                     'interface': ['set', {
                         'interface': "WriteString"
                     }]
                 }],
                 "CreateWriter": ['method', {
-                    'data': ['type', externalReference("common", "Path")],
+                    'data':  externalTypeReference("common", "Path"),
                     'interface': ['set', {
                         'interface': "Writer"
                     }]
@@ -65,13 +65,13 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                 "Line": ['group', {
                     'members': d({
                         "indent": ['method', {
-                            'data': ['null', null],
+                            'data': null,
                             'interface': ['set', {
                                 'interface': "Block"
                             }]
                         }],
                         "snippet": ['method', {
-                            'data': ['type', string()],
+                            'data': externalTypeReference("common", "String"),
                             'interface': ['null', null]
                         }],
                     })
@@ -79,17 +79,17 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                 "Writer": ['group', {
                     'members': d({
                         "allowed": ['method', {
-                            'data': ['type', string()],
+                            'data': externalTypeReference("common", "String"),
                             'interface': ['null', null]
                         }],
                         "file": ['method', {
-                            'data': ['type', string()],
+                            'data': externalTypeReference("common", "String"),
                             'interface': ['set', {
                                 'interface': "Block"
                             }]
                         }],
                         "directory": ['method', {
-                            'data': ['type', string()],
+                            'data': externalTypeReference("common", "String"),
                             'interface': ['set', {
                                 'interface': "Writer"
                             }]
@@ -97,7 +97,7 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                     })
                 }],
                 "WriteString": ['method', {
-                    'data': ['type', string()],
+                    'data':externalTypeReference("common", "String"),
                     'interface': ['null', null]
 
                 }],
@@ -107,8 +107,8 @@ export const $: mmoduleDefinition.TModuleDefinition = {
         'functions': d({
             "GetNodes": {
                 'async': true,
-                'data': externalReference("common", "Path"),
-                'return value': reference("Nodes"),
+                'data': externalTypeReference("common", "Path"),
+                'return value': typeReference("Nodes"),
             },
         }),
         'callbacks': d({
@@ -140,7 +140,7 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                     'pipe': "FountainPen"
                 }],
                 'type': ['constructor', {
-                    'configuration data': ['null', null],
+                    'configuration data': null,
                     'dependencies': d({
                     }),
                 }],
@@ -150,7 +150,7 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                     'pipe': "FountainPen"
                 }],
                 'type': ['constructor', {
-                    'configuration data': ['type', reference("Configuration")],
+                    'configuration data': typeReference("Configuration"),
                     'dependencies': d({
                         "joinNestedStrings": ['function', {
                             'context': ['import', "tostring"],
@@ -168,7 +168,7 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                     'interface': "CreateWriter"
                 }],
                 'type': ['constructor', {
-                    'configuration data': ['null', null],
+                    'configuration data': null,
                     'dependencies': d({
 
 
@@ -183,7 +183,7 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                             'function': "GetNodes",
                             'async': true,
                         }],
-                        "reportSuperfluousNode": ['procedure', ['type', reference("SuperfluousNode")]]
+                        "reportSuperfluousNode": ['procedure',typeReference("SuperfluousNode")]
 
                     }),
                 }],
