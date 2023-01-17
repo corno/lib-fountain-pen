@@ -5,10 +5,10 @@ import * as api from "../api"
 
 import * as mtostring from "res-pareto-tostring"
 
-import { icreateUnboundFountainPen } from "./createUnboundFountainPen.p"
+import { $a } from "../index"
 
-export const icreateFountainPen: api.CcreateFountainPen = ($d) => {
-    return icreateUnboundFountainPen(
+export const $$: api.CcreateFountainPen = ($d) => {
+    return $a.createUnboundFountainPen(
         {
             'newline': `\r\n`,
             'indentation': `    `,

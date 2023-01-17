@@ -1,7 +1,7 @@
 import { API } from "./api"
-import { icreateFountainPen } from "./implementations/createFountainPen.p"
-import { icreateUnboundFountainPen } from "./implementations/createUnboundFountainPen.p"
-import { icreateWriterCreator } from "./implementations/createWriterCreator.p"
+import { $$ as icreateFountainPen } from "./implementations/createFountainPen.p"
+import { $$ as icreateUnboundFountainPen } from "./implementations/createUnboundFountainPen.p"
+import { $$ as icreateWriterCreator } from "./implementations/createWriterCreator.p"
 
 export * from "./api"
 

@@ -3,7 +3,7 @@ import * as pm from 'pareto-core-state'
 
 import * as api from "../api"
 
-export const icreateUnboundFountainPen: api.CcreateUnboundFountainPen = ($, $d) => {
+export const $$: api.CcreateUnboundFountainPen = ($, $d) => {
     return ($i, $c) => {
         const config = $
         let isFirstLine = true
