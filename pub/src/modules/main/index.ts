@@ -6,7 +6,7 @@ import { icreateWriterCreator } from "./implementations/createWriterCreator.p"
 export * from "./api"
 
 export const $a: API = {
-    "createFountainPen": icreateFountainPen,
-    "createUnboundFountainPen": icreateUnboundFountainPen,
-    "createWriterCreator": icreateWriterCreator,
+    'createFountainPen': icreateFountainPen,
+    'createUnboundFountainPen': icreateUnboundFountainPen,
+    'createWriterCreator': icreateWriterCreator,
 }
