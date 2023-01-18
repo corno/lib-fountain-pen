@@ -1,5 +1,5 @@
 import * as pl from 'pareto-core-lib'
-import * as pm from 'pareto-core-state'
+import * as ps from 'pareto-core-state'
 
 import * as api from "../api"
 
@@ -14,7 +14,7 @@ export const $$: api.CcreateUnboundFountainPen = ($, $d) => {
         ): void {
             function line($$c: ($i: api.ILine) => void) {
 
-                let currentLine: null | pm.ArrayBuilder<string> = pm.createArrayBuilder()
+                let currentLine: null | ps.ArrayBuilder<string> = ps.createArrayBuilder()
                 currentLine.push(currentIndentation)
                 flush({})
                 if (isFirstLine) {
@@ -46,7 +46,7 @@ export const $$: api.CcreateUnboundFountainPen = ($, $d) => {
                             currentLine.push($2)
                         } else {
                             $i($.newline)
-                            currentLine = pm.createArrayBuilder()
+                            currentLine = ps.createArrayBuilder()
                             currentLine.push(currentIndentation)
                             currentLine.push($2)
                         }

@@ -1,16 +1,16 @@
 
-import * as pm from 'pareto-core-state'
+import * as ps from 'pareto-core-state'
 import * as pl from 'pareto-core-lib'
 
-import * as test from "lib-pareto-test"
+import * as mtest from "lib-pareto-test"
 
 import * as api from "../api"
 
-import * as pub from "../../../../../pub/dist"
+import * as pub from "../../../../../pub"
 import * as mtostring from "res-pareto-tostring"
 
 export const $$: api.CgetTestSet = () => {
-    const builder = pm.createUnsafeDictionaryBuilder<test.TTestElement>()
+    const builder = ps.createUnsafeDictionaryBuilder<mtest.TTestElement>()
     function doTest(
         $: {
             readonly "name": string,
@@ -19,7 +19,7 @@ export const $$: api.CgetTestSet = () => {
         },
         $c: ($: pub.IBlock) => void,
     ): void {
-        let out = pm.createArrayBuilder<string>()
+        let out = ps.createArrayBuilder<string>()
 
         pub.$a.createFountainPen(
             {}
