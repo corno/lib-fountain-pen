@@ -1,10 +1,14 @@
 import { API } from "./api"
-import { $$ as icreateFountainPen } from "./implementations/createFountainPen.p"
+import { $$ as icreateSuperfluousNodeMessage } from "./implementations/createSuperfluousNodeMessage.p"
 import { $$ as icreateUnboundFountainPen } from "./implementations/createUnboundFountainPen.p"
-import { $$ as icreateWriterCreator } from "./implementations/createWriterCreator.p"
+import { $$ as icreateUnboundWriterCreator } from "./implementations/createUnboundWriterCreator.p"
+import { $$ as icreateWriter } from "./implementations/createWriter.p"
+import { $$ as ifountainPen } from "./implementations/fountainPen.p"
 
 export const $a: API = {
-    'createFountainPen': icreateFountainPen,
+    'createSuperfluousNodeMessage': icreateSuperfluousNodeMessage,
     'createUnboundFountainPen': icreateUnboundFountainPen,
-    'createWriterCreator': icreateWriterCreator,
+    'createUnboundWriterCreator': icreateUnboundWriterCreator,
+    'createWriter': icreateWriter,
+    'fountainPen': ifountainPen,
 }

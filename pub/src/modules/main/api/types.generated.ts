@@ -35,6 +35,8 @@ export type IWriter = {
 
 export type IWriteString = ($: mcommon.TString, ) => void
 
+export type FCreateSuperfluousNodeMessage = ($: TSuperfluousNode) => mcommon.TString
+
 export type AGetNodes = ($: mcommon.TPath) => pt.AsyncValue<TNodes>
 
 export type PFountainPen = ($i: IWriteString, $c: ($i: IBlock) => void) => void

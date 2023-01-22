@@ -6,7 +6,7 @@ import * as api from "../api"
 
 import * as mcommon from "glo-pareto-common"
 
-export const $$: api.CcreateWriterCreator = ($d) => {
+export const $$: api.CcreateUnboundWriterCreator = ($d) => {
     return ($, $c) => {
         //const contextPath = $.path
         function createWriterImp(newPath: mcommon.TPath, $c: ($i: api.IWriter) => void): void {

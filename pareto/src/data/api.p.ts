@@ -51,13 +51,13 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                     })
                 }],
                 "CreateWriteStream": ['method', {
-                    'data':  externalTypeReference("common", "Path"),
+                    'data': externalTypeReference("common", "Path"),
                     'interface': ['set', {
                         'interface': "WriteString"
                     }]
                 }],
                 "CreateWriter": ['method', {
-                    'data':  externalTypeReference("common", "Path"),
+                    'data': externalTypeReference("common", "Path"),
                     'interface': ['set', {
                         'interface': "Writer"
                     }]
@@ -97,7 +97,7 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                     })
                 }],
                 "WriteString": ['method', {
-                    'data':externalTypeReference("common", "String"),
+                    'data': externalTypeReference("common", "String"),
                     'interface': ['null', null]
 
                 }],
@@ -109,6 +109,10 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                 'async': true,
                 'data': externalTypeReference("common", "Path"),
                 'return value': typeReference("Nodes"),
+            },
+            "CreateSuperfluousNodeMessage": {
+                'data': typeReference("SuperfluousNode"),
+                'return value': externalTypeReference("common", "String"),
             },
         }),
         'callbacks': d({
@@ -133,17 +137,14 @@ export const $: mmoduleDefinition.TModuleDefinition = {
     'api': {
         'imports': d({
             "tostring": "res-pareto-tostring",
+            "common": "glo-pareto-common",
         }),
         'algorithms': d({
-            "createFountainPen": {
+            "fountainPen": {
                 'definition': ['pipe', {
                     'pipe': "FountainPen"
                 }],
-                'type': ['constructor', {
-                    'configuration data': null,
-                    'dependencies': d({
-                    }),
-                }],
+                'type': ['reference', null],
             },
             "createUnboundFountainPen": {
                 'definition': ['pipe', {
@@ -163,16 +164,29 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                     }),
                 }],
             },
-            "createWriterCreator": {
+            "createWriter": {
                 'definition': ['interface', {
                     'interface': "CreateWriter"
                 }],
                 'type': ['constructor', {
                     'configuration data': null,
                     'dependencies': d({
+                        "onError": ['procedure', externalTypeReference("common", "String")],
+                        "writeString": ['interface', {
+                            'interface': "WriteString",
+                        }],
+                        "reportSuperfluousNode": ['procedure', typeReference("SuperfluousNode")]
 
-
-
+                    }),
+                }],
+            },
+            "createUnboundWriterCreator": {
+                'definition': ['interface', {
+                    'interface': "CreateWriter"
+                }],
+                'type': ['constructor', {
+                    'configuration data': null,
+                    'dependencies': d({
                         "createWriteStream": ['interface', {
                             'interface': "CreateWriteStream",
                         }],
@@ -183,10 +197,16 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                             'function': "GetNodes",
                             'async': true,
                         }],
-                        "reportSuperfluousNode": ['procedure',typeReference("SuperfluousNode")]
+                        "reportSuperfluousNode": ['procedure', typeReference("SuperfluousNode")]
 
                     }),
                 }],
+            },
+            "createSuperfluousNodeMessage": {
+                'definition': ['function', {
+                    'function': "CreateSuperfluousNodeMessage"
+                }],
+                'type': ['reference', null],
             }
         })
     },

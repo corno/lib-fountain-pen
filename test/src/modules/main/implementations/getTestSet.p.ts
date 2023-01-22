@@ -21,9 +21,7 @@ export const $$: api.CgetTestSet = () => {
     ): void {
         let out = ps.createArrayBuilder<string>()
 
-        pub.$a.createFountainPen(
-            {}
-        )(
+        pub.$a.fountainPen(
             ($) => {
                 out.push($)
             },
