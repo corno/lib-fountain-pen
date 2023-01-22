@@ -21,12 +21,12 @@
     "glo-pareto-common": "^0.5.0",
     "lib-pareto-filesystem": "^0.16.0",
     "pareto-core-lib": "^0.17.0",
-    "pareto-core-raw": "^0.7.0",
+    "pareto-core-raw": "^0.7.4",
     "pareto-core-state": "^0.12.0",
     "res-pareto-filesystem": "^0.30.0",
     "res-pareto-tostring": "^0.8.0"
   },
   "scripts": {},
   "version": "0.21.0",
-  "content-fingerprint": "322d1891b631a95db865a2ba80d7796f07da6bb4"
+  "content-fingerprint": "cf229cc6337254e191d6c4a44f20e7aaca7429e2"
 }
