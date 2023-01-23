@@ -172,9 +172,9 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                     'configuration data': null,
                     'dependencies': d({
                         "onError": ['procedure', externalTypeReference("common", "String")],
-                        "writeString": ['interface', {
-                            'interface': "WriteString",
-                        }],
+                        // "writeString": ['interface', {
+                        //     'interface': "WriteString",
+                        // }],
                         "reportSuperfluousNode": ['procedure', typeReference("SuperfluousNode")]
 
                     }),

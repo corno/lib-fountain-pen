@@ -22,7 +22,6 @@ export type CcreateUnboundWriterCreator = ($d: {
 export type CcreateWriter = ($d: {
     readonly 'pr_onError': pt.Procedure<mcommon.TString>
     readonly 'pr_reportSuperfluousNode': pt.Procedure<glo.TSuperfluousNode>
-    readonly 'if_writeString': glo.IWriteString
 }) => glo.ICreateWriter
 
 export type CfountainPen = glo.PFountainPen
