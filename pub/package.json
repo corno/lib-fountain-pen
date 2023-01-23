@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "glo-pareto-common": "^0.5.0",
-    "lib-pareto-filesystem": "^0.16.0",
+    "lib-pareto-filesystem": "^0.17.0",
     "pareto-core-lib": "^0.17.0",
     "pareto-core-raw": "^0.7.4",
     "pareto-core-state": "^0.12.0",
@@ -28,5 +28,5 @@
   },
   "scripts": {},
   "version": "0.23.0",
-  "content-fingerprint": "0637e71000927f688348576ca294d85cb1cc26de"
+  "content-fingerprint": "9cca98c3239a9fa153b1b3094f7d574f49e664d7"
 }
