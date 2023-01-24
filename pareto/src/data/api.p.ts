@@ -12,6 +12,7 @@ import {
     callback,
     procedure,
     externalNamespacedTypeReference,
+    method,
 } from "lib-pareto-typescript-project/dist/modules/glossary/api/shorthands.p"
 import { dictionary, group, member, taggedUnion, types, _function } from "lib-pareto-typescript-project/dist/modules/glossary/api/shorthands.p"
 
@@ -28,6 +29,7 @@ export const $: mmoduleDefinition.TModuleDefinition = {
         'imports': d({
             "common": "glo-pareto-common"
         }),
+        'parameters': d({}),
         'namespace': {
             'types': types({
                 "Configuration": group({
@@ -43,60 +45,40 @@ export const $: mmoduleDefinition.TModuleDefinition = {
             'interfaces': d({
                 "Block": ['group', {
                     'members': d({
-                        "line": ['method', {
-                            'data': null,
-                            'interface': ['reference', {
-                                'namespaces': a([]),
-                                'interface': "Line"
-                            }],
-                        }],
-                        "literal": ['method', {
-                            'data': externalNamespacedTypeReference("common", "String"),
-                            'interface': null,
-                        }],
+                        "line": method(null, ['reference', {
+                            'context': ['local', null],
+                            'namespaces': a([]),
+                            'interface': "Line"
+                        }], true),
+                        "literal": method(externalNamespacedTypeReference("common", "String")),
                     })
                 }],
                 "Line": ['group', {
                     'members': d({
-                        "indent": ['method', {
-                            'data': null,
-                            'interface': ['reference', {
-                                'namespaces': a([]),
-                                'interface': "Block"
-                            }],
-                        }],
-                        "snippet": ['method', {
-                            'data': externalNamespacedTypeReference("common", "String"),
-                            'interface': null,
-                        }],
+                        "indent": method(null, ['reference', {
+                            'context': ['local', null],
+                            'namespaces': a([]),
+                            'interface': "Block"
+                        }], true),
+                        "snippet": method(externalNamespacedTypeReference("common", "String")),
                     })
                 }],
                 "Writer": ['group', {
                     'members': d({
-                        "allowed": ['method', {
-                            'data': externalNamespacedTypeReference("common", "String"),
-                            'interface': null,
-                        }],
-                        "file": ['method', {
-                            'data': externalNamespacedTypeReference("common", "String"),
-                            'interface': ['reference', {
-                                'namespaces': a([]),
-                                'interface': "Block"
-                            }],
-                        }],
-                        "directory": ['method', {
-                            'data': externalNamespacedTypeReference("common", "String"),
-                            'interface': ['reference', {
-                                'namespaces': a([]),
-                                'interface': "Writer"
-                            }],
-                        }],
+                        "allowed": method(externalNamespacedTypeReference("common", "String")),
+                        "file": method(externalNamespacedTypeReference("common", "String"), ['reference', {
+                            'context': ['local', null],
+                            'namespaces': a([]),
+                            'interface': "Block"
+                        }], true),
+                        "directory": method(externalNamespacedTypeReference("common", "String"), ['reference', {
+                            'context': ['local', null],
+                            'namespaces': a([]),
+                            'interface': "Writer"
+                        }], true),
                     })
                 }],
-                "WriteString": ['method', {
-                    'data': externalNamespacedTypeReference("common", "String"),
-                    'interface': null
-                }],
+                "WriteString":method(externalNamespacedTypeReference("common", "String")),
             }),
 
         },
