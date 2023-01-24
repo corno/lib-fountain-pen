@@ -22,11 +22,12 @@ export const $$: api.CgetTestSet = () => {
         let out = ps.createArrayBuilder<string>()
 
         pub.$a.fountainPen(
-            ($) => {
-                out.push($)
-            },
+            null,
             ($i) => {
                 $c($i)
+            },
+            ($) => {
+                out.push($)
             },
         )
         builder.add($.name, {

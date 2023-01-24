@@ -8,23 +8,23 @@ import * as mtostring from "res-pareto-tostring"
 export type CcreateSuperfluousNodeMessage = glo.FCreateSuperfluousNodeMessage
 
 export type CcreateUnboundFountainPen = ($: glo.TConfiguration, $d: {
-    readonly 'sf_getArrayAsString': mtostring.FGetArrayAsString
-    readonly 'sf_joinNestedStrings': mtostring.FJoinNestedStrings
-}) => glo.PFountainPen
+    readonly 'getArrayAsString': mtostring.FGetArrayAsString
+    readonly 'joinNestedStrings': mtostring.FJoinNestedStrings
+}) => glo.FFountainPen
 
 export type CcreateUnboundWriterCreator = ($d: {
-    readonly 'if_createWriteStream': glo.ICreateWriteStream
-    readonly 'af_getNodes': glo.AGetNodes
-    readonly 'pi_pipeFountainPen': glo.PFountainPen
-    readonly 'pr_reportSuperfluousNode': pt.Procedure<glo.TSuperfluousNode>
-}) => glo.ICreateWriter
+    readonly 'createWriteStream': glo.FCreateWriteStream
+    readonly 'getNodes': glo.FGetNodes
+    readonly 'pipeFountainPen': glo.FFountainPen
+    readonly 'reportSuperfluousNode': glo.FReportSuperfluousNode
+}) => glo.FCreateWriter
 
 export type CcreateWriter = ($d: {
-    readonly 'pr_onError': pt.Procedure<mcommon.TString>
-    readonly 'pr_reportSuperfluousNode': pt.Procedure<glo.TSuperfluousNode>
-}) => glo.ICreateWriter
+    readonly 'onError': mcommon.FLog
+    readonly 'reportSuperfluousNode': glo.FReportSuperfluousNode
+}) => glo.FCreateWriter
 
-export type CfountainPen = glo.PFountainPen
+export type CfountainPen = glo.FFountainPen
 
 export type API = {
     createSuperfluousNodeMessage: CcreateSuperfluousNodeMessage

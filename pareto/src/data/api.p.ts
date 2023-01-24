@@ -8,6 +8,10 @@ import {
     nested,
     externalTypeReference,
     typeReference,
+    managedPipe,
+    interfaceReference,
+    callback,
+    procedure,
 } from "lib-pareto-typescript-project/dist/modules/glossary/api/shorthands.p"
 import { dictionary, group, member, taggedUnion, types, _function } from "lib-pareto-typescript-project/dist/modules/glossary/api/shorthands.p"
 
@@ -40,39 +44,27 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                     'members': d({
                         "line": ['method', {
                             'data': null,
-                            'interface': ['set', {
+                            'interface': ['reference', {
                                 'interface': "Line"
-                            }]
+                            }],
                         }],
                         "literal": ['method', {
                             'data': externalTypeReference("common", "String"),
-                            'interface': ['null', null]
+                            'interface': null,
                         }],
                     })
-                }],
-                "CreateWriteStream": ['method', {
-                    'data': externalTypeReference("common", "Path"),
-                    'interface': ['set', {
-                        'interface': "WriteString"
-                    }]
-                }],
-                "CreateWriter": ['method', {
-                    'data': externalTypeReference("common", "Path"),
-                    'interface': ['set', {
-                        'interface': "Writer"
-                    }]
                 }],
                 "Line": ['group', {
                     'members': d({
                         "indent": ['method', {
                             'data': null,
-                            'interface': ['set', {
+                            'interface': ['reference', {
                                 'interface': "Block"
-                            }]
+                            }],
                         }],
                         "snippet": ['method', {
                             'data': externalTypeReference("common", "String"),
-                            'interface': ['null', null]
+                            'interface': null,
                         }],
                     })
                 }],
@@ -80,58 +72,50 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                     'members': d({
                         "allowed": ['method', {
                             'data': externalTypeReference("common", "String"),
-                            'interface': ['null', null]
+                            'interface': null,
                         }],
                         "file": ['method', {
                             'data': externalTypeReference("common", "String"),
-                            'interface': ['set', {
+                            'interface': ['reference', {
                                 'interface': "Block"
-                            }]
+                            }],
                         }],
                         "directory": ['method', {
                             'data': externalTypeReference("common", "String"),
-                            'interface': ['set', {
+                            'interface': ['reference', {
                                 'interface': "Writer"
-                            }]
+                            }],
                         }],
                     })
                 }],
                 "WriteString": ['method', {
                     'data': externalTypeReference("common", "String"),
-                    'interface': ['null', null]
-
+                    'interface': null
                 }],
             }),
 
         },
         'functions': d({
-            "GetNodes": {
-                'async': true,
-                'data': externalTypeReference("common", "Path"),
-                'return value': typeReference("Nodes"),
-            },
-            "CreateSuperfluousNodeMessage": {
-                'data': typeReference("SuperfluousNode"),
-                'return value': externalTypeReference("common", "String"),
-            },
-        }),
-        'callbacks': d({
+            "FountainPen": managedPipe(externalTypeReference("common", "Null"), interfaceReference("Block"), interfaceReference("WriteString")),
+            "GetNodes": _function(externalTypeReference("common", "Path"), typeReference("Nodes"), true),
+            "CreateSuperfluousNodeMessage": _function(typeReference("SuperfluousNode"), externalTypeReference("common", "String")),
 
-            // "XXXSerializeGlossary": {
-            //     'data': ['type', reference("Glossary")],
-            //     'context': ['import', "fp"],
-            //     'interface': "Block",
-            // },
-        }),
-        'pipes': d({
-            "FountainPen": {
-                'in': {
-                    'interface': "Block",
-                },
-                'out': {
-                    'interface': "WriteString",
-                }
-            }
+            "CreateWriter":{
+                'return type': ['nothing', null],
+                'managed input interface': interfaceReference("Writer"),
+                'output interface': null,
+
+                'data': externalTypeReference("common", "Path"),
+            },
+            "CreateWriteStream": {
+                'return type': ['nothing', null],
+                'managed input interface': interfaceReference("WriteString"),
+                'output interface': null,
+
+                'data': externalTypeReference("common", "Path"),
+            },
+            "ReportSuperfluousNode": procedure(typeReference("SuperfluousNode")),
+
         }),
     },
     'api': {
@@ -141,71 +125,77 @@ export const $: mmoduleDefinition.TModuleDefinition = {
         }),
         'algorithms': d({
             "fountainPen": {
-                'definition': ['pipe', {
-                    'pipe': "FountainPen"
-                }],
+                'definition': {
+                    'function': "FountainPen"
+                },
                 'type': ['reference', null],
             },
             "createUnboundFountainPen": {
-                'definition': ['pipe', {
-                    'pipe': "FountainPen"
-                }],
+                'definition': {
+                    'function': "FountainPen"
+                },
                 'type': ['constructor', {
                     'configuration data': typeReference("Configuration"),
                     'dependencies': d({
-                        "joinNestedStrings": ['function', {
+                        "joinNestedStrings": {
                             'context': ['import', "tostring"],
                             'function': "JoinNestedStrings",
-                        }],
-                        "getArrayAsString": ['function', {
+                        },
+                        "getArrayAsString": {
                             'context': ['import', "tostring"],
                             'function': "GetArrayAsString",
-                        }],
+                        },
                     }),
                 }],
             },
             "createWriter": {
-                'definition': ['interface', {
-                    'interface': "CreateWriter"
-                }],
+                'definition': {
+                    'function': "CreateWriter"
+                },
                 'type': ['constructor', {
                     'configuration data': null,
                     'dependencies': d({
-                        "onError": ['procedure', externalTypeReference("common", "String")],
+                        "onError": {
+                            'context': ['import', "common"],
+                            'function': "Log",
+                        },
                         // "writeString": ['interface', {
                         //     'interface': "WriteString",
                         // }],
-                        "reportSuperfluousNode": ['procedure', typeReference("SuperfluousNode")]
+                        "reportSuperfluousNode": {
+                            'function': "ReportSuperfluousNode"
+                        }
 
                     }),
                 }],
             },
             "createUnboundWriterCreator": {
-                'definition': ['interface', {
-                    'interface': "CreateWriter"
-                }],
+                'definition': {
+                    'function': "CreateWriter"
+                },
                 'type': ['constructor', {
                     'configuration data': null,
                     'dependencies': d({
-                        "createWriteStream": ['interface', {
-                            'interface': "CreateWriteStream",
-                        }],
-                        "pipeFountainPen": ['pipe', {
-                            'pipe': "FountainPen",
-                        }],
-                        "getNodes": ['function', {
+                        "createWriteStream":  {
+                            'function': "CreateWriteStream",
+                        },
+                        "pipeFountainPen":  {
+                            'function': "FountainPen",
+                        },
+                        "getNodes":  {
                             'function': "GetNodes",
-                            'async': true,
-                        }],
-                        "reportSuperfluousNode": ['procedure', typeReference("SuperfluousNode")]
+                        },
+                        "reportSuperfluousNode": {
+                            'function': "ReportSuperfluousNode"
+                        }
 
                     }),
                 }],
             },
             "createSuperfluousNodeMessage": {
-                'definition': ['function', {
+                'definition': {
                     'function': "CreateSuperfluousNodeMessage"
-                }],
+                },
                 'type': ['reference', null],
             }
         })

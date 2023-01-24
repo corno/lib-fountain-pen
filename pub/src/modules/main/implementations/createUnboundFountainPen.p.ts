@@ -3,8 +3,8 @@ import * as ps from 'pareto-core-state'
 
 import * as api from "../api"
 
-export const $$: api.CcreateUnboundFountainPen = ($, $d) => {
-    return ($i, $c) => {
+export const $$: api.CcreateUnboundFountainPen = ($x, $d) => {
+    return ($, $c, $i) => {
         const config = $
         let isFirstLine = true
         function createSubBlock(
@@ -19,19 +19,19 @@ export const $$: api.CcreateUnboundFountainPen = ($, $d) => {
                 flush({})
                 if (isFirstLine) {
                 } else {
-                    $i($.newline)
+                    $i($x.newline)
                 }
                 isFirstLine = false
                 $$c({
                     'indent': ($c) => {
                         createSubBlock(
-                            $d.sf_joinNestedStrings({
-                                strings: [currentIndentation, $.indentation],
+                            $d.joinNestedStrings({
+                                strings: [currentIndentation, $x.indentation],
                                 separator: ""
                             }),
                             () => {
                                 if (pl.isNotNull(currentLine)) {
-                                    $i($d.sf_getArrayAsString({
+                                    $i($d.getArrayAsString({
                                         array: currentLine.getArray(),
                                         separator: ""
                                     }))
@@ -45,7 +45,7 @@ export const $$: api.CcreateUnboundFountainPen = ($, $d) => {
                         if (pl.isNotNull(currentLine)) {
                             currentLine.push($2)
                         } else {
-                            $i($.newline)
+                            $i($x.newline)
                             currentLine = ps.createArrayBuilder()
                             currentLine.push(currentIndentation)
                             currentLine.push($2)
@@ -53,7 +53,7 @@ export const $$: api.CcreateUnboundFountainPen = ($, $d) => {
                     },
                 })
                 if (pl.isNotNull(currentLine)) {
-                    $i($d.sf_getArrayAsString({
+                    $i($d.getArrayAsString({
                         array: currentLine.getArray(),
                         separator: ""
                     }))

@@ -25,19 +25,20 @@ export const $$: api.CcreateUnboundWriterCreator = ($d) => {
                 },
                 file: ($, $c) => {
                     x.add($, null)
-                    $d.if_createWriteStream(
+                    $d.createWriteStream(
                         [newPath, $],
                         ($i) => {
-                            $d.pi_pipeFountainPen(
-                                $i,
+                            $d.pipeFountainPen(
+                                null,
                                 $c,
+                                $i,
                             )
                         },
                     )
                 }
             })
             const y = x.getDictionary()
-            $d.af_getNodes(newPath)._execute(($) => {
+            $d.getNodes(newPath)._execute(($) => {
                 $.forEach(() => false, ($, key) => {
                     pr.getEntry(
                         y,
@@ -46,7 +47,7 @@ export const $$: api.CcreateUnboundWriterCreator = ($d) => {
                             //
                         },
                         () => {
-                            $d.pr_reportSuperfluousNode({
+                            $d.reportSuperfluousNode({
                                 path: newPath,
                                 name: key,
                             })

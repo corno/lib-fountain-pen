@@ -15,8 +15,8 @@ export const $$: api.CfountainPen = cufp(
         'indentation': `    `,
     },
     {
-        sf_joinNestedStrings: mtostring.$a.joinNestedStrings,
-        sf_getArrayAsString: mtostring.$a.getArrayAsString,
+        joinNestedStrings: mtostring.$a.joinNestedStrings,
+        getArrayAsString: mtostring.$a.getArrayAsString,
     },
 
 )

@@ -17,11 +17,11 @@ import { $$ as cwc } from "./createUnboundWriterCreator.p"
 export const $$: api.CcreateWriter = ($d) => {
     return cwc(
         {
-            if_createWriteStream: ($, $c) => {
+            createWriteStream: ($, $c) => {
                 mfs.$a.createWriteStream(
                     {
-                        pr_onError: ($) => {
-                            $d.pr_onError(`${mfsl.$a.createWriteFileErrorMessage($.error)} @ ${$.path}`)
+                        onError: ($) => {
+                            $d.onError(`${mfsl.$a.createWriteFileErrorMessage($.error)} @ ${$.path}`)
                         }
                     },
                 )(
@@ -33,8 +33,8 @@ export const $$: api.CcreateWriter = ($d) => {
                     $c,
                 )
             },
-            pi_pipeFountainPen: $a.fountainPen,
-            af_getNodes: ($) => {
+            pipeFountainPen: $a.fountainPen,
+            getNodes: ($) => {
                 return mfs.$a.readDirectory({
                     path: $
                 }).map<pt.Dictionary<string>>(($) => {
@@ -51,7 +51,7 @@ export const $$: api.CcreateWriter = ($d) => {
                     }
                 })
             },
-            pr_reportSuperfluousNode: $d.pr_reportSuperfluousNode,
+            reportSuperfluousNode: $d.reportSuperfluousNode,
         },
 
     )
