@@ -27,7 +27,7 @@ export const $$: api.CcreateWriter = ($d) => {
                 )(
 
                     {
-                        path: [$],
+                        path: $,
                         createContainingDirectories: true,
                     },
                     $c,

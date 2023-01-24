@@ -33,11 +33,11 @@ export type IWriteString = ($: mcommon.TString, ) => void
 
 export type FCreateSuperfluousNodeMessage = ($: TSuperfluousNode,) => mcommon.TString
 
-export type FCreateWriter = ($: mcommon.TPath,$c: ($i: IWriter) => void,) => void
+export type FCreateWriter = ($: mcommon.TPath, $c: ($i: IWriter) => void,) => void
 
-export type FCreateWriteStream = ($: mcommon.TPath,$c: ($i: IWriteString) => void,) => void
+export type FCreateWriteStream = ($: mcommon.TPath, $c: ($i: IWriteString) => void,) => void
 
-export type FFountainPen = ($: mcommon.TNull,$c: ($i: IBlock) => void,$i: IWriteString,) => void
+export type FFountainPen = ($: mcommon.TNull, $c: ($i: IBlock) => void, $i: IWriteString,) => void
 
 export type FGetNodes = ($: mcommon.TPath,) => pt.AsyncValue<TNodes>
 

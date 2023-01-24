@@ -6,21 +6,22 @@ import {
     boolean as bln,
     number as nr,
     nested,
-    externalTypeReference,
     typeReference,
     managedPipe,
     interfaceReference,
     callback,
     procedure,
+    externalNamespacedTypeReference,
 } from "lib-pareto-typescript-project/dist/modules/glossary/api/shorthands.p"
 import { dictionary, group, member, taggedUnion, types, _function } from "lib-pareto-typescript-project/dist/modules/glossary/api/shorthands.p"
 
-
-import { string, reference, externalReference, number, boolean } from "lib-pareto-typescript-project/dist/modules/moduleDefinition/api/shorthands.p"
 import * as mmoduleDefinition from "lib-pareto-typescript-project/dist/modules/moduleDefinition"
+import * as mglossary from "lib-pareto-typescript-project/dist/modules/glossary"
+import { constructor, definitionReference, externalDefinitionReference } from "lib-pareto-typescript-project/dist/modules/moduleDefinition/api/shorthands.p"
+
 
 const d = pr.wrapRawDictionary
-
+const a = pr.wrapRawArray
 
 export const $: mmoduleDefinition.TModuleDefinition = {
     'glossary': {
@@ -45,11 +46,12 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                         "line": ['method', {
                             'data': null,
                             'interface': ['reference', {
+                                'namespaces': a([]),
                                 'interface': "Line"
                             }],
                         }],
                         "literal": ['method', {
-                            'data': externalTypeReference("common", "String"),
+                            'data': externalNamespacedTypeReference("common", "String"),
                             'interface': null,
                         }],
                     })
@@ -59,11 +61,12 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                         "indent": ['method', {
                             'data': null,
                             'interface': ['reference', {
+                                'namespaces': a([]),
                                 'interface': "Block"
                             }],
                         }],
                         "snippet": ['method', {
-                            'data': externalTypeReference("common", "String"),
+                            'data': externalNamespacedTypeReference("common", "String"),
                             'interface': null,
                         }],
                     })
@@ -71,48 +74,49 @@ export const $: mmoduleDefinition.TModuleDefinition = {
                 "Writer": ['group', {
                     'members': d({
                         "allowed": ['method', {
-                            'data': externalTypeReference("common", "String"),
+                            'data': externalNamespacedTypeReference("common", "String"),
                             'interface': null,
                         }],
                         "file": ['method', {
-                            'data': externalTypeReference("common", "String"),
+                            'data': externalNamespacedTypeReference("common", "String"),
                             'interface': ['reference', {
+                                'namespaces': a([]),
                                 'interface': "Block"
                             }],
                         }],
                         "directory": ['method', {
-                            'data': externalTypeReference("common", "String"),
+                            'data': externalNamespacedTypeReference("common", "String"),
                             'interface': ['reference', {
+                                'namespaces': a([]),
                                 'interface': "Writer"
                             }],
                         }],
                     })
                 }],
                 "WriteString": ['method', {
-                    'data': externalTypeReference("common", "String"),
+                    'data': externalNamespacedTypeReference("common", "String"),
                     'interface': null
                 }],
             }),
 
         },
         'functions': d({
-            "FountainPen": managedPipe(externalTypeReference("common", "Null"), interfaceReference("Block"), interfaceReference("WriteString")),
-            "GetNodes": _function(externalTypeReference("common", "Path"), typeReference("Nodes"), true),
-            "CreateSuperfluousNodeMessage": _function(typeReference("SuperfluousNode"), externalTypeReference("common", "String")),
-
-            "CreateWriter":{
+            "FountainPen": managedPipe(externalNamespacedTypeReference("common", "Null"), interfaceReference("Block"), interfaceReference("WriteString")),
+            "GetNodes": _function(externalNamespacedTypeReference("common", "Path"), typeReference("Nodes"), true),
+            "CreateSuperfluousNodeMessage": _function(typeReference("SuperfluousNode"), externalNamespacedTypeReference("common", "String")),
+            "CreateWriter": {
                 'return type': ['nothing', null],
                 'managed input interface': interfaceReference("Writer"),
                 'output interface': null,
 
-                'data': externalTypeReference("common", "Path"),
+                'data': externalNamespacedTypeReference("common", "Path"),
             },
             "CreateWriteStream": {
                 'return type': ['nothing', null],
                 'managed input interface': interfaceReference("WriteString"),
                 'output interface': null,
 
-                'data': externalTypeReference("common", "Path"),
+                'data': externalNamespacedTypeReference("common", "Path"),
             },
             "ReportSuperfluousNode": procedure(typeReference("SuperfluousNode")),
 
@@ -125,77 +129,34 @@ export const $: mmoduleDefinition.TModuleDefinition = {
         }),
         'algorithms': d({
             "fountainPen": {
-                'definition': {
-                    'function': "FountainPen"
-                },
+                'definition': definitionReference("FountainPen"),
                 'type': ['reference', null],
             },
             "createUnboundFountainPen": {
-                'definition': {
-                    'function': "FountainPen"
-                },
-                'type': ['constructor', {
-                    'configuration data': typeReference("Configuration"),
-                    'dependencies': d({
-                        "joinNestedStrings": {
-                            'context': ['import', "tostring"],
-                            'function': "JoinNestedStrings",
-                        },
-                        "getArrayAsString": {
-                            'context': ['import', "tostring"],
-                            'function': "GetArrayAsString",
-                        },
-                    }),
-                }],
+                'definition': definitionReference("FountainPen"),
+                'type': constructor(typeReference("Configuration"), {
+                    "joinNestedStrings": externalDefinitionReference("tostring", "JoinNestedStrings"),
+                    "getArrayAsString": externalDefinitionReference("tostring", "GetArrayAsString"),
+                }),
             },
             "createWriter": {
-                'definition': {
-                    'function': "CreateWriter"
-                },
-                'type': ['constructor', {
-                    'configuration data': null,
-                    'dependencies': d({
-                        "onError": {
-                            'context': ['import', "common"],
-                            'function': "Log",
-                        },
-                        // "writeString": ['interface', {
-                        //     'interface': "WriteString",
-                        // }],
-                        "reportSuperfluousNode": {
-                            'function': "ReportSuperfluousNode"
-                        }
-
-                    }),
-                }],
+                'definition': definitionReference("CreateWriter"),
+                'type': constructor(null, {
+                    "onError": externalDefinitionReference("common", "Log"),
+                    "reportSuperfluousNode": definitionReference("ReportSuperfluousNode"),
+                }),
             },
             "createUnboundWriterCreator": {
-                'definition': {
-                    'function': "CreateWriter"
-                },
-                'type': ['constructor', {
-                    'configuration data': null,
-                    'dependencies': d({
-                        "createWriteStream":  {
-                            'function': "CreateWriteStream",
-                        },
-                        "pipeFountainPen":  {
-                            'function': "FountainPen",
-                        },
-                        "getNodes":  {
-                            'function': "GetNodes",
-                        },
-                        "reportSuperfluousNode": {
-                            'function': "ReportSuperfluousNode"
-                        }
-
-                    }),
-                }],
+                'definition': definitionReference("CreateWriter"),
+                'type': constructor(null, {
+                    "createWriteStream": definitionReference("CreateWriteStream"),
+                    "pipeFountainPen": definitionReference("FountainPen"),
+                    "getNodes": definitionReference("GetNodes"),
+                    "reportSuperfluousNode": definitionReference("ReportSuperfluousNode"),
+                }),
             },
             "createSuperfluousNodeMessage": {
-                'definition': {
-                    'function': "CreateSuperfluousNodeMessage"
-                },
+                'definition': definitionReference("CreateSuperfluousNodeMessage"),
                 'type': ['reference', null],
             }
         })
