@@ -9,9 +9,9 @@ import {
     typeReference,
     managedPipe,
     interfaceReference,
+    externalTypeReference,
     callback,
     procedure,
-    externalNamespacedTypeReference,
     method,
 } from "lib-pareto-typescript-project/dist/modules/glossary/api/shorthands.p"
 import { dictionary, group, member, taggedUnion, types, _function } from "lib-pareto-typescript-project/dist/modules/glossary/api/shorthands.p"
@@ -30,75 +30,68 @@ export const $: mmoduleDefinition.TModuleDefinition = {
             "common": "glo-pareto-common"
         }),
         'parameters': d({}),
-        'namespace': {
-            'types': types({
-                "Configuration": group({
-                    "indentation": member(str()),
-                    "newline": member(str()),
-                }),
-                "Nodes": dictionary(str()),
-                "SuperfluousNode": group({
-                    "path": member(er("common", "Path")),
-                    "name": member(str()),
-                }),
+        'types': types({
+            "Configuration": group({
+                "indentation": member(str()),
+                "newline": member(str()),
             }),
-            'interfaces': d({
-                "Block": ['group', {
-                    'members': d({
-                        "nestedLine": method(null, ['reference', {
-                            'context': ['local', null],
-                            'namespaces': a([]),
-                            'interface': "Line"
-                        }], true),
-                        "line": method(externalNamespacedTypeReference("common", "String")),
-                    })
-                }],
-                "Line": ['group', {
-                    'members': d({
-                        "indent": method(null, ['reference', {
-                            'context': ['local', null],
-                            'namespaces': a([]),
-                            'interface': "Block"
-                        }], true),
-                        "snippet": method(externalNamespacedTypeReference("common", "String")),
-                    })
-                }],
-                "Writer": ['group', {
-                    'members': d({
-                        "allowed": method(externalNamespacedTypeReference("common", "String")),
-                        "file": method(externalNamespacedTypeReference("common", "String"), ['reference', {
-                            'context': ['local', null],
-                            'namespaces': a([]),
-                            'interface': "Block"
-                        }], true),
-                        "directory": method(externalNamespacedTypeReference("common", "String"), ['reference', {
-                            'context': ['local', null],
-                            'namespaces': a([]),
-                            'interface': "Writer"
-                        }], true),
-                    })
-                }],
-                "WriteString":method(externalNamespacedTypeReference("common", "String")),
+            "Nodes": dictionary(str()),
+            "SuperfluousNode": group({
+                "path": member(er("common", "Path")),
+                "name": member(str()),
             }),
-
-        },
+        }),
+        'interfaces': d({
+            "Block": ['group', {
+                'members': d({
+                    "nestedLine": method(null, ['reference', {
+                        'context': ['local', null],
+                        'interface': "Line"
+                    }], true),
+                    "line": method(externalTypeReference("common", "String")),
+                })
+            }],
+            "Line": ['group', {
+                'members': d({
+                    "indent": method(null, ['reference', {
+                        'context': ['local', null],
+                        'interface': "Block"
+                    }], true),
+                    "snippet": method(externalTypeReference("common", "String")),
+                })
+            }],
+            "Writer": ['group', {
+                'members': d({
+                    "allowed": method(externalTypeReference("common", "String")),
+                    "file": method(externalTypeReference("common", "String"), ['reference', {
+                        'context': ['local', null],
+                        'interface': "Block"
+                    }], true),
+                    "directory": method(externalTypeReference("common", "String"), ['reference', {
+                        'context': ['local', null],
+                        'interface': "Writer"
+                    }], true),
+                })
+            }],
+            "WriteString": method(externalTypeReference("common", "String")),
+        }),
         'functions': d({
-            "FountainPen": managedPipe(externalNamespacedTypeReference("common", "Null"), interfaceReference("Block"), interfaceReference("WriteString")),
-            "GetNodes": _function(externalNamespacedTypeReference("common", "Path"), typeReference("Nodes"), true),
-            "CreateSuperfluousNodeMessage": _function(typeReference("SuperfluousNode"), externalNamespacedTypeReference("common", "String")),
+            "FountainPen": managedPipe(externalTypeReference("common", "Null"), interfaceReference("Block"), interfaceReference("WriteString")),
+            "GetNodes": _function(externalTypeReference("common", "Path"), typeReference("Nodes"), true),
+            "CreateSuperfluousNodeMessage": _function(typeReference("SuperfluousNode"), externalTypeReference("common", "String")),
             "CreateWriter": {
                 'return type': ['nothing', null],
                 'managed input interface': interfaceReference("Writer"),
                 'output interface': null,
 
-                'data': externalNamespacedTypeReference("common", "Path"),
+                'data': externalTypeReference("common", "Path"),
             },
             "CreateWriteStream": {
                 'return type': ['nothing', null],
                 'managed input interface': interfaceReference("WriteString"),
                 'output interface': null,
 
-                'data': externalNamespacedTypeReference("common", "Path"),
+                'data': externalTypeReference("common", "Path"),
             },
             "ReportSuperfluousNode": procedure(typeReference("SuperfluousNode")),
 
