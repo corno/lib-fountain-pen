@@ -49,7 +49,7 @@ export const $$: api.CgetTestSet = () => {
             'expected': `A`,
         },
         ($) => {
-            $.line(($) => {
+            $.nestedLine(($) => {
                 $.snippet(`A`)
             })
         },
@@ -61,7 +61,7 @@ export const $$: api.CgetTestSet = () => {
             'expected': `XYZ`,
         },
         ($) => {
-            $.line(($) => {
+            $.nestedLine(($) => {
                 $.snippet(`X`)
                 $.snippet(`Y`)
                 $.snippet(`Z`)
@@ -75,10 +75,10 @@ export const $$: api.CgetTestSet = () => {
             'expected': `BEFORE\r\n    B\r\nAFTER`,
         },
         ($) => {
-            $.line(($) => {
+            $.nestedLine(($) => {
                 $.snippet(`BEFORE`)
                 $.indent(($) => {
-                    $.line(($) => {
+                    $.nestedLine(($) => {
                         $.snippet(`B`)
                     })
                 })
@@ -93,7 +93,7 @@ export const $$: api.CgetTestSet = () => {
     //         'expected': `line ending with spaces`,
     //     },
     //     ($) => {
-    //         $.line({}, ($) => {
+    //         $.nestedLine({}, ($) => {
     //             $.snippet(`line ending with spaces     `)
     //         })
     //     },
@@ -105,7 +105,7 @@ export const $$: api.CgetTestSet = () => {
             'expected': `line ending with spaces     `,
         },
         ($) => {
-            $.line(($) => {
+            $.nestedLine(($) => {
                 $.snippet(`line ending with spaces     `)
             })
         },

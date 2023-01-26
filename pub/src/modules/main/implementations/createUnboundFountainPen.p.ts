@@ -60,12 +60,12 @@ export const $$: api.CcreateUnboundFountainPen = ($x, $d) => {
                 }
             }
             $c({
-                'literal': ($) => {
+                'line': ($) => {
                     line(($i) => {
                         $i.snippet($)
                     })
                 },
-                'line': ($$c) => {
+                'nestedLine': ($$c) => {
                     line($$c)
                 },
             })

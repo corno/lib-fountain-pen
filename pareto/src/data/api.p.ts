@@ -45,12 +45,12 @@ export const $: mmoduleDefinition.TModuleDefinition = {
             'interfaces': d({
                 "Block": ['group', {
                     'members': d({
-                        "line": method(null, ['reference', {
+                        "nestedLine": method(null, ['reference', {
                             'context': ['local', null],
                             'namespaces': a([]),
                             'interface': "Line"
                         }], true),
-                        "literal": method(externalNamespacedTypeReference("common", "String")),
+                        "line": method(externalNamespacedTypeReference("common", "String")),
                     })
                 }],
                 "Line": ['group', {

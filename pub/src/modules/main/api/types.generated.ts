@@ -14,8 +14,8 @@ export type TSuperfluousNode = {
 }
 
 export type IBlock = {
-    'line': ($c: ($i: ILine) => void) => void
-    'literal': ($: mcommon.TString, ) => void
+    'line': ($: mcommon.TString, ) => void
+    'nestedLine': ($c: ($i: ILine) => void) => void
 }
 
 export type ILine = {
