@@ -30,6 +30,7 @@ export const $: mmoduleDefinition.TModuleDefinition = {
             "common": "glo-pareto-common"
         }),
         'parameters': d({}),
+        'templates': d({}),
         'types': types({
             "Configuration": group({
                 "indentation": member(str()),
@@ -81,16 +82,15 @@ export const $: mmoduleDefinition.TModuleDefinition = {
             "CreateSuperfluousNodeMessage": _function(typeReference("SuperfluousNode"), externalTypeReference("common", "String")),
             "CreateWriter": {
                 'return type': ['nothing', null],
-                'managed input interface': interfaceReference("Writer"),
-                'output interface': null,
+                'managed input interface': ['set', interfaceReference("Writer")],
+                'output interface': ['not set', null],
 
                 'data': externalTypeReference("common", "Path"),
             },
             "CreateWriteStream": {
                 'return type': ['nothing', null],
-                'managed input interface': interfaceReference("WriteString"),
-                'output interface': null,
-
+                'managed input interface': ['set', interfaceReference("WriteString")],
+                'output interface': ['not set', null],
                 'data': externalTypeReference("common", "Path"),
             },
             "ReportSuperfluousNode": procedure(typeReference("SuperfluousNode")),
