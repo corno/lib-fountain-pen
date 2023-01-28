@@ -23,10 +23,10 @@
     "pareto-core-lib": "^0.17.0",
     "pareto-core-raw": "^0.7.4",
     "pareto-core-state": "^0.12.0",
-    "res-pareto-filesystem": "^0.35.0",
-    "res-pareto-tostring": "^0.11.0"
+    "res-pareto-filesystem": "^0.36.0",
+    "res-pareto-tostring": "^0.12.0"
   },
   "scripts": {},
   "version": "0.30.0",
-  "content-fingerprint": "137a55186e441f9cb0242afa40f6817a8e445dfa"
+  "content-fingerprint": "b0c7725e8e5b1a564c2b8ce62bb2a662234261be"
 }
