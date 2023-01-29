@@ -30,7 +30,7 @@ export const $$: api.CcreateUnboundFountainPen = ($x, $d) => {
                                 separator: ""
                             }),
                             () => {
-                                if (pl.isNotNull(currentLine)) {
+                                if (currentLine !== null) {
                                     $i($d.getArrayAsString({
                                         array: currentLine.getArray(),
                                         separator: ""
@@ -42,7 +42,7 @@ export const $$: api.CcreateUnboundFountainPen = ($x, $d) => {
                         )
                     },
                     'snippet': ($2) => {
-                        if (pl.isNotNull(currentLine)) {
+                        if (currentLine !== null) {
                             currentLine.push($2)
                         } else {
                             $i($x.newline)
@@ -52,7 +52,7 @@ export const $$: api.CcreateUnboundFountainPen = ($x, $d) => {
                         }
                     },
                 })
-                if (pl.isNotNull(currentLine)) {
+                if (currentLine !== null) {
                     $i($d.getArrayAsString({
                         array: currentLine.getArray(),
                         separator: ""
