@@ -13,21 +13,22 @@ export const $: mproject.TProject = {
     'description': "makes it straightforward to generate properly indented source code files",
     'license': "ISC",
 
-    'type': ['library', {}],
-    'modules': d({
-        "main": {
-            'definition': api,
-
-        },
-    }),
-    'main': "main",
     'pubdependencies': d({
         "glo-pareto-common": {},
         "lib-pareto-filesystem": {},
         //"res-pareto-filesystem": {},
         "res-pareto-tostring": {},
     }),
-    'testdependencies': d({
-        "res-pareto-tostring": {},
-    }),
+    'type': ['library', {
+        'main': {
+            'definition': api,
+        },
+        'submodules': d({
+        }),
+        'test': {
+            'dependencies': d({
+                "res-pareto-tostring": {},
+            }),
+        }
+    }],
 }
