@@ -3,16 +3,13 @@ import {
     reference,
     string,
     typeReference,
-    managedPipe,
     interfaceReference,
-    callback,
-    procedure,
-    method, dictionary, group, member, taggedUnion, types, _function
-} from "lib-pareto-typescript-project/dist/modules/glossary/api/shorthands.p"
+    method, dictionary, group, member, taggedUnion, types, func, data
+} from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands.p"
 
-import { algorithm, constructor, definitionReference, } from "lib-pareto-typescript-project/dist/modules/moduleDefinition/api/shorthands.p"
+import { algorithm, constructor, definitionReference, } from "lib-pareto-typescript-project/dist/submodules/moduleDefinition/shorthands.p"
 
-import * as mmoduleDefinition from "lib-pareto-typescript-project/dist/modules/moduleDefinition"
+import * as mmoduleDefinition from "lib-pareto-typescript-project/dist/submodules/moduleDefinition"
 
 const d = pr.wrapRawDictionary
 
@@ -69,23 +66,12 @@ export const $: mmoduleDefinition.TModuleDefinition = {
             "WriteString": method(typeReference("common", "String")),
         }),
         'functions': d({
-            "FountainPen": managedPipe(typeReference("common", "Null"), interfaceReference("Block"), interfaceReference("WriteString")),
-            "GetNodes": _function(typeReference("common", "Path"), typeReference("Nodes"), true),
-            "CreateSuperfluousNodeMessage": _function(typeReference("SuperfluousNode"), typeReference("common", "String")),
-            "CreateWriter": {
-                'return type': ['nothing', {}],
-                'managed input interface': ['set', interfaceReference("Writer")],
-                'output interface': ['not set', {}],
-
-                'data': typeReference("common", "Path"),
-            },
-            "CreateWriteStream": {
-                'return type': ['nothing', {}],
-                'managed input interface': ['set', interfaceReference("WriteString")],
-                'output interface': ['not set', {}],
-                'data': typeReference("common", "Path"),
-            },
-            "ReportSuperfluousNode": procedure(typeReference("SuperfluousNode")),
+            "FountainPen": func(typeReference("common", "Null"), interfaceReference("Block"), interfaceReference("WriteString"), null),
+            "GetNodes": func(typeReference("common", "Path"), null, null, data(typeReference("Nodes"), true)),
+            "CreateSuperfluousNodeMessage": func(typeReference("SuperfluousNode"), null, null, data(typeReference("common", "String"), false)),
+            "CreateWriter": func(typeReference("common", "Path"),interfaceReference("Writer"), null, null),
+            "CreateWriteStream": func(typeReference("common", "Path"),interfaceReference("WriteString"), null, null),
+            "ReportSuperfluousNode": func(typeReference("SuperfluousNode"), null, null, null),
         }),
     },
     'api': {
