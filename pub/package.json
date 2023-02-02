@@ -4,7 +4,7 @@
   "description": "makes it straightforward to generate properly indented source code files",
 
   "dependencies": {
-    "glo-pareto-common": "^0.10.0",
+    "glo-pareto-common": "^0.11.0",
     "lib-pareto-filesystem": "^0.23.0",
     "res-pareto-tostring": "^0.12.0",
     "pareto-core-lib": "^0.18.0",
