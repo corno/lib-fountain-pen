@@ -7,8 +7,6 @@ const d = pr.wrapRawDictionary
 import { $ as api } from "./api.p"
 
 export const $: mproject.TProject = {
-    'name': "lib-fountain-pen",
-
     'author': "Corno",
     'description': "makes it straightforward to generate properly indented source code files",
     'license': "ISC",
