@@ -10,7 +10,7 @@ import * as pub from "../../../../../pub"
 import * as mtostring from "res-pareto-tostring"
 
 export const $$: api.CgetTestSet = () => {
-    const builder = ps.createUnsafeDictionaryBuilder<mtest.TTestElement>()
+    const builder = ps.createUnsafeDictionaryBuilder<mtest.T.TestElement>()
     function doTest(
         $: {
             readonly "name": string,
