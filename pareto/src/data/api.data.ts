@@ -4,7 +4,7 @@ import {
     string,
     typeReference,
     interfaceReference,
-    method, dictionary, group, member, taggedUnion, types, func, data
+    method, dictionary, group, member, taggedUnion, types, func, data, type
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands.p"
 
 import { algorithm, constructor, definitionReference, } from "lib-pareto-typescript-project/dist/submodules/moduleDefinition/shorthands.p"
@@ -13,23 +13,22 @@ import * as mmoduleDefinition from "lib-pareto-typescript-project/dist/submodule
 
 const d = pr.wrapRawDictionary
 
-export const $: mmoduleDefinition.TModuleDefinition = {
+export const $: mmoduleDefinition.T.ModuleDefinition = {
     'glossary': {
         'imports': d({
             "common": "glo-pareto-common"
         }),
         'parameters': d({}),
-        'templates': d({}),
-        'types': types({
-            "Configuration": group({
+        'types': d({
+            "Configuration": type(group({
                 "indentation": member(string()),
                 "newline": member(string()),
-            }),
-            "Nodes": dictionary(string()),
-            "SuperfluousNode": group({
+            })),
+            "Nodes": type(dictionary(string())),
+            "SuperfluousNode": type(group({
                 "path": member(reference("common", "Path")),
                 "name": member(string()),
-            }),
+            })),
         }),
         'interfaces': d({
             "Block": ['group', {
@@ -82,11 +81,11 @@ export const $: mmoduleDefinition.TModuleDefinition = {
         'algorithms': d({
             "fountainPen": algorithm(definitionReference("FountainPen")),
             "createUnboundFountainPen": algorithm(definitionReference("FountainPen"), constructor(typeReference("Configuration"), {
-                "joinNestedStrings": definitionReference("tostring", "JoinNestedStrings"),
-                "getArrayAsString": definitionReference("tostring", "GetArrayAsString"),
+                "joinNestedStrings": definitionReference("tostring", {}, "JoinNestedStrings"),
+                "getArrayAsString": definitionReference("tostring", {}, "GetArrayAsString"),
             })),
             "createWriter": algorithm(definitionReference("CreateWriter"), constructor(null, {
-                "onError": definitionReference("common", "Log"),
+                "onError": definitionReference("common", {}, "Log"),
                 "reportSuperfluousNode": definitionReference("ReportSuperfluousNode"),
             })),
             "createUnboundWriterCreator": algorithm(definitionReference("CreateWriter"), constructor(null, {

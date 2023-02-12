@@ -9,7 +9,7 @@ import * as mcommon from "glo-pareto-common"
 export const $$: api.CcreateUnboundWriterCreator = ($d) => {
     return ($, $c) => {
         //const contextPath = $.path
-        function createWriterImp(newPath: mcommon.TPath, $c: ($i: api.IWriter) => void): void {
+        function createWriterImp(newPath: mcommon.T.Path, $c: ($i: api.IWriter) => void): void {
             const x = ps.createUnsafeDictionaryBuilder<null>()
 
             $c({

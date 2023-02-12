@@ -7,7 +7,7 @@ import * as mtostring from "res-pareto-tostring"
 
 export type CcreateSuperfluousNodeMessage = glo.FCreateSuperfluousNodeMessage
 
-export type CcreateUnboundFountainPen = ($: glo.TConfiguration, $d: {
+export type CcreateUnboundFountainPen = ($: glo.T.Configuration, $d: {
     readonly 'getArrayAsString': mtostring.FGetArrayAsString
     readonly 'joinNestedStrings': mtostring.FJoinNestedStrings
 }) => glo.FFountainPen
