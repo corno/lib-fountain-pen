@@ -31,10 +31,7 @@ export const $$: api.CcreateUnboundFountainPen = ($x, $d) => {
                             }),
                             () => {
                                 if (currentLine !== null) {
-                                    $i($d.getArrayAsString({
-                                        array: currentLine.getArray(),
-                                        separator: ""
-                                    }))
+                                    $i($d.getArrayAsString(currentLine.getArray()))
                                     currentLine = null
                                 }
                             },
@@ -53,10 +50,7 @@ export const $$: api.CcreateUnboundFountainPen = ($x, $d) => {
                     },
                 })
                 if (currentLine !== null) {
-                    $i($d.getArrayAsString({
-                        array: currentLine.getArray(),
-                        separator: ""
-                    }))
+                    $i($d.getArrayAsString(currentLine.getArray()))
                 }
             }
             $c({

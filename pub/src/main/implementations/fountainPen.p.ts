@@ -16,7 +16,10 @@ export const $$: api.CfountainPen = cufp(
     },
     {
         joinNestedStrings: mtostring.$a.joinNestedStrings,
-        getArrayAsString: mtostring.$a.getArrayAsString,
+        getArrayAsString: mtostring.$a.getArrayAsString({
+            "maximum": [false],
+            "separator": "",
+        }, {}),
     },
 
 )

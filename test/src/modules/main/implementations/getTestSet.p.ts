@@ -34,9 +34,9 @@ export const $$: api.CgetTestSet = () => {
             type: ['test', {
                 type: ['short string', {
                     actual: mtostring.$a.getArrayAsString({
-                        array: out.getArray(),
-                        separator: ""
-                    }),
+                        'separator': "",
+                        'maximum': [false],
+                    }, {})(out.getArray()),
                     expected: $.expected
                 }]
             }]
