@@ -8,14 +8,12 @@ import { $ as api } from "./api.data"
 
 export const $: mproject.T.Project = {
     'author': "Corno",
-    'description': "makes it straightforward to generate properly indented source code files",
+    'description': "create a handler that does nothing more than consume the message",
     'license': "ISC",
 
     'dependencies': d({
+        "glo-astn-handlers": {},
         "glo-pareto-common": {},
-        "lib-pareto-filesystem": {},
-        //"res-pareto-filesystem": {},
-        "res-pareto-tostring": {},
     }),
     'type': ['library', {
         'main': {
@@ -26,7 +24,6 @@ export const $: mproject.T.Project = {
         'executables': d({}),
         'test': {
             'dependencies': d({
-                "res-pareto-tostring": {},
             }),
             'glossary': {
                 'functions': d({}),
