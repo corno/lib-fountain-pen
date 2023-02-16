@@ -11,7 +11,7 @@ export const $: mproject.T.Project = {
     'description': "makes it straightforward to generate properly indented source code files",
     'license': "ISC",
 
-    'pubdependencies': d({
+    'dependencies': d({
         "glo-pareto-common": {},
         "lib-pareto-filesystem": {},
         //"res-pareto-filesystem": {},
@@ -28,6 +28,13 @@ export const $: mproject.T.Project = {
             'dependencies': d({
                 "res-pareto-tostring": {},
             }),
+            'glossary': {
+                'functions': d({}),
+                'imports': d({}),
+                'parameters': d({}),
+                'types': d({}),
+                'interfaces': d({}),
+            },
         }
     }],
 }
