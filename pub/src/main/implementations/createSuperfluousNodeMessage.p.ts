@@ -18,7 +18,8 @@ export const $$: api.CcreateSuperfluousNodeMessage = ($) => {
     const green = "\x1b[32m"
     const reset = "\x1b[0m"
     return `${red}superfluous node: ${mtostring.$a.joinNestedStrings({
-        strings: $.path,
         separator: "/",
-    })}/${$.name}${reset}`
+        'maximum': [false],
+
+    }, {})($.path)}/${$.name}${reset}`
 }

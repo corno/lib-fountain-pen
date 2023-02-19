@@ -25,10 +25,7 @@ export const $$: api.CcreateUnboundFountainPen = ($x, $d) => {
                 $$c({
                     'indent': ($c) => {
                         createSubBlock(
-                            $d.joinNestedStrings({
-                                strings: [currentIndentation, $x.indentation],
-                                separator: ""
-                            }),
+                            $d.joinNestedStrings([currentIndentation, $x.indentation]),
                             () => {
                                 if (currentLine !== null) {
                                     $i($d.getArrayAsString(currentLine.getArray()))

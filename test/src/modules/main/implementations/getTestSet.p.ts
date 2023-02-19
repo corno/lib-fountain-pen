@@ -1,6 +1,7 @@
 
 import * as ps from 'pareto-core-state'
 import * as pl from 'pareto-core-lib'
+import * as pt from 'pareto-core-types'
 
 import * as mtest from "lib-pareto-test"
 
@@ -8,6 +9,15 @@ import * as api from "../api"
 
 import * as pub from "../../../../../pub"
 import * as mtostring from "res-pareto-tostring"
+
+
+function buildArray<T>($c: (push: (value: T) => void) => void): pt.Array<T> {
+    const temp = ps.createArrayBuilder<T>()
+    $c((value) => {
+        temp.push(value)
+    })
+    return temp.getArray()
+}
 
 export const $$: api.CgetTestSet = () => {
     const builder = ps.createUnsafeDictionaryBuilder<mtest.T.TestElement>()
@@ -19,24 +29,25 @@ export const $$: api.CgetTestSet = () => {
         },
         $c: ($: pub.IBlock) => void,
     ): void {
-        let out = ps.createArrayBuilder<string>()
 
-        pub.$a.fountainPen(
-            null,
-            ($i) => {
-                $c($i)
-            },
-            ($) => {
-                out.push($)
-            },
-        )
         builder.add($.name, {
             type: ['test', {
                 type: ['short string', {
                     actual: mtostring.$a.getArrayAsString({
                         'separator': "",
                         'maximum': [false],
-                    }, {})(out.getArray()),
+                    }, {})(buildArray((push) => {
+
+                        pub.$a.fountainPen(
+                            null,
+                            ($i) => {
+                                $c($i)
+                            },
+                            ($) => {
+                                push($)
+                            },
+                        )
+                    })),
                     expected: $.expected
                 }]
             }]
