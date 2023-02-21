@@ -12,7 +12,7 @@ function getEntry<T, RT>(
     notExists: () => RT
 ): RT {
     let entry: T | undefined = undefined
-    dictionary.map(($, thisKey) => {
+    dictionary.__mapWithKey(($, thisKey) => {
         if (thisKey === key) {
             entry = $
         }
@@ -56,8 +56,8 @@ export const $$: api.CcreateUnboundWriterCreator = ($d) => {
                 }
             })
             const y = x.getDictionary()
-            $d.getNodes(newPath)._execute(($) => {
-                $.forEach(() => false, ($, key) => {
+            $d.getNodes(newPath).__execute(($) => {
+                $.__forEach(() => false, ($, key) => {
  
                     getEntry(
                         y,
