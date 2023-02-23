@@ -4,7 +4,6 @@ import * as pa from 'pareto-core-async'
 import * as pt from 'pareto-core-types'
 
 import * as gtest from "lib-pareto-test"
-
 import * as gpub from "../../../../../pub"
 import * as gtostring from "res-pareto-tostring"
 

@@ -3,8 +3,6 @@ import * as ps from 'pareto-core-state'
 
 import * as gtostring from "res-pareto-tostring"
 
-import { $a } from "../index"
-
 import { $$ as cufp } from "./createUnboundFountainPen.p"
 
 import { CfountainPen } from "../api"
