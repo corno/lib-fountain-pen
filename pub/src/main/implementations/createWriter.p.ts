@@ -1,11 +1,9 @@
 import * as pt from 'pareto-core-types'
 import * as pl from 'pareto-core-lib'
-import * as ps from 'pareto-core-state'
+import * as pa from 'pareto-core-async'
+import * as pm from 'pareto-core-map'
 
-import * as api from "../api"
-
-import * as mtemp from "res-pareto-tostring"
-import * as mtostring from "res-pareto-tostring"
+import * as mapi from "../api"
 import * as mfs from "res-pareto-filesystem"
 import * as mfsl from "lib-pareto-filesystem"
 
@@ -14,7 +12,7 @@ import { $a } from "../index"
 import { $$ as cwc } from "./createUnboundWriterCreator.p"
 
 
-export const $$: api.CcreateWriter = ($d) => {
+export const $$: mapi.CcreateWriter = ($d) => {
     return cwc(
         {
             createWriteStream: ($, $c) => {
@@ -41,11 +39,11 @@ export const $$: api.CcreateWriter = ($d) => {
                     switch ($[0]) {
                         case 'error':
                             return pl.cc($[1], ($) => {
-                                return pl.asyncValue(pl.createEmptyDictionary())
+                                return pa.asyncValue(pm.wrapRawDictionary({}))
                             })
                         case 'success':
                             return pl.cc($[1], ($) => {
-                                return pl.asyncValue($.__mapWithKey(($, key) => key))
+                                return pa.asyncValue($.__mapWithKey(($, key) => key))
                             })
                         default: return pl.au($[0])
                     }
@@ -53,6 +51,5 @@ export const $$: api.CcreateWriter = ($d) => {
             },
             reportSuperfluousNode: $d.reportSuperfluousNode,
         },
-
     )
 }

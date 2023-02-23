@@ -1,18 +1,7 @@
-import * as pt from 'pareto-core-types'
-import * as pl from 'pareto-core-lib'
-import * as ps from 'pareto-core-state'
-
-import * as api from "../api"
-
+import * as mapi from "../api"
 import * as mtostring from "res-pareto-tostring"
-import * as mfs from "res-pareto-filesystem"
 
-import { $a } from "../index"
-
-import { $$ as cwc } from "./createUnboundWriterCreator.p"
-
-
-export const $$: api.CcreateSuperfluousNodeMessage = ($) => {
+export const $$: mapi.CcreateSuperfluousNodeMessage = ($) => {
 
     const red = "\x1b[31m"
     const green = "\x1b[32m"

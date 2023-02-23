@@ -1,7 +1,7 @@
 import * as pl from 'pareto-core-lib'
 import * as ps from 'pareto-core-state'
 
-import * as api from "../api"
+import * as mapi from "../api"
 
 import * as mtostring from "res-pareto-tostring"
 
@@ -9,7 +9,7 @@ import { $a } from "../index"
 
 import { $$ as cufp } from "./createUnboundFountainPen.p"
 
-export const $$: api.CfountainPen = cufp(
+export const $$: mapi.CfountainPen = cufp(
     {
         'newline': `\r\n`,
         'indentation': `    `,

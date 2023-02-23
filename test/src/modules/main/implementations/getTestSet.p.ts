@@ -1,13 +1,13 @@
 
 import * as ps from 'pareto-core-state'
-import * as pl from 'pareto-core-lib'
+import * as pa from 'pareto-core-async'
 import * as pt from 'pareto-core-types'
 
 import * as mtest from "lib-pareto-test"
 
-import * as api from "../api"
+import * as mapi from "../api"
 
-import * as pub from "../../../../../pub"
+import * as mpub from "../../../../../pub"
 import * as mtostring from "res-pareto-tostring"
 
 
@@ -19,7 +19,7 @@ function buildArray<T>($c: (push: (value: T) => void) => void): pt.Array<T> {
     return temp.getArray()
 }
 
-export const $$: api.CgetTestSet = () => {
+export const $$: mapi.CgetTestSet = () => {
     const builder = ps.createUnsafeDictionaryBuilder<mtest.T.TestElement>()
     function doTest(
         $: {
@@ -27,7 +27,7 @@ export const $$: api.CgetTestSet = () => {
             readonly "trim": boolean,
             readonly "expected": string,
         },
-        $c: ($: pub.IBlock) => void,
+        $c: ($: mpub.IBlock) => void,
     ): void {
 
         builder.add($.name, {
@@ -38,7 +38,7 @@ export const $$: api.CgetTestSet = () => {
                         'maximum': [false],
                     }, {})(buildArray((push) => {
 
-                        pub.$a.fountainPen(
+                        mpub.$a.fountainPen(
                             null,
                             ($i) => {
                                 $c($i)
@@ -133,7 +133,7 @@ export const $$: api.CgetTestSet = () => {
         })
     }
 
-    return pl.asyncValue({
+    return pa.asyncValue({
         elements: builder.getDictionary()
     })
 }
