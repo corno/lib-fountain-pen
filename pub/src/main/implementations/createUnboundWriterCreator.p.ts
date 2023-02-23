@@ -1,8 +1,8 @@
 import * as pt from 'pareto-core-types'
 import * as ps from 'pareto-core-state'
 
-import * as mapi from "../api"
-import * as mcommon from "glo-pareto-common"
+import * as gapi from "../api"
+import * as gcommon from "glo-pareto-common"
 
 function getEntry<T, RT>(
     dictionary: pt.Dictionary<T>,
@@ -23,10 +23,12 @@ function getEntry<T, RT>(
     }
 }
 
-export const $$: mapi.CcreateUnboundWriterCreator = ($d) => {
+import { CcreateUnboundWriterCreator } from "../api"
+
+export const $$:CcreateUnboundWriterCreator = ($d) => {
     return ($, $c) => {
         //const contextPath = $.path
-        function createWriterImp(newPath: mcommon.T.Path, $c: ($i: mapi.IWriter) => void): void {
+        function createWriterImp(newPath: gcommon.T.Path, $c: ($i: gapi.IWriter) => void): void {
             const x = ps.createUnsafeDictionaryBuilder<null>()
 
             $c({

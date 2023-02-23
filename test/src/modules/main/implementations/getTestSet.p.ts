@@ -3,12 +3,12 @@ import * as ps from 'pareto-core-state'
 import * as pa from 'pareto-core-async'
 import * as pt from 'pareto-core-types'
 
-import * as mtest from "lib-pareto-test"
+import * as gtest from "lib-pareto-test"
 
-import * as mapi from "../api"
 
-import * as mpub from "../../../../../pub"
-import * as mtostring from "res-pareto-tostring"
+
+import * as gpub from "../../../../../pub"
+import * as gtostring from "res-pareto-tostring"
 
 
 function buildArray<T>($c: (push: (value: T) => void) => void): pt.Array<T> {
@@ -19,26 +19,28 @@ function buildArray<T>($c: (push: (value: T) => void) => void): pt.Array<T> {
     return temp.getArray()
 }
 
-export const $$: mapi.CgetTestSet = () => {
-    const builder = ps.createUnsafeDictionaryBuilder<mtest.T.TestElement>()
+import { CgetTestSet } from "../api"
+
+export const $$:CgetTestSet = () => {
+    const builder = ps.createUnsafeDictionaryBuilder<gtest.T.TestElement>()
     function doTest(
         $: {
             readonly "name": string,
             readonly "trim": boolean,
             readonly "expected": string,
         },
-        $c: ($: mpub.IBlock) => void,
+        $c: ($: gpub.IBlock) => void,
     ): void {
 
         builder.add($.name, {
             type: ['test', {
                 type: ['short string', {
-                    actual: mtostring.$a.getArrayAsString({
+                    actual: gtostring.$a.getArrayAsString({
                         'separator': "",
                         'maximum': [false],
                     }, {})(buildArray((push) => {
 
-                        mpub.$a.fountainPen(
+                        gpub.$a.fountainPen(
                             null,
                             ($i) => {
                                 $c($i)

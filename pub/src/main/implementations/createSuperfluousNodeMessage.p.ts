@@ -1,12 +1,13 @@
-import * as mapi from "../api"
-import * as mtostring from "res-pareto-tostring"
+import * as gtostring from "res-pareto-tostring"
 
-export const $$: mapi.CcreateSuperfluousNodeMessage = ($) => {
+import { CcreateSuperfluousNodeMessage } from "../api"
+
+export const $$:CcreateSuperfluousNodeMessage = ($) => {
 
     const red = "\x1b[31m"
     const green = "\x1b[32m"
     const reset = "\x1b[0m"
-    return `${red}superfluous node: ${mtostring.$a.joinNestedStrings({
+    return `${red}superfluous node: ${gtostring.$a.joinNestedStrings({
         separator: "/",
         'maximum': [false],
 

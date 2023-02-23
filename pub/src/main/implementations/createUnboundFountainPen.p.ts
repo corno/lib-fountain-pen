@@ -1,18 +1,19 @@
-import * as pl from 'pareto-core-lib'
 import * as ps from 'pareto-core-state'
 
-import * as mapi from "../api"
+import * as gapi from "../api"
 
-export const $$: mapi.CcreateUnboundFountainPen = ($x, $d) => {
+import { CcreateUnboundFountainPen } from "../api"
+
+export const $$:CcreateUnboundFountainPen = ($x, $d) => {
     return ($, $c, $i) => {
         const config = $
         let isFirstLine = true
         function createSubBlock(
             currentIndentation: string,
             flush: ($: {}) => void,
-            $c: ($i: mapi.IBlock) => void,
+            $c: ($i: gapi.IBlock) => void,
         ): void {
-            function line($$c: ($i: mapi.ILine) => void) {
+            function line($$c: ($i: gapi.ILine) => void) {
 
                 let currentLine: null | ps.ArrayBuilder<string> = ps.createArrayBuilder()
                 currentLine.push(currentIndentation)

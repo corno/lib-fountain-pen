@@ -1,25 +1,27 @@
 import * as pl from 'pareto-core-lib'
 import * as ps from 'pareto-core-state'
 
-import * as mapi from "../api"
 
-import * as mtostring from "res-pareto-tostring"
+
+import * as gtostring from "res-pareto-tostring"
 
 import { $a } from "../index"
 
 import { $$ as cufp } from "./createUnboundFountainPen.p"
 
-export const $$: mapi.CfountainPen = cufp(
+import { CfountainPen } from "../api"
+
+export const $$:CfountainPen = cufp(
     {
         'newline': `\r\n`,
         'indentation': `    `,
     },
     {
-        joinNestedStrings: mtostring.$a.joinNestedStrings({
+        joinNestedStrings: gtostring.$a.joinNestedStrings({
             "maximum": [false],
             "separator": "",
         }, {}),
-        getArrayAsString: mtostring.$a.getArrayAsString({
+        getArrayAsString: gtostring.$a.getArrayAsString({
             "maximum": [false],
             "separator": "",
         }, {}),

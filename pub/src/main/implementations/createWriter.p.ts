@@ -3,23 +3,24 @@ import * as pl from 'pareto-core-lib'
 import * as pa from 'pareto-core-async'
 import * as pm from 'pareto-core-map'
 
-import * as mapi from "../api"
-import * as mfs from "res-pareto-filesystem"
-import * as mfsl from "lib-pareto-filesystem"
+import * as gfs from "res-pareto-filesystem"
+import * as gfslib from "lib-pareto-filesystem"
 
 import { $a } from "../index"
 
 import { $$ as cwc } from "./createUnboundWriterCreator.p"
 
 
-export const $$: mapi.CcreateWriter = ($d) => {
+import { CcreateWriter } from "../api"
+
+export const $$:CcreateWriter = ($d) => {
     return cwc(
         {
             createWriteStream: ($, $c) => {
-                mfs.$a.createWriteStream(
+                gfs.$a.createWriteStream(
                     {
                         onError: ($) => {
-                            $d.onError(`${mfsl.$a.createWriteFileErrorMessage($.error)} @ ${$.path}`)
+                            $d.onError(`${gfslib.$a.createWriteFileErrorMessage($.error)} @ ${$.path}`)
                         }
                     },
                 )(
@@ -33,7 +34,7 @@ export const $$: mapi.CcreateWriter = ($d) => {
             },
             pipeFountainPen: $a.fountainPen,
             getNodes: ($) => {
-                return mfs.$a.readDirectory({
+                return gfs.$a.readDirectory({
                     path: $
                 }).map<pt.Dictionary<string>>(($) => {
                     switch ($[0]) {
