@@ -10,7 +10,6 @@ import { $a } from "../index"
 
 import { $$ as cwc } from "./createUnboundWriterCreator.p"
 
-
 import { CcreateWriter } from "../api"
 
 export const $$:CcreateWriter = ($d) => {

@@ -35,7 +35,6 @@
 //                     $i.snippet(`}`)
 //                 })
 
-
 //                 /*
 //                 output:
 //                 FooBar

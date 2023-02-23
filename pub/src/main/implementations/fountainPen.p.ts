@@ -1,8 +1,6 @@
 import * as pl from 'pareto-core-lib'
 import * as ps from 'pareto-core-state'
 
-
-
 import * as gtostring from "res-pareto-tostring"
 
 import { $a } from "../index"
