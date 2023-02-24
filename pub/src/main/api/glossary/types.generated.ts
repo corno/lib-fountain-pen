@@ -1,6 +1,6 @@
 import * as pt from 'pareto-core-types'
 
-import * as mcommon from "glo-pareto-common"
+import * as gcommon from "glo-pareto-common"
 
 export namespace T {
     
@@ -27,11 +27,11 @@ export namespace T {
         
         export type name = string
         
-        export type path = mcommon.T.Path
+        export type path = gcommon.T.Path
     }
     
     export type SuperfluousNode = {
         readonly 'name': string
-        readonly 'path': mcommon.T.Path
+        readonly 'path': gcommon.T.Path
     }
 }
