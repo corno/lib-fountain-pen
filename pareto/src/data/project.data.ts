@@ -14,7 +14,6 @@ export const $: gproject.T.Project<pd.SourceLocation> = {
     'dependencies': d({
         "glo-pareto-common": {},
         "lib-pareto-filesystem": {},
-        //"res-pareto-filesystem": {},
         "res-pareto-tostring": {},
     }),
     'type': ['library', {
@@ -27,6 +26,7 @@ export const $: gproject.T.Project<pd.SourceLocation> = {
         'test': {
             'dependencies': d({
                 "res-pareto-tostring": {},
+                "res-pareto-build": {},
             }),
             'glossary': {
                 'functions': d({}),

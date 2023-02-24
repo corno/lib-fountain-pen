@@ -1,19 +1,12 @@
 
 import * as ps from 'pareto-core-state'
 import * as pa from 'pareto-core-async'
-import * as pt from 'pareto-core-types'
 
 import * as gtest from "lib-pareto-test"
 import * as gpub from "../../../../../pub"
-import * as gtostring from "res-pareto-tostring"
 
-function buildArray<T>($c: (push: (value: T) => void) => void): pt.Array<T> {
-    const temp = ps.createArrayBuilder<T>()
-    $c((value) => {
-        temp.push(value)
-    })
-    return temp.getArray()
-}
+import * as gtostring from "res-pareto-tostring"
+import * as gbuild from "res-pareto-build"
 
 import { CgetTestSet } from "../api"
 
@@ -34,16 +27,13 @@ export const $$:CgetTestSet = () => {
                     actual: gtostring.$a.getArrayAsString({
                         'separator': "",
                         'maximum': [false],
-                    }, {})(buildArray((push) => {
-
+                    }, {})(gbuild.$a.buildArray(null, ($i) => {
                         gpub.$a.fountainPen(
                             null,
                             ($i) => {
                                 $c($i)
                             },
-                            ($) => {
-                                push($)
-                            },
+                            $i,
                         )
                     })),
                     expected: $.expected
