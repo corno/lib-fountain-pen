@@ -9,22 +9,24 @@ export type IBlock = {
     'nestedLine': ($c: ($i: ILine) => void) => void
 }
 
+export type IDirectory = {
+    'allowed': ($: gcommon.T.String, ) => void
+    'directory': ($: gcommon.T.String, $c: ($i: IDirectory) => void) => void
+    'file': ($: gcommon.T.String, $c: ($i: IBlock) => void) => void
+}
+
 export type ILine = {
     'indent': ($c: ($i: IBlock) => void) => void
     'snippet': ($: gcommon.T.String, ) => void
 }
 
-export type IWriter = {
-    'allowed': ($: gcommon.T.String, ) => void
-    'directory': ($: gcommon.T.String, $c: ($i: IWriter) => void) => void
-    'file': ($: gcommon.T.String, $c: ($i: IBlock) => void) => void
-}
-
 export type IWriteString = ($: gcommon.T.String, ) => void
 
-export type FCreateSuperfluousNodeMessage = ($: T.SuperfluousNode,) => gcommon.T.String
+export type FCreateDirectory = ($: gcommon.T.Path, $c: ($i: IDirectory) => void,) => void
 
-export type FCreateWriter = ($: gcommon.T.Path, $c: ($i: IWriter) => void,) => void
+export type FCreateFile = ($: gcommon.T.Path, $c: ($i: IBlock) => void,) => void
+
+export type FCreateSuperfluousNodeMessage = ($: T.SuperfluousNode,) => gcommon.T.String
 
 export type FCreateWriteStream = ($: gcommon.T.Path, $c: ($i: IWriteString) => void,) => void
 

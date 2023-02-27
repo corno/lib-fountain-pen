@@ -49,7 +49,7 @@ export const $: gmoduleDefinition.T.ModuleDefinition<pd.SourceLocation> = {
                     "snippet": method(typeReference("common", "String")),
                 })
             }],
-            "Writer": ['group', {
+            "Directory": ['group', {
                 'members': d({
                     "allowed": method(typeReference("common", "String")),
                     "file": method(typeReference("common", "String"), ['reference', {
@@ -58,7 +58,7 @@ export const $: gmoduleDefinition.T.ModuleDefinition<pd.SourceLocation> = {
                     }], true),
                     "directory": method(typeReference("common", "String"), ['reference', {
                         'context': ['local', {}],
-                        'interface': "Writer"
+                        'interface': "Directory"
                     }], true),
                 })
             }],
@@ -68,7 +68,8 @@ export const $: gmoduleDefinition.T.ModuleDefinition<pd.SourceLocation> = {
             "FountainPen": func(typeReference("common", "Null"), interfaceReference("Block"), interfaceReference("WriteString"), null),
             "GetNodes": func(typeReference("common", "Path"), null, null, data(typeReference("Nodes"), true)),
             "CreateSuperfluousNodeMessage": func(typeReference("SuperfluousNode"), null, null, data(typeReference("common", "String"), false)),
-            "CreateWriter": func(typeReference("common", "Path"),interfaceReference("Writer"), null, null),
+            "CreateDirectory": func(typeReference("common", "Path"),interfaceReference("Directory"), null, null),
+            "CreateFile": func(typeReference("common", "Path"),interfaceReference("Block"), null, null),
             "CreateWriteStream": func(typeReference("common", "Path"),interfaceReference("WriteString"), null, null),
             "ReportSuperfluousNode": func(typeReference("SuperfluousNode"), null, null, null),
         }),
@@ -84,15 +85,22 @@ export const $: gmoduleDefinition.T.ModuleDefinition<pd.SourceLocation> = {
                 "joinNestedStrings": definitionReference("tostring", {}, "JoinNestedStrings"),
                 "getArrayAsString": definitionReference("tostring", {}, "GetArrayAsString"),
             })),
-            "createWriter": algorithm(definitionReference("CreateWriter"), constructor(null, {
+            "createDirectory": algorithm(definitionReference("CreateDirectory"), constructor(null, {
                 "onError": definitionReference("common", {}, "Log"),
                 "reportSuperfluousNode": definitionReference("ReportSuperfluousNode"),
             })),
-            "createUnboundWriterCreator": algorithm(definitionReference("CreateWriter"), constructor(null, {
+            "createFile": algorithm(definitionReference("CreateFile"), constructor(null, {
+                "onError": definitionReference("common", {}, "Log"),
+            })),
+            "createUnboundDirectoryCreator": algorithm(definitionReference("CreateDirectory"), constructor(null, {
                 "createWriteStream": definitionReference("CreateWriteStream"),
                 "pipeFountainPen": definitionReference("FountainPen"),
                 "getNodes": definitionReference("GetNodes"),
                 "reportSuperfluousNode": definitionReference("ReportSuperfluousNode"),
+            })),
+            "createUnboundFileCreator": algorithm(definitionReference("CreateFile"), constructor(null, {
+                "createWriteStream": definitionReference("CreateWriteStream"),
+                "pipeFountainPen": definitionReference("FountainPen"),
             })),
             "createSuperfluousNodeMessage": algorithm(definitionReference("CreateSuperfluousNodeMessage")),
         })

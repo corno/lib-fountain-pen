@@ -8,11 +8,11 @@ import * as gfslib from "lib-pareto-filesystem"
 
 import { $a } from ".."
 
-import { $$ as cwc } from "./createUnboundWriterCreator.p"
+import { $$ as cwc } from "./createUnboundDirectoryCreator.p"
 
-import { CcreateWriter } from "../api"
+import { CcreateDirectory } from "../api"
 
-export const $$:CcreateWriter = ($d) => {
+export const $$:CcreateDirectory = ($d) => {
     return cwc(
         {
             createWriteStream: ($, $c) => {

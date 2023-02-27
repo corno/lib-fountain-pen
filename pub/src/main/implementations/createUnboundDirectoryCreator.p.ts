@@ -4,12 +4,12 @@ import * as ps from 'pareto-core-state'
 import * as gapi from "../api"
 import * as gcommon from "glo-pareto-common"
 
-import { CcreateUnboundWriterCreator } from "../api"
+import { CcreateUnboundDirectoryCreator } from "../api"
 
-export const $$: CcreateUnboundWriterCreator = ($d) => {
+export const $$: CcreateUnboundDirectoryCreator = ($d) => {
     return ($, $c) => {
         //const contextPath = $.path
-        function createWriterImp(newPath: gcommon.T.Path, $c: ($i: gapi.IWriter) => void): void {
+        function createWriterImp(newPath: gcommon.T.Path, $c: ($i: gapi.IDirectory) => void): void {
             const x = ps.createUnsafeDictionaryBuilder<null>()
 
             $c({
