@@ -23,7 +23,7 @@ export const $: gproject.T.Project<pd.SourceLocation> = {
                 'glossary': glossary,
                 'api': api,
             },
-            'implementation': ['manual', {}],
+            'implementation': ['typescript', {}],
         },
         'submodules': d({
         }),
