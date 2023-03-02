@@ -1,8 +1,8 @@
 import * as ps from 'pareto-core-state'
 
-import * as gapi from "../api"
+import * as gapi from "../definition/glossary"
 
-import { CcreateUnboundFountainPen } from "../api"
+import { CcreateUnboundFountainPen } from "../definition/api.generated"
 
 export const $$:CcreateUnboundFountainPen = ($x, $d) => {
     return ($, $c, $i) => {

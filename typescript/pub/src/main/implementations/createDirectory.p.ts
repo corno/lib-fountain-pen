@@ -10,7 +10,7 @@ import { $a } from ".."
 
 import { $$ as cwc } from "./createUnboundDirectoryCreator.p"
 
-import { CcreateDirectory } from "../api"
+import { CcreateDirectory } from "../definition/api.generated"
 
 export const $$:CcreateDirectory = ($d) => {
     return cwc(

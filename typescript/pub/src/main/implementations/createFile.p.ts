@@ -10,7 +10,7 @@ import { $a } from ".."
 
 import { $$ as cfc } from "./createUnboundFileCreator.p"
 
-import { CcreateFile } from "../api"
+import { CcreateFile } from "../definition/api.generated"
 
 export const $$:CcreateFile = ($d) => {
     return cfc(

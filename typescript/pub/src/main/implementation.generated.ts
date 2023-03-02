@@ -1,4 +1,4 @@
-import { API } from "./api"
+import { API } from "./definition/api.generated"
 import { $$ as icreateDirectory } from "./implementations/createDirectory.p"
 import { $$ as icreateFile } from "./implementations/createFile.p"
 import { $$ as icreateSuperfluousNodeMessage } from "./implementations/createSuperfluousNodeMessage.p"

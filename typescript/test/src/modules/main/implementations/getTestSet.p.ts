@@ -8,7 +8,7 @@ import * as gpub from "../../../../../pub"
 import * as gtostring from "res-pareto-tostring"
 import * as gbuild from "res-pareto-build"
 
-import { CgetTestSet } from "../api"
+import { CgetTestSet } from "../definition/api.generated"
 
 export const $$:CgetTestSet = () => {
     const builder = ps.createUnsafeDictionaryBuilder<gtest.T.TestElement>()
