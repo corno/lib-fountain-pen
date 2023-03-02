@@ -13,9 +13,9 @@ export const $: gproject.T.Project<pd.SourceLocation> = {
     'license': "TBD",
 
     'dependencies': d({
-        "glo-pareto-common": {},
-        "lib-pareto-filesystem": {},
-        "res-pareto-tostring": {},
+        "glo-pareto-common": null,
+        "lib-pareto-filesystem": null,
+        "res-pareto-tostring": null,
     }),
     'type': ['library', {
         'main': {
@@ -23,15 +23,15 @@ export const $: gproject.T.Project<pd.SourceLocation> = {
                 'glossary': glossary,
                 'api': api,
             },
-            'implementation': ['typescript', {}],
+            'implementation': ['typescript', null],
         },
         'submodules': d({
         }),
         'executables': d({}),
         'test': {
             'dependencies': d({
-                "res-pareto-tostring": {},
-                "res-pareto-build": {},
+                "res-pareto-tostring": null,
+                "res-pareto-build": null,
             }),
             'glossary': {
                 'functions': d({}),

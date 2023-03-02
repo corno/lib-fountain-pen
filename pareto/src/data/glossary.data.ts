@@ -34,7 +34,7 @@ export const $: gglossary.T.Glossary<pd.SourceLocation> = {
         "Block": ['group', {
             'members': d({
                 "nestedLine": method(null, ['reference', {
-                    'context': ['local', {}],
+                    'context': ['local', null],
                     'interface': "Line"
                 }], true),
                 "line": method(typeReference("common", "String")),
@@ -43,7 +43,7 @@ export const $: gglossary.T.Glossary<pd.SourceLocation> = {
         "Line": ['group', {
             'members': d({
                 "indent": method(null, ['reference', {
-                    'context': ['local', {}],
+                    'context': ['local', null],
                     'interface': "Block"
                 }], true),
                 "snippet": method(typeReference("common", "String")),
@@ -53,11 +53,11 @@ export const $: gglossary.T.Glossary<pd.SourceLocation> = {
             'members': d({
                 "allowed": method(typeReference("common", "String")),
                 "file": method(typeReference("common", "String"), ['reference', {
-                    'context': ['local', {}],
+                    'context': ['local', null],
                     'interface': "Block"
                 }], true),
                 "directory": method(typeReference("common", "String"), ['reference', {
-                    'context': ['local', {}],
+                    'context': ['local', null],
                     'interface': "Directory"
                 }], true),
             })
