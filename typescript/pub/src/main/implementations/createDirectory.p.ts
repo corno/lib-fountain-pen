@@ -4,7 +4,6 @@ import * as pa from 'pareto-core-async'
 import * as pm from 'pareto-core-map'
 
 import * as gfs from "res-pareto-filesystem"
-import * as gfslib from "lib-pareto-filesystem"
 
 import { $a } from ".."
 
