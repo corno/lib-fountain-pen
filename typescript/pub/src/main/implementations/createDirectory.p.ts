@@ -18,9 +18,10 @@ export const $$:CcreateDirectory = ($d) => {
             createWriteStream: ($, $c) => {
                 gfs.$a.createWriteStream(
                     {
-                        onError: ($) => {
-                            $d.onError(`${gfslib.$a.createWriteFileErrorMessage($.error)} @ ${$.path}`)
-                        }
+                        // onError: ($) => {
+                        //     $d.onError(`${gfslib.$a.createWriteFileErrorMessage($.error)} @ ${$.path}`)
+                        // }
+                        onError: $d.onError,
                     },
                 )(
 

@@ -1,16 +1,17 @@
 import * as pt from 'pareto-core-types'
 
 import * as gcommon from "glo-pareto-common"
+import * as gfs from "res-pareto-filesystem"
 import * as gthis from "./glossary"
 import * as gtostring from "res-pareto-tostring"
 
 export type CcreateDirectory = ($d: {
-    readonly 'onError': gcommon.FLog
+    readonly 'onError': gfs.FHandleError
     readonly 'reportSuperfluousNode': gthis.FReportSuperfluousNode
 }) => gthis.FCreateDirectory
 
 export type CcreateFile = ($d: {
-    readonly 'onError': gcommon.FLog
+    readonly 'onError': gfs.FHandleError
 }) => gthis.FCreateFile
 
 export type CcreateSuperfluousNodeMessage = gthis.FCreateSuperfluousNodeMessage

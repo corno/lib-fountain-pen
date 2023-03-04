@@ -7,6 +7,9 @@ const d = pd.d
 import { $ as api } from "./api.data"
 import { $ as glossary } from "./glossary.data"
 
+import { external, this_ } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
+
+
 export const $: gproject.T.Project<pd.SourceLocation> = {
     'author': "Corno",
     'description': "makes it straightforward to generate properly indented source code files",
@@ -14,14 +17,28 @@ export const $: gproject.T.Project<pd.SourceLocation> = {
 
     'dependencies': d({
         "glo-pareto-common": null,
-        "lib-pareto-filesystem": null,
+        "res-pareto-filesystem": null,
         "res-pareto-tostring": null,
     }),
     'type': ['library', {
         'main': {
             'definition': {
-                'glossary': glossary,
-                'api': api,
+                'glossary': {
+                    'root': glossary,
+                    'imports': d({
+                        "common": external("glo-pareto-common"),
+                    }),
+                },
+                'api': {
+                    'root': api,
+
+                    'imports': d({
+                        "common": external("glo-pareto-common"),
+                        "fs": external("res-pareto-filesystem"),
+                        "tostring": external( "res-pareto-tostring"),
+                        "this": this_(),
+                    }),
+                },
             },
             'implementation': ['typescript', null],
         },
@@ -35,11 +52,11 @@ export const $: gproject.T.Project<pd.SourceLocation> = {
             }),
             'glossary': {
                 'functions': d({}),
-                'imports': d({}),
                 'parameters': d({}),
                 'types': d({}),
                 'interfaces': d({}),
             },
+            'imports': d({}),
         }
     }],
 }

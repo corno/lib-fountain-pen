@@ -7,11 +7,6 @@ import * as gapi from "lib-pareto-typescript-project/dist/submodules/api"
 const d = pd.d
 
 export const $: gapi.T.API<pd.SourceLocation> = {
-    'imports': d({
-        "tostring": "res-pareto-tostring",
-        "common": "glo-pareto-common",
-        "this": "./glossary",
-    }),
     'algorithms': d({
         "fountainPen": algorithm(functionReference("this", {}, "FountainPen")),
         "createUnboundFountainPen": algorithm(functionReference("this", {}, "FountainPen"), constructor(typeReference("this", {}, "Configuration"), {
@@ -19,11 +14,11 @@ export const $: gapi.T.API<pd.SourceLocation> = {
             "getArrayAsString": functionReference("tostring", {}, "GetArrayAsString"),
         })),
         "createDirectory": algorithm(functionReference("this", {}, "CreateDirectory"), constructor(null, {
-            "onError": functionReference("common", {}, "Log"),
+            "onError": functionReference("fs", {}, "HandleError"),
             "reportSuperfluousNode": functionReference("this", {}, "ReportSuperfluousNode"),
         })),
         "createFile": algorithm(functionReference("this", {}, "CreateFile"), constructor(null, {
-            "onError": functionReference("common", {}, "Log"),
+            "onError": functionReference("fs", {}, "HandleError"),
         })),
         "createUnboundDirectoryCreator": algorithm(functionReference("this", {}, "CreateDirectory"), constructor(null, {
             "createWriteStream": functionReference("this", {}, "CreateWriteStream"),
