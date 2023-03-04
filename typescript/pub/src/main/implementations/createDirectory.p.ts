@@ -15,7 +15,7 @@ export const $$:CcreateDirectory = ($d) => {
     return cwc(
         {
             createWriteStream: ($, $c) => {
-                gfs.$a.createWriteStream(
+                gfs.$r.createWriteStream(
                     {
                         // onError: ($) => {
                         //     $d.onError(`${gfslib.$a.createWriteFileErrorMessage($.error)} @ ${$.path}`)
@@ -33,7 +33,7 @@ export const $$:CcreateDirectory = ($d) => {
             },
             pipeFountainPen: $a.fountainPen,
             getNodes: ($) => {
-                return gfs.$a.readDirectory({
+                return gfs.$r.readDirectory({
                     path: $
                 }).map<pt.Dictionary<string>>(($) => {
                     switch ($[0]) {

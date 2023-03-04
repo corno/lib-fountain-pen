@@ -14,11 +14,11 @@ export const $: gapi.T.API<pd.SourceLocation> = {
             "getArrayAsString": functionReference("tostring", {}, "GetArrayAsString"),
         })),
         "createDirectory": algorithm(functionReference("this", {}, "CreateDirectory"), constructor(null, {
-            "onError": functionReference("fs", {}, "HandleError"),
+            "onError": functionReference("fs", {}, "HandleWriteFileError"),
             "reportSuperfluousNode": functionReference("this", {}, "ReportSuperfluousNode"),
         })),
         "createFile": algorithm(functionReference("this", {}, "CreateFile"), constructor(null, {
-            "onError": functionReference("fs", {}, "HandleError"),
+            "onError": functionReference("fs", {}, "HandleWriteFileError"),
         })),
         "createUnboundDirectoryCreator": algorithm(functionReference("this", {}, "CreateDirectory"), constructor(null, {
             "createWriteStream": functionReference("this", {}, "CreateWriteStream"),

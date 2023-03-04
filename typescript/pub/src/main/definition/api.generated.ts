@@ -6,12 +6,12 @@ import * as gthis from "./glossary"
 import * as gtostring from "res-pareto-tostring"
 
 export type CcreateDirectory = ($d: {
-    readonly 'onError': gfs.FHandleError
+    readonly 'onError': gfs.FHandleWriteFileError
     readonly 'reportSuperfluousNode': gthis.FReportSuperfluousNode
 }) => gthis.FCreateDirectory
 
 export type CcreateFile = ($d: {
-    readonly 'onError': gfs.FHandleError
+    readonly 'onError': gfs.FHandleWriteFileError
 }) => gthis.FCreateFile
 
 export type CcreateSuperfluousNodeMessage = gthis.FCreateSuperfluousNodeMessage

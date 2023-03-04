@@ -15,7 +15,7 @@ export const $$:CcreateFile = ($d) => {
     return cfc(
         {
             createWriteStream: ($, $c) => {
-                gfs.$a.createWriteStream(
+                gfs.$r.createWriteStream(
                     {
                         // onError: ($) => {
                         //     $d.onError(`${gfslib.$a.createWriteFileErrorMessage($.error)} @ ${$.path}`)
