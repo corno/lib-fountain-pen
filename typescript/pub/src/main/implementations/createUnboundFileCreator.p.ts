@@ -1,7 +1,7 @@
 
-import { CcreateUnboundFileCreator } from "../definition/api.generated"
+import { createUnboundFileCreator } from "../definition/api.generated"
 
-export const $$: CcreateUnboundFileCreator = ($d) => {
+export const $$: createUnboundFileCreator = ($d) => {
     return ($, $c) => {
         $d.createWriteStream(
             $,

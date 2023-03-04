@@ -1,6 +1,6 @@
 // //import * as pr from "pareto-runtime"
 // import * as fp from "../../../../pub"
-// import { CSimpleExample } from "../../interface"
+// import { SimpleExample } from "../../interface"
 
 // export function simpleExample(
 // ): CSimpleExample {

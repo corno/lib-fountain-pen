@@ -8,9 +8,9 @@ import * as gpub from "../../../../../pub"
 import * as gtostring from "res-pareto-tostring"
 import * as gbuild from "res-pareto-build"
 
-import { CgetTestSet } from "../definition/api.generated"
+import { getTestSet } from "../definition/api.generated"
 
-export const $$:CgetTestSet = () => {
+export const $$:getTestSet = () => {
     const builder = ps.createUnsafeDictionaryBuilder<gtest.T.TestElement>()
     function doTest(
         $: {
@@ -18,16 +18,16 @@ export const $$:CgetTestSet = () => {
             readonly "trim": boolean,
             readonly "expected": string,
         },
-        $c: ($: gpub.IBlock) => void,
+        $c: ($: gpub.B.Block) => void,
     ): void {
 
         builder.add($.name, {
             type: ['test', {
                 type: ['short string', {
-                    actual: gtostring.$a.getArrayAsString({
+                    actual: gtostring.$r.getArrayAsString({
                         'separator': "",
                         'maximum': [false],
-                    }, {})(gbuild.$a.buildArray(null, ($i) => {
+                    }, {})(gbuild.$r.buildArray(null, ($i) => {
                         gpub.$a.fountainPen(
                             null,
                             ($i) => {

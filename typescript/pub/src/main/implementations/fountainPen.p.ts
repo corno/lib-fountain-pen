@@ -5,19 +5,19 @@ import * as gtostring from "res-pareto-tostring"
 
 import { $$ as cufp } from "./createUnboundFountainPen.p"
 
-import { CfountainPen } from "../definition/api.generated"
+import { fountainPen } from "../definition/api.generated"
 
-export const $$:CfountainPen = cufp(
+export const $$:fountainPen = cufp(
     {
         'newline': `\r\n`,
         'indentation': `    `,
     },
     {
-        joinNestedStrings: gtostring.$a.joinNestedStrings({
+        joinNestedStrings: gtostring.$r.joinNestedStrings({
             "maximum": [false],
             "separator": "",
         }, {}),
-        getArrayAsString: gtostring.$a.getArrayAsString({
+        getArrayAsString: gtostring.$r.getArrayAsString({
             "maximum": [false],
             "separator": "",
         }, {}),

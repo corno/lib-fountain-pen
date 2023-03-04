@@ -9,13 +9,13 @@ import { $a } from ".."
 
 import { $$ as cwc } from "./createUnboundDirectoryCreator.p"
 
-import { CcreateDirectory } from "../definition/api.generated"
+import { createDirectory } from "../definition/api.generated"
 
-export const $$:CcreateDirectory = ($d) => {
+export const $$:createDirectory = ($d) => {
     return cwc(
         {
             createWriteStream: ($, $c) => {
-                gfs.$r.createWriteStream(
+                gfs.$r.createWriter(
                     {
                         // onError: ($) => {
                         //     $d.onError(`${gfslib.$a.createWriteFileErrorMessage($.error)} @ ${$.path}`)

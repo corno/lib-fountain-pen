@@ -1,46 +1,46 @@
 import * as pt from 'pareto-core-types'
 
-import * as gcommon from "glo-pareto-common"
-import * as gfs from "res-pareto-filesystem"
-import * as gthis from "./glossary"
-import * as gtostring from "res-pareto-tostring"
+import * as g_common from "glo-pareto-common"
+import * as g_fs from "res-pareto-filesystem"
+import * as g_this from "./glossary"
+import * as g_tostring from "res-pareto-tostring"
 
-export type CcreateDirectory = ($d: {
-    readonly 'onError': gfs.FHandleWriteFileError
-    readonly 'reportSuperfluousNode': gthis.FReportSuperfluousNode
-}) => gthis.FCreateDirectory
+export type createDirectory = ($d: {
+    readonly 'onError': g_fs.F.HandleWriteFileError
+    readonly 'reportSuperfluousNode': g_this.F.ReportSuperfluousNode
+}) => g_this.F.CreateDirectory
 
-export type CcreateFile = ($d: {
-    readonly 'onError': gfs.FHandleWriteFileError
-}) => gthis.FCreateFile
+export type createFile = ($d: {
+    readonly 'onError': g_fs.F.HandleWriteFileError
+}) => g_this.F.CreateFile
 
-export type CcreateSuperfluousNodeMessage = gthis.FCreateSuperfluousNodeMessage
+export type createSuperfluousNodeMessage = g_this.F.CreateSuperfluousNodeMessage
 
-export type CcreateUnboundDirectoryCreator = ($d: {
-    readonly 'createWriteStream': gthis.FCreateWriteStream
-    readonly 'getNodes': gthis.FGetNodes
-    readonly 'pipeFountainPen': gthis.FFountainPen
-    readonly 'reportSuperfluousNode': gthis.FReportSuperfluousNode
-}) => gthis.FCreateDirectory
+export type createUnboundDirectoryCreator = ($d: {
+    readonly 'createWriteStream': g_this.F.CreateWriteStream
+    readonly 'getNodes': g_this.F.GetNodes
+    readonly 'pipeFountainPen': g_this.F.FountainPen
+    readonly 'reportSuperfluousNode': g_this.F.ReportSuperfluousNode
+}) => g_this.F.CreateDirectory
 
-export type CcreateUnboundFileCreator = ($d: {
-    readonly 'createWriteStream': gthis.FCreateWriteStream
-    readonly 'pipeFountainPen': gthis.FFountainPen
-}) => gthis.FCreateFile
+export type createUnboundFileCreator = ($d: {
+    readonly 'createWriteStream': g_this.F.CreateWriteStream
+    readonly 'pipeFountainPen': g_this.F.FountainPen
+}) => g_this.F.CreateFile
 
-export type CcreateUnboundFountainPen = ($: gthis.T.Configuration, $d: {
-    readonly 'getArrayAsString': gtostring.FGetArrayAsString
-    readonly 'joinNestedStrings': gtostring.FJoinNestedStrings
-}) => gthis.FFountainPen
+export type createUnboundFountainPen = ($: g_this.T.Configuration, $d: {
+    readonly 'getArrayAsString': g_tostring.F.GetArrayAsString
+    readonly 'joinNestedStrings': g_tostring.F.JoinNestedStrings
+}) => g_this.F.FountainPen
 
-export type CfountainPen = gthis.FFountainPen
+export type fountainPen = g_this.F.FountainPen
 
 export type API = {
-    createDirectory: CcreateDirectory
-    createFile: CcreateFile
-    createSuperfluousNodeMessage: CcreateSuperfluousNodeMessage
-    createUnboundDirectoryCreator: CcreateUnboundDirectoryCreator
-    createUnboundFileCreator: CcreateUnboundFileCreator
-    createUnboundFountainPen: CcreateUnboundFountainPen
-    fountainPen: CfountainPen
+    createDirectory: createDirectory
+    createFile: createFile
+    createSuperfluousNodeMessage: createSuperfluousNodeMessage
+    createUnboundDirectoryCreator: createUnboundDirectoryCreator
+    createUnboundFileCreator: createUnboundFileCreator
+    createUnboundFountainPen: createUnboundFountainPen
+    fountainPen: fountainPen
 }

@@ -2,18 +2,18 @@ import * as ps from 'pareto-core-state'
 
 import * as gapi from "../definition/glossary"
 
-import { CcreateUnboundFountainPen } from "../definition/api.generated"
+import { createUnboundFountainPen } from "../definition/api.generated"
 
-export const $$:CcreateUnboundFountainPen = ($x, $d) => {
+export const $$:createUnboundFountainPen = ($x, $d) => {
     return ($, $c, $i) => {
         const config = $
         let isFirstLine = true
         function createSubBlock(
             currentIndentation: string,
             flush: ($: {}) => void,
-            $c: ($i: gapi.IBlock) => void,
+            $c: ($i: gapi.B.Block) => void,
         ): void {
-            function line($$c: ($i: gapi.ILine) => void) {
+            function line($$c: ($i: gapi.B.Line) => void) {
 
                 let currentLine: null | ps.ArrayBuilder<string> = ps.createArrayBuilder()
                 currentLine.push(currentIndentation)
@@ -57,8 +57,8 @@ export const $$:CcreateUnboundFountainPen = ($x, $d) => {
                         $i.snippet($)
                     })
                 },
-                'nestedLine': ($$c) => {
-                    line($$c)
+                'nestedLine': ($c) => {
+                    line($c)
                 },
             })
         }

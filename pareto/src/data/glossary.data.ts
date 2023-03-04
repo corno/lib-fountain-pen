@@ -7,7 +7,7 @@ import {
     reference,
     boolean,
     typeReference,
-    dictionary, group, member, taggedUnion, types, func, data, interfaceReference, inf, method, type, context, glossaryParameter, parametrizedTypeReference, parametrizedReference
+    dictionary, group, member, taggedUnion, types, func, data, builderReference, inf, builderMethod, type, context, glossaryParameter, parametrizedTypeReference, parametrizedReference
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as gglossary from "lib-pareto-typescript-project/dist/submodules/glossary"
@@ -27,47 +27,36 @@ export const $: gglossary.T.Glossary<pd.SourceLocation> = {
             "name": member(string()),
         })),
     }),
-    'interfaces': d({
+    'builders': d({
         "Block": ['group', {
             'members': d({
-                "nestedLine": method(null, ['reference', {
-                    'context': ['local', null],
-                    'interface': "Line"
-                }], true),
-                "line": method(typeReference("common", "String")),
+                "nestedLine": builderMethod(null, ['reference', builderReference("Line")]),
+                "line": builderMethod(typeReference("common", "String")),
             })
         }],
         "Line": ['group', {
             'members': d({
-                "indent": method(null, ['reference', {
-                    'context': ['local', null],
-                    'interface': "Block"
-                }], true),
-                "snippet": method(typeReference("common", "String")),
+                "indent": builderMethod(null, ['reference', builderReference("Block")]),
+                "snippet": builderMethod(typeReference("common", "String")),
             })
         }],
         "Directory": ['group', {
             'members': d({
-                "allowed": method(typeReference("common", "String")),
-                "file": method(typeReference("common", "String"), ['reference', {
-                    'context': ['local', null],
-                    'interface': "Block"
-                }], true),
-                "directory": method(typeReference("common", "String"), ['reference', {
-                    'context': ['local', null],
-                    'interface': "Directory"
-                }], true),
+                "allowed": builderMethod(typeReference("common", "String")),
+                "file": builderMethod(typeReference("common", "String"), ['reference', builderReference("Block")]),
+                "directory": builderMethod(typeReference("common", "String"), ['reference', builderReference("Directory")]),
             })
         }],
-        "WriteString": method(typeReference("common", "String")),
+        "WriteString": builderMethod(typeReference("common", "String")),
     }),
+    'interfaces': d({}),
     'functions': d({
-        "FountainPen": func(typeReference("common", "Null"), interfaceReference("Block"), interfaceReference("WriteString"), null),
+        "FountainPen": func(typeReference("common", "Null"), builderReference("Block"), builderReference("WriteString"), null),
         "GetNodes": func(typeReference("common", "Path"), null, null, data(typeReference("Nodes"), true)),
         "CreateSuperfluousNodeMessage": func(typeReference("SuperfluousNode"), null, null, data(typeReference("common", "String"), false)),
-        "CreateDirectory": func(typeReference("common", "Path"),interfaceReference("Directory"), null, null),
-        "CreateFile": func(typeReference("common", "Path"),interfaceReference("Block"), null, null),
-        "CreateWriteStream": func(typeReference("common", "Path"),interfaceReference("WriteString"), null, null),
+        "CreateDirectory": func(typeReference("common", "Path"), builderReference("Directory"), null, null),
+        "CreateFile": func(typeReference("common", "Path"), builderReference("Block"), null, null),
+        "CreateWriteStream": func(typeReference("common", "Path"), builderReference("WriteString"), null, null),
         "ReportSuperfluousNode": func(typeReference("SuperfluousNode"), null, null, null),
     }),
 }
