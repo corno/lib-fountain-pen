@@ -31,5 +31,5 @@ export const $: gapi.T.API<pd.SourceLocation> = {
             "pipeFountainPen": functionReference("this", {}, "FountainPen"),
         })),
         "createSuperfluousNodeMessage": algorithm(functionReference("this", {}, "CreateSuperfluousNodeMessage")),
-    })
+    }),
 }

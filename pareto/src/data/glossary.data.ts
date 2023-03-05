@@ -32,20 +32,20 @@ export const $: gglossary.T.Glossary<pd.SourceLocation> = {
             'members': d({
                 "nestedLine": builderMethod(null, ['reference', builderReference("Line")]),
                 "line": builderMethod(typeReference("common", "String")),
-            })
+            }),
         }],
         "Line": ['group', {
             'members': d({
                 "indent": builderMethod(null, ['reference', builderReference("Block")]),
                 "snippet": builderMethod(typeReference("common", "String")),
-            })
+            }),
         }],
         "Directory": ['group', {
             'members': d({
                 "allowed": builderMethod(typeReference("common", "String")),
                 "file": builderMethod(typeReference("common", "String"), ['reference', builderReference("Block")]),
                 "directory": builderMethod(typeReference("common", "String"), ['reference', builderReference("Directory")]),
-            })
+            }),
         }],
         "WriteString": builderMethod(typeReference("common", "String")),
     }),
