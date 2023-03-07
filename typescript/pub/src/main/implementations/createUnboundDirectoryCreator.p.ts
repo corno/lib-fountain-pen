@@ -57,10 +57,6 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
                             () => {
                             }
                         )
-                        $i.manualNode({
-                            path: newPath,
-                            name: key,
-                        })
                     }
                 })
                 $.__forEach(() => false, ($, key) => {
