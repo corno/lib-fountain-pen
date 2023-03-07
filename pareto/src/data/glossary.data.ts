@@ -42,7 +42,8 @@ export const $: gglossary.T.Glossary<pd.SourceLocation> = {
         }],
         "Directory": ['group', {
             'members': d({
-                "allowed": builderMethod(typeReference("common", "String")),
+                "allowedManual": builderMethod(typeReference("common", "String")),
+                "allowedGenerated": builderMethod(typeReference("common", "String")),
                 "file": builderMethod(typeReference("common", "String"), ['reference', builderReference("Block")]),
                 "directory": builderMethod(typeReference("common", "String"), ['reference', builderReference("Directory")]),
             }),

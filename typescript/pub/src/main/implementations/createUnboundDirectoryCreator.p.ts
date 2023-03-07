@@ -13,8 +13,17 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
             const createdFilesBuilder = ps.createUnsafeDictionaryBuilder<boolean>()
 
             $c({
-                allowed: ($) => {
+                allowedManual: ($) => {
                     createdFilesBuilder.add($, true)
+
+                    $i.manualNode({
+                        path: newPath,
+                        name: $,
+                    })
+                },
+                allowedGenerated: ($) => {
+                    createdFilesBuilder.add($, true)
+
                 },
                 directory: ($, $c) => {
                     createdFilesBuilder.add($, false)
@@ -38,14 +47,6 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
                 }
             })
             const createdFiles = createdFilesBuilder.getDictionary()
-            createdFiles.__forEach(() => false, ($, key) => {
-                if ($) {
-                    $i.manualNode({
-                        path: newPath,
-                        name: key,
-                    })
-                }
-            })
             $d.getNodes(newPath).__execute(($) => {
                 $.__forEach(() => false, ($, key) => {
 
@@ -63,7 +64,6 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
                     )
                 })
             })
-            //x.getDictionary().
         }
         createWriterImp([$], $c)
     }

@@ -14,7 +14,8 @@ export namespace B {
     }
     
     export type Directory = {
-        'allowed': ($: g_common.T.String, ) => void
+        'allowedGenerated': ($: g_common.T.String, ) => void
+        'allowedManual': ($: g_common.T.String, ) => void
         'directory': ($: g_common.T.String, $c: ($b: B.Directory) => void) => void
         'file': ($: g_common.T.String, $c: ($b: B.Block) => void) => void
     }
