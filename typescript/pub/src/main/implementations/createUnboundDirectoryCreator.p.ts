@@ -7,24 +7,24 @@ import * as gcommon from "glo-pareto-common"
 import { createUnboundDirectoryCreator } from "../definition/api.generated"
 
 export const $$: createUnboundDirectoryCreator = ($d) => {
-    return ($, $c) => {
+    return ($, $c, $i) => {
         //const contextPath = $.path
         function createWriterImp(newPath: gcommon.T.Path, $c: ($i: gapi.B.Directory) => void): void {
-            const x = ps.createUnsafeDictionaryBuilder<null>()
+            const createdFilesBuilder = ps.createUnsafeDictionaryBuilder<null>()
 
             $c({
                 allowed: ($) => {
-                    x.add($, null)
+                    createdFilesBuilder.add($, null)
                 },
                 directory: ($, $c) => {
-                    x.add($, null)
+                    createdFilesBuilder.add($, null)
                     createWriterImp(
                         [newPath, $],
                         $c,
                     )
                 },
                 file: ($, $c) => {
-                    x.add($, null)
+                    createdFilesBuilder.add($, null)
                     $d.createWriteStream(
                         [newPath, $],
                         ($i) => {
@@ -37,17 +37,23 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
                     )
                 }
             })
-            const y = x.getDictionary()
+            const createdFiles = createdFilesBuilder.getDictionary()
+            createdFiles.__forEach(() => false, ($, key) => {
+                $i.manualNode({
+                    path: newPath,
+                    name: key,
+                })
+            })
             $d.getNodes(newPath).__execute(($) => {
                 $.__forEach(() => false, ($, key) => {
 
-                    y.__getEntry(
+                    createdFiles.__getEntry(
                         key,
                         ($) => {
                             //
                         },
                         () => {
-                            $d.reportSuperfluousNode({
+                            $i.superfluousNode({
                                 path: newPath,
                                 name: key,
                             })

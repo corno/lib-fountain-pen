@@ -49,7 +49,6 @@ export const $$:createDirectory = ($d) => {
                     }
                 })
             },
-            reportSuperfluousNode: $d.reportSuperfluousNode,
         },
     )
 }

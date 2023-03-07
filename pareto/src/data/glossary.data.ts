@@ -22,7 +22,7 @@ export const $: gglossary.T.Glossary<pd.SourceLocation> = {
             "newline": member(string()),
         })),
         "Nodes": type(dictionary(string())),
-        "SuperfluousNode": type(group({
+        "Node": type(group({
             "path": member(reference("common", "Path")),
             "name": member(string()),
         })),
@@ -48,15 +48,20 @@ export const $: gglossary.T.Glossary<pd.SourceLocation> = {
             }),
         }],
         "WriteString": builderMethod(typeReference("common", "String")),
+        "Report": ['group', {
+            'members': d({
+                "superfluousNode": builderMethod(typeReference("Node")),
+                "manualNode": builderMethod(typeReference("Node")),
+            }),
+        }]
     }),
     'interfaces': d({}),
     'functions': d({
         "FountainPen": func(typeReference("common", "Null"), builderReference("Block"), builderReference("WriteString"), null),
         "GetNodes": func(typeReference("common", "Path"), null, null, data(typeReference("Nodes"), true)),
-        "CreateSuperfluousNodeMessage": func(typeReference("SuperfluousNode"), null, null, data(typeReference("common", "String"), false)),
-        "CreateDirectory": func(typeReference("common", "Path"), builderReference("Directory"), null, null),
+        "CreateNodeMessage": func(typeReference("Node"), null, null, data(typeReference("common", "String"), false)),
+        "CreateDirectory": func(typeReference("common", "Path"), builderReference("Directory"), builderReference("Report"), null),
         "CreateFile": func(typeReference("common", "Path"), builderReference("Block"), null, null),
         "CreateWriteStream": func(typeReference("common", "Path"), builderReference("WriteString"), null, null),
-        "ReportSuperfluousNode": func(typeReference("SuperfluousNode"), null, null, null),
     }),
 }

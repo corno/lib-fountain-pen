@@ -7,20 +7,20 @@ import * as g_tostring from "res-pareto-tostring"
 
 export type createDirectory = ($d: {
     readonly 'onError': g_fs.F.HandleWriteFileError
-    readonly 'reportSuperfluousNode': g_this.F.ReportSuperfluousNode
 }) => g_this.F.CreateDirectory
 
 export type createFile = ($d: {
     readonly 'onError': g_fs.F.HandleWriteFileError
 }) => g_this.F.CreateFile
 
-export type createSuperfluousNodeMessage = g_this.F.CreateSuperfluousNodeMessage
+export type createManualNodeMessage = g_this.F.CreateNodeMessage
+
+export type createSuperfluousNodeMessage = g_this.F.CreateNodeMessage
 
 export type createUnboundDirectoryCreator = ($d: {
     readonly 'createWriteStream': g_this.F.CreateWriteStream
     readonly 'getNodes': g_this.F.GetNodes
     readonly 'pipeFountainPen': g_this.F.FountainPen
-    readonly 'reportSuperfluousNode': g_this.F.ReportSuperfluousNode
 }) => g_this.F.CreateDirectory
 
 export type createUnboundFileCreator = ($d: {
@@ -38,6 +38,7 @@ export type fountainPen = g_this.F.FountainPen
 export type API = {
     createDirectory: createDirectory
     createFile: createFile
+    createManualNodeMessage: createManualNodeMessage
     createSuperfluousNodeMessage: createSuperfluousNodeMessage
     createUnboundDirectoryCreator: createUnboundDirectoryCreator
     createUnboundFileCreator: createUnboundFileCreator

@@ -15,7 +15,6 @@ export const $: gapi.T.API<pd.SourceLocation> = {
         })),
         "createDirectory": algorithm(functionReference("this", {}, "CreateDirectory"), constructor(null, {
             "onError": functionReference("fs", {}, "HandleWriteFileError"),
-            "reportSuperfluousNode": functionReference("this", {}, "ReportSuperfluousNode"),
         })),
         "createFile": algorithm(functionReference("this", {}, "CreateFile"), constructor(null, {
             "onError": functionReference("fs", {}, "HandleWriteFileError"),
@@ -24,12 +23,12 @@ export const $: gapi.T.API<pd.SourceLocation> = {
             "createWriteStream": functionReference("this", {}, "CreateWriteStream"),
             "pipeFountainPen": functionReference("this", {}, "FountainPen"),
             "getNodes": functionReference("this", {}, "GetNodes"),
-            "reportSuperfluousNode": functionReference("this", {}, "ReportSuperfluousNode"),
         })),
         "createUnboundFileCreator": algorithm(functionReference("this", {}, "CreateFile"), constructor(null, {
             "createWriteStream": functionReference("this", {}, "CreateWriteStream"),
             "pipeFountainPen": functionReference("this", {}, "FountainPen"),
         })),
-        "createSuperfluousNodeMessage": algorithm(functionReference("this", {}, "CreateSuperfluousNodeMessage")),
+        "createSuperfluousNodeMessage": algorithm(functionReference("this", {}, "CreateNodeMessage")),
+        "createManualNodeMessage": algorithm(functionReference("this", {}, "CreateNodeMessage")),
     }),
 }

@@ -16,22 +16,22 @@ export namespace T {
         readonly 'newline': string
     }
     
-    export namespace Nodes {
-        
-        export type D = string
-    }
-    
-    export type Nodes = pt.Dictionary<string>
-    
-    export namespace SuperfluousNode {
+    export namespace Node {
         
         export type name = string
         
         export type path = g_common.T.Path
     }
     
-    export type SuperfluousNode = {
+    export type Node = {
         readonly 'name': string
         readonly 'path': g_common.T.Path
     }
+    
+    export namespace Nodes {
+        
+        export type D = string
+    }
+    
+    export type Nodes = pt.Dictionary<string>
 }
