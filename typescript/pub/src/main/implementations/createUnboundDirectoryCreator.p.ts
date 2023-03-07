@@ -15,14 +15,9 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
             $c({
                 allowedManual: ($) => {
                     createdFilesBuilder.add($, true)
-
-                    $i.manualNode({
-                        path: newPath,
-                        name: $,
-                    })
                 },
                 allowedGenerated: ($) => {
-                    createdFilesBuilder.add($, true)
+                    createdFilesBuilder.add($, false)
 
                 },
                 directory: ($, $c) => {
@@ -48,6 +43,26 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
             })
             const createdFiles = createdFilesBuilder.getDictionary()
             $d.getNodes(newPath).__execute(($) => {
+                const nodes = $
+                createdFiles.__forEach(() => false, ($, key) => {
+                    if ($) {
+                        nodes.__getEntry(
+                            key,
+                            ($) => {
+                                $i.manualNode({
+                                    path: newPath,
+                                    name: key,
+                                })
+                            },
+                            () => {
+                            }
+                        )
+                        $i.manualNode({
+                            path: newPath,
+                            name: key,
+                        })
+                    }
+                })
                 $.__forEach(() => false, ($, key) => {
 
                     createdFiles.__getEntry(
