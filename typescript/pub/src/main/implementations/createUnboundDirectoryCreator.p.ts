@@ -10,21 +10,21 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
     return ($, $c, $i) => {
         //const contextPath = $.path
         function createWriterImp(newPath: gcommon.T.Path, $c: ($i: gapi.B.Directory) => void): void {
-            const createdFilesBuilder = ps.createUnsafeDictionaryBuilder<null>()
+            const createdFilesBuilder = ps.createUnsafeDictionaryBuilder<boolean>()
 
             $c({
                 allowed: ($) => {
-                    createdFilesBuilder.add($, null)
+                    createdFilesBuilder.add($, true)
                 },
                 directory: ($, $c) => {
-                    createdFilesBuilder.add($, null)
+                    createdFilesBuilder.add($, false)
                     createWriterImp(
                         [newPath, $],
                         $c,
                     )
                 },
                 file: ($, $c) => {
-                    createdFilesBuilder.add($, null)
+                    createdFilesBuilder.add($, false)
                     $d.createWriteStream(
                         [newPath, $],
                         ($i) => {
@@ -39,10 +39,12 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
             })
             const createdFiles = createdFilesBuilder.getDictionary()
             createdFiles.__forEach(() => false, ($, key) => {
-                $i.manualNode({
-                    path: newPath,
-                    name: key,
-                })
+                if ($) {
+                    $i.manualNode({
+                        path: newPath,
+                        name: key,
+                    })
+                }
             })
             $d.getNodes(newPath).__execute(($) => {
                 $.__forEach(() => false, ($, key) => {

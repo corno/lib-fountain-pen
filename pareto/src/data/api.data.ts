@@ -29,6 +29,6 @@ export const $: gapi.T.API<pd.SourceLocation> = {
             "pipeFountainPen": functionReference("this", {}, "FountainPen"),
         })),
         "createSuperfluousNodeMessage": algorithm(functionReference("this", {}, "CreateNodeMessage")),
-        "createManualNodeMessage": algorithm(functionReference("this", {}, "CreateNodeMessage")),
+        "createAllowedNodeMessage": algorithm(functionReference("this", {}, "CreateNodeMessage")),
     }),
 }
