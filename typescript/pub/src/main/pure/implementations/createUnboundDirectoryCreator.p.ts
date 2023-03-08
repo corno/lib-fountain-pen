@@ -1,10 +1,9 @@
-import * as pt from 'pareto-core-types'
 import * as ps from 'pareto-core-state'
 
-import * as gapi from "../definition/glossary"
+import * as gapi from "../../glossary"
 import * as gcommon from "glo-pareto-common"
 
-import { createUnboundDirectoryCreator } from "../definition/api.generated"
+import { createUnboundDirectoryCreator } from "../api.generated"
 
 export const $$: createUnboundDirectoryCreator = ($d) => {
     return ($, $c, $i) => {

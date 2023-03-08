@@ -1,6 +1,6 @@
 import * as gtostring from "res-pareto-tostring"
 
-import { createSuperfluousNodeMessage } from "../definition/api.generated"
+import { createSuperfluousNodeMessage } from "../api.generated"
 
 export const $$:createSuperfluousNodeMessage = ($) => {
 

@@ -4,7 +4,8 @@ import * as gproject from "lib-pareto-typescript-project/dist/submodules/project
 
 const d = pd.d
 
-import { $ as api } from "./api.data"
+import { $ as bindings } from "./bindings.api.data"
+import { $ as pure } from "./pure.api.data"
 import { $ as glossary } from "./glossary.data"
 
 import { external, this_ } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
@@ -22,25 +23,41 @@ export const $: gproject.T.Project<pd.SourceLocation> = {
     }),
     'type': ['library', {
         'main': {
-            'definition': {
-                'glossary': {
-                    'root': glossary,
-                    'imports': d({
-                        "common": external("glo-pareto-common"),
-                    }),
-                },
+            'glossary': {
+                'root': glossary,
+                'imports': d({
+                    "common": external("glo-pareto-common"),
+                    "fs": external("res-pareto-filesystem"),
+                }),
+            },
+            'bindings': {
                 'api': {
-                    'root': api,
+                    'root': bindings,
 
                     'imports': d({
                         "common": external("glo-pareto-common"),
                         "fs": external("res-pareto-filesystem"),
-                        "tostring": external( "res-pareto-tostring"),
+                        "tostring": external("res-pareto-tostring"),
                         "this": this_(),
                     }),
                 },
+                'implementation': ['typescript', null],
+
             },
-            'implementation': ['typescript', null],
+            'pure algorithms': {
+                'api': {
+                    'root': pure,
+
+                    'imports': d({
+                        "common": external("glo-pareto-common"),
+                        "fs": external("res-pareto-filesystem"),
+                        "tostring": external("res-pareto-tostring"),
+                        "this": this_(),
+                    }),
+                },
+                'implementation': ['typescript', null],
+
+            },
         },
         'submodules': d({
         }),

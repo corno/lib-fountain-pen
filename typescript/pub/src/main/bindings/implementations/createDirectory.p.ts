@@ -5,30 +5,24 @@ import * as pm from 'pareto-core-map'
 
 import * as gfs from "res-pareto-filesystem"
 
-import { $a } from ".."
+import { $a } from "../.."
 
-import { $$ as cwc } from "./createUnboundDirectoryCreator.p"
+import { $$ as cwc } from "../../pure/implementations/createUnboundDirectoryCreator.p"
 
-import { createDirectory } from "../definition/api.generated"
+import { createDirectory } from "../api.generated"
 
-export const $$:createDirectory = ($d) => {
-    return cwc(
+export const $$: createDirectory = ($, $c, $i) => {
+    cwc(
         {
             createWriteStream: ($, $c) => {
-                gfs.$r.createWriter(
-                    {
-                        // onError: ($) => {
-                        //     $d.onError(`${gfslib.$a.createWriteFileErrorMessage($.error)} @ ${$.path}`)
-                        // }
-                        onError: $d.onError,
-                    },
-                )(
+                gfs.$r.writeFile(
 
                     {
                         path: $,
                         createContainingDirectories: true,
                     },
                     $c,
+                    $i.error,
                 )
             },
             pipeFountainPen: $a.fountainPen,
@@ -50,5 +44,5 @@ export const $$:createDirectory = ($d) => {
                 })
             },
         },
-    )
+    )($, $c, $i.nodes)
 }

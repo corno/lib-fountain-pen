@@ -3,6 +3,7 @@ import * as pt from 'pareto-core-types'
 import { T } from './types.generated'
 
 import * as g_common from "glo-pareto-common"
+import * as g_fs from "res-pareto-filesystem"
 
 export namespace I {}
 
@@ -26,6 +27,11 @@ export namespace B {
     }
     
     export type Report = {
+        'error': g_fs.B.OnWriteFileError
+        'nodes': B.ReportNodes
+    }
+    
+    export type ReportNodes = {
         'manualNode': ($: T.Node, ) => void
         'superfluousNode': ($: T.Node, ) => void
     }
@@ -37,7 +43,7 @@ export namespace F {
     
     export type CreateDirectory = ($: g_common.T.Path, $c: ($b: B.Directory) => void, $b: B.Report,) => void
     
-    export type CreateFile = ($: g_common.T.Path, $c: ($b: B.Block) => void,) => void
+    export type CreateFile = ($: g_common.T.Path, $c: ($b: B.Block) => void, $b: g_fs.B.OnWriteFileError,) => void
     
     export type CreateNodeMessage = ($: T.Node,) => g_common.T.String
     
@@ -46,4 +52,8 @@ export namespace F {
     export type FountainPen = ($: g_common.T.Null, $c: ($b: B.Block) => void, $b: B.WriteString,) => void
     
     export type GetNodes = ($: g_common.T.Path,) => pt.AsyncValue<T.Nodes>
+    
+    export type UnboundCreateDirectory = ($: g_common.T.Path, $c: ($b: B.Directory) => void, $b: B.ReportNodes,) => void
+    
+    export type UnboundCreateFile = ($: g_common.T.Path, $c: ($b: B.Block) => void,) => void
 }

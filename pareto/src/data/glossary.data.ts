@@ -49,12 +49,18 @@ export const $: gglossary.T.Glossary<pd.SourceLocation> = {
             }),
         }],
         "WriteString": builderMethod(typeReference("common", "String")),
-        "Report": ['group', {
+        "ReportNodes": ['group', {
             'members': d({
                 "superfluousNode": builderMethod(typeReference("Node")),
                 "manualNode": builderMethod(typeReference("Node")),
             }),
-        }]
+        }],
+        "Report": ['group', {
+            'members': d({
+                "nodes": ['reference', builderReference("ReportNodes")],
+                "error": ['reference', builderReference("fs", "OnWriteFileError")],
+            }),
+        }],
     }),
     'interfaces': d({}),
     'functions': d({
@@ -62,7 +68,9 @@ export const $: gglossary.T.Glossary<pd.SourceLocation> = {
         "GetNodes": func(typeReference("common", "Path"), null, null, data(typeReference("Nodes"), true)),
         "CreateNodeMessage": func(typeReference("Node"), null, null, data(typeReference("common", "String"), false)),
         "CreateDirectory": func(typeReference("common", "Path"), builderReference("Directory"), builderReference("Report"), null),
-        "CreateFile": func(typeReference("common", "Path"), builderReference("Block"), null, null),
+        "CreateFile": func(typeReference("common", "Path"), builderReference("Block"), builderReference("fs", "OnWriteFileError"), null),
+        "UnboundCreateDirectory": func(typeReference("common", "Path"), builderReference("Directory"), builderReference("ReportNodes"), null),
+        "UnboundCreateFile": func(typeReference("common", "Path"), builderReference("Block"), null, null),
         "CreateWriteStream": func(typeReference("common", "Path"), builderReference("WriteString"), null, null),
     }),
 }

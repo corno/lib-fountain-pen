@@ -1,5 +1,5 @@
 
-import { createUnboundFileCreator } from "../definition/api.generated"
+import { createUnboundFileCreator } from "../api.generated"
 
 export const $$: createUnboundFileCreator = ($d) => {
     return ($, $c) => {

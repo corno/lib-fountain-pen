@@ -13,18 +13,12 @@ export const $: gapi.T.API<pd.SourceLocation> = {
             "joinNestedStrings": functionReference("tostring", {}, "JoinNestedStrings"),
             "getArrayAsString": functionReference("tostring", {}, "GetArrayAsString"),
         })),
-        "createDirectory": algorithm(functionReference("this", {}, "CreateDirectory"), constructor(null, {
-            "onError": functionReference("fs", {}, "HandleWriteFileError"),
-        })),
-        "createFile": algorithm(functionReference("this", {}, "CreateFile"), constructor(null, {
-            "onError": functionReference("fs", {}, "HandleWriteFileError"),
-        })),
-        "createUnboundDirectoryCreator": algorithm(functionReference("this", {}, "CreateDirectory"), constructor(null, {
+        "createUnboundDirectoryCreator": algorithm(functionReference("this", {}, "UnboundCreateDirectory"), constructor(null, {
             "createWriteStream": functionReference("this", {}, "CreateWriteStream"),
             "pipeFountainPen": functionReference("this", {}, "FountainPen"),
             "getNodes": functionReference("this", {}, "GetNodes"),
         })),
-        "createUnboundFileCreator": algorithm(functionReference("this", {}, "CreateFile"), constructor(null, {
+        "createUnboundFileCreator": algorithm(functionReference("this", {}, "UnboundCreateFile"), constructor(null, {
             "createWriteStream": functionReference("this", {}, "CreateWriteStream"),
             "pipeFountainPen": functionReference("this", {}, "FountainPen"),
         })),

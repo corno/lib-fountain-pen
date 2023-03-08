@@ -5,7 +5,7 @@ import * as gtostring from "res-pareto-tostring"
 
 import { $$ as cufp } from "./createUnboundFountainPen.p"
 
-import { fountainPen } from "../definition/api.generated"
+import { fountainPen } from "../api.generated"
 
 export const $$:fountainPen = cufp(
     {
