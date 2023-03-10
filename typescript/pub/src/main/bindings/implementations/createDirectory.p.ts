@@ -36,8 +36,7 @@ export const $$: createDirectory = ($, $c, $i) => {
                     'onError': $i.readDirError,
                     'readDirectory': g_fsr.$r.readDirectory,
                 })({
-                    'path': $
-
+                    'path': $.path
                 })
                 // .map<pt.Dictionary<string>>(($) => {
                 //     switch ($[0]) {
