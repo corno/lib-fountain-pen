@@ -33,7 +33,11 @@ export const $$: createDirectory = ($, $c, $i) => {
             pipeFountainPen: $a.fountainPen,
             getNodes: ($) => {
                 return g_fs.$a.createReadDirectoryOrAbort({
-                    'onError': $i.readDirError,
+                    'onError': ($) => {
+                        if ($.error[0] !== 'no entity') {
+                            $i.readDirError($)
+                        }
+                    },
                     'readDirectory': g_fsr.$r.readDirectory,
                 })({
                     'path': $.path
