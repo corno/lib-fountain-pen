@@ -5,8 +5,6 @@ import { T } from './types.generated'
 import * as g_common from "glo-pareto-common"
 import * as g_fs from "res-pareto-filesystem"
 
-export namespace I {}
-
 export namespace B {
     
     export type Block = {
@@ -26,9 +24,14 @@ export namespace B {
         'snippet': ($: g_common.T.String, ) => void
     }
     
+    export type OnReadDirError = ($: g_fs.T.AnnotatedReadDirError, ) => void
+    
+    export type OnWriteFileError = ($: g_fs.T.AnnotatedWriteFileError, ) => void
+    
     export type Report = {
-        'error': g_fs.B.OnWriteFileError
         'nodes': B.ReportNodes
+        'readDirError': B.OnReadDirError
+        'writeFileError': B.OnWriteFileError
     }
     
     export type ReportNodes = {
@@ -43,15 +46,13 @@ export namespace F {
     
     export type CreateDirectory = ($: g_common.T.Path, $c: ($b: B.Directory) => void, $b: B.Report,) => void
     
-    export type CreateFile = ($: g_common.T.Path, $c: ($b: B.Block) => void, $b: g_fs.B.OnWriteFileError,) => void
+    export type CreateFile = ($: g_common.T.Path, $c: ($b: B.Block) => void, $b: B.OnWriteFileError,) => void
     
     export type CreateNodeMessage = ($: T.Node,) => g_common.T.String
     
     export type CreateWriteStream = ($: g_common.T.Path, $c: ($b: B.WriteString) => void,) => void
     
     export type FountainPen = ($: g_common.T.Null, $c: ($b: B.Block) => void, $b: B.WriteString,) => void
-    
-    export type GetNodes = ($: g_common.T.Path,) => pt.AsyncValue<T.Nodes>
     
     export type UnboundCreateDirectory = ($: g_common.T.Path, $c: ($b: B.Directory) => void, $b: B.ReportNodes,) => void
     

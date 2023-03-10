@@ -41,7 +41,9 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
                 }
             })
             const createdFiles = createdFilesBuilder.getDictionary()
-            $d.getNodes(newPath).__execute(($) => {
+            $d.getNodes({
+                'path': newPath,
+            }).__execute(($) => {
                 const nodes = $
                 createdFiles.__forEach(() => false, ($, key) => {
                     if ($) {

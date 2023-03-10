@@ -1,4 +1,5 @@
-import * as gfs from "res-pareto-filesystem"
+import * as g_fs from "lib-pareto-filesystem"
+import * as g_fsr from "res-pareto-filesystem"
 
 import { $a } from "../.."
 
@@ -9,14 +10,17 @@ import { createFile } from "../api.generated"
 export const $$: createFile = ($, $c, $i) => {
     cfc({
         createWriteStream: ($, $c) => {
-            gfs.$r.writeFile(
+            const fw = g_fsr.$r.createFileWriter(
                 {
                     path: $,
                     createContainingDirectories: true,
                 },
-                $c,
                 $i,
             )
+            $c(($) => {
+                fw.data($)
+            })
+            fw.end()
         },
         pipeFountainPen: $a.fountainPen,
     })($, $c)

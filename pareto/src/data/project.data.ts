@@ -1,6 +1,7 @@
 import * as pd from 'pareto-core-data'
 
 import * as gproject from "lib-pareto-typescript-project/dist/submodules/project"
+import * as gglossary from "lib-pareto-typescript-project/dist/submodules/glossary"
 
 const d = pd.d
 
@@ -18,7 +19,7 @@ export const $: gproject.T.Project<pd.SourceLocation> = {
 
     'dependencies': d({
         "glo-pareto-common": null,
-        "res-pareto-filesystem": null,
+        "lib-pareto-filesystem": null,
         "res-pareto-tostring": null,
     }),
     'type': ['library', {
@@ -36,7 +37,7 @@ export const $: gproject.T.Project<pd.SourceLocation> = {
 
                     'imports': d({
                         "common": external("glo-pareto-common"),
-                        "fs": external("res-pareto-filesystem"),
+                        "fs": external("lib-pareto-filesystem"),
                         "tostring": external("res-pareto-tostring"),
                         "this": this_(),
                     }),
@@ -50,7 +51,7 @@ export const $: gproject.T.Project<pd.SourceLocation> = {
 
                     'imports': d({
                         "common": external("glo-pareto-common"),
-                        "fs": external("res-pareto-filesystem"),
+                        "fs": external("lib-pareto-filesystem"),
                         "tostring": external("res-pareto-tostring"),
                         "this": this_(),
                     }),
@@ -68,11 +69,12 @@ export const $: gproject.T.Project<pd.SourceLocation> = {
                 "res-pareto-build": null,
             }),
             'glossary': {
-                'functions': d({}),
                 'parameters': d({}),
                 'types': d({}),
-                'builders': d({}),
-                'interfaces': d({}),
+                'type': ['synchronous', {
+                    'builders': d({}),
+                    'functions': d<gglossary.T.Glossary._ltype.synchronous.functions.D<pd.SourceLocation>>({}),
+                }],
             },
             'imports': d({}),
         }

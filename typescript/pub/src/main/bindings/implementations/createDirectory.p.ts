@@ -2,8 +2,10 @@ import * as pt from 'pareto-core-types'
 import * as pl from 'pareto-core-lib'
 import * as pa from 'pareto-core-async'
 import * as pm from 'pareto-core-map'
+import * as pd from 'pareto-core-dev'
 
-import * as gfs from "res-pareto-filesystem"
+import * as g_fsr from "res-pareto-filesystem"
+import * as g_fs from "lib-pareto-filesystem"
 
 import { $a } from "../.."
 
@@ -15,33 +17,41 @@ export const $$: createDirectory = ($, $c, $i) => {
     cwc(
         {
             createWriteStream: ($, $c) => {
-                gfs.$r.writeFile(
+                const fw = g_fsr.$r.createFileWriter(
 
                     {
                         path: $,
                         createContainingDirectories: true,
                     },
-                    $c,
-                    $i.error,
+                    $i.writeFileError,
                 )
+                $c(($) => {
+                    fw.data($)
+                })
+                fw.end()
             },
             pipeFountainPen: $a.fountainPen,
             getNodes: ($) => {
-                return gfs.$r.readDirectory({
-                    path: $
-                }).map<pt.Dictionary<string>>(($) => {
-                    switch ($[0]) {
-                        case 'error':
-                            return pl.cc($[1], ($) => {
-                                return pa.asyncValue(pm.wrapRawDictionary({}))
-                            })
-                        case 'success':
-                            return pl.cc($[1], ($) => {
-                                return pa.asyncValue($.__mapWithKey(($, key) => key))
-                            })
-                        default: return pl.au($[0])
-                    }
+                return g_fs.$a.createReadDirectoryOrAbort({
+                    'onError': $i.readDirError,
+                    'readDirectory': g_fsr.$r.readDirectory,
+                })({
+                    'path': $
+
                 })
+                // .map<pt.Dictionary<string>>(($) => {
+                //     switch ($[0]) {
+                //         case 'error':
+                //             return pl.cc($[1], ($) => {
+                //                 return pa.asyncValue(pm.wrapRawDictionary({}))
+                //             })
+                //         case 'success':
+                //             return pl.cc($[1], ($) => {
+                //                 return pa.asyncValue($.__mapWithKey(($, key) => key))
+                //             })
+                //         default: return pl.au($[0])
+                //     }
+                // })
             },
         },
     )($, $c, $i.nodes)

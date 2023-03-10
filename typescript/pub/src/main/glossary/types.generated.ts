@@ -28,11 +28,4 @@ export namespace T {
         readonly 'name': string
         readonly 'path': g_common.T.Path
     }
-    
-    export namespace Nodes {
-        
-        export type D = string
-    }
-    
-    export type Nodes = pt.Dictionary<string>
 }

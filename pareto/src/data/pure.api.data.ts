@@ -16,7 +16,7 @@ export const $: gapi.T.API<pd.SourceLocation> = {
         "createUnboundDirectoryCreator": algorithm(functionReference("this", {}, "UnboundCreateDirectory"), constructor(null, {
             "createWriteStream": functionReference("this", {}, "CreateWriteStream"),
             "pipeFountainPen": functionReference("this", {}, "FountainPen"),
-            "getNodes": functionReference("this", {}, "GetNodes"),
+            "getNodes": functionReference("fs", {}, "ReadDirectoryOrAbort"),
         })),
         "createUnboundFileCreator": algorithm(functionReference("this", {}, "UnboundCreateFile"), constructor(null, {
             "createWriteStream": functionReference("this", {}, "CreateWriteStream"),
