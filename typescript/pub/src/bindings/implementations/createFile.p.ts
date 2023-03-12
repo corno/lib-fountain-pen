@@ -3,7 +3,7 @@ import * as g_fsr from "res-pareto-filesystem"
 
 import { $a } from "../.."
 
-import { $$ as cfc } from "../../pure/implementations/createUnboundFileCreator.p"
+import { $$ as cfc } from "../../main/implementations/createUnboundFileCreator.p"
 
 import { createFile } from "../api.generated"
 

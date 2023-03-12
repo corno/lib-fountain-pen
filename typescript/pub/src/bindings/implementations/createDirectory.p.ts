@@ -9,7 +9,7 @@ import * as g_fs from "lib-pareto-filesystem"
 
 import { $a } from "../.."
 
-import { $$ as cwc } from "../../pure/implementations/createUnboundDirectoryCreator.p"
+import { $$ as cwc } from "../../main/implementations/createUnboundDirectoryCreator.p"
 
 import { createDirectory } from "../api.generated"
 

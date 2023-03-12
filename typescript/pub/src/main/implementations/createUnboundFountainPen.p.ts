@@ -1,6 +1,6 @@
 import * as ps from 'pareto-core-state'
 
-import * as gapi from "../../glossary"
+import * as g_this from "../glossary"
 
 import { createUnboundFountainPen } from "../api.generated"
 
@@ -11,9 +11,9 @@ export const $$:createUnboundFountainPen = ($x, $d) => {
         function createSubBlock(
             currentIndentation: string,
             flush: ($: {}) => void,
-            $c: ($i: gapi.B.Block) => void,
+            $c: ($i: g_this.B.Block) => void,
         ): void {
-            function line($$c: ($i: gapi.B.Line) => void) {
+            function line($$c: ($i: g_this.B.Line) => void) {
 
                 let currentLine: null | ps.ArrayBuilder<string> = ps.createArrayBuilder()
                 currentLine.push(currentIndentation)

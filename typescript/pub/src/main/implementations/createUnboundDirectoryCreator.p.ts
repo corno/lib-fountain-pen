@@ -1,14 +1,15 @@
 import * as ps from 'pareto-core-state'
+import * as pl from 'pareto-core-lib'
 
-import * as gapi from "../../glossary"
-import * as gcommon from "glo-pareto-common"
+import * as g_this from "../glossary"
+import * as g_common from "glo-pareto-common"
 
 import { createUnboundDirectoryCreator } from "../api.generated"
 
 export const $$: createUnboundDirectoryCreator = ($d) => {
     return ($, $c, $i) => {
         //const contextPath = $.path
-        function createWriterImp(newPath: gcommon.T.Path, $c: ($i: gapi.B.Directory) => void): void {
+        function createWriterImp(newPath: g_common.T.Path, $c: ($i: g_this.B.Directory) => void): void {
             const createdFilesBuilder = ps.createUnsafeDictionaryBuilder<boolean>()
 
             $c({
@@ -41,41 +42,44 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
                 }
             })
             const createdFiles = createdFilesBuilder.getDictionary()
-            $d.getNodes({
-                'path': newPath,
-            }).__execute(($) => {
-                const nodes = $
-                createdFiles.__forEach(() => false, ($, key) => {
-                    if ($) {
-                        nodes.__getEntry(
+            pl.processAsyncValue(
+                $d.getNodes({
+                    'path': newPath,
+                }),
+                ($) => {
+                    const nodes = $
+                    createdFiles.__forEach(() => false, ($, key) => {
+                        if ($) {
+                            nodes.__getEntry(
+                                key,
+                                ($) => {
+                                    $i.manualNode({
+                                        path: newPath,
+                                        name: key,
+                                    })
+                                },
+                                () => {
+                                }
+                            )
+                        }
+                    })
+                    $.__forEach(() => false, ($, key) => {
+
+                        createdFiles.__getEntry(
                             key,
                             ($) => {
-                                $i.manualNode({
+                                //
+                            },
+                            () => {
+                                $i.superfluousNode({
                                     path: newPath,
                                     name: key,
                                 })
-                            },
-                            () => {
                             }
                         )
-                    }
-                })
-                $.__forEach(() => false, ($, key) => {
-
-                    createdFiles.__getEntry(
-                        key,
-                        ($) => {
-                            //
-                        },
-                        () => {
-                            $i.superfluousNode({
-                                path: newPath,
-                                name: key,
-                            })
-                        }
-                    )
-                })
-            })
+                    })
+                }
+            )
         }
         createWriterImp([$], $c)
     }

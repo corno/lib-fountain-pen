@@ -31,37 +31,36 @@ export const $: gproject.T.Project<pd.SourceLocation> = {
                     "fs": external("res-pareto-filesystem"),
                 }),
             },
-            'bindings': {
-                'api': {
-                    'root': bindings,
+            'api': {
+                'root': pure,
 
-                    'imports': d({
-                        "common": external("glo-pareto-common"),
-                        "fs": external("lib-pareto-filesystem"),
-                        "tostring": external("res-pareto-tostring"),
-                        "this": this_(),
-                    }),
-                },
-                'implementation': ['typescript', null],
-
+                'imports': d({
+                    "common": external("glo-pareto-common"),
+                    "fs": external("lib-pareto-filesystem"),
+                    "tostring": external("res-pareto-tostring"),
+                    "this": this_(),
+                }),
             },
-            'pure algorithms': {
-                'api': {
-                    'root': pure,
+            'implementation': ['typescript', null],
 
-                    'imports': d({
-                        "common": external("glo-pareto-common"),
-                        "fs": external("lib-pareto-filesystem"),
-                        "tostring": external("res-pareto-tostring"),
-                        "this": this_(),
-                    }),
-                },
-                'implementation': ['typescript', null],
-
-            },
         },
         'submodules': d({
         }),
+
+        'bindings': [true, {
+            'api': {
+                'root': bindings,
+
+                'imports': d({
+                    "common": external("glo-pareto-common"),
+                    "fs": external("lib-pareto-filesystem"),
+                    "tostring": external("res-pareto-tostring"),
+                    "this": this_(),
+                }),
+            },
+            'implementation': ['typescript', null],
+
+        }],
         'executables': d({}),
         'test': {
             'dependencies': d({
