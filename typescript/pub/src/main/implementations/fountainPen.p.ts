@@ -1,7 +1,7 @@
 import * as pl from 'pareto-core-lib'
 import * as ps from 'pareto-core-state'
 
-import * as gtostring from "res-pareto-tostring"
+import * as g_tostring from "res-pareto-tostring"
 
 import { $$ as cufp } from "./createUnboundFountainPen.p"
 
@@ -13,11 +13,11 @@ export const $$:fountainPen = cufp(
         'indentation': `    `,
     },
     {
-        joinNestedStrings: gtostring.$r.joinNestedStrings({
+        joinNestedStrings: g_tostring.$r.joinNestedStrings({
             "maximum": [false],
             "separator": "",
         }, {}),
-        getArrayAsString: gtostring.$r.getArrayAsString({
+        getArrayAsString: g_tostring.$r.getArrayAsString({
             "maximum": [false],
             "separator": "",
         }, {}),

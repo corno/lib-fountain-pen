@@ -34,8 +34,10 @@ export const $$: createDirectory = ($, $c, $i) => {
             getNodes: ($) => {
                 return g_fs.$a.createReadDirectoryOrAbort({
                     'onError': ($) => {
-                        if ($.error[0] !== 'no entity') {
-                            $i.readDirError($)
+                        return ($) => {
+                            if ($.error[0] !== 'no entity') {
+                                $i.readDirError($)
+                            }
                         }
                     },
                     'readDirectory': g_fsr.$r.readDirectory,

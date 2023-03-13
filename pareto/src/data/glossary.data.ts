@@ -10,11 +10,11 @@ import {
     dictionary, group, member, taggedUnion, types, sfunc, sdata, builderReference, inf, builderMethod, type, context, glossaryParameter, parametrizedTypeReference, parametrizedReference
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
-import * as gglossary from "lib-pareto-typescript-project/dist/submodules/glossary"
+import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
 
 const d = pd.d
 
-export const $: gglossary.T.Glossary<pd.SourceLocation> = {
+export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     'parameters': d({}),
     'types': d({
         "Configuration": type(group({

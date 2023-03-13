@@ -2,33 +2,33 @@
 import * as ps from 'pareto-core-state'
 import * as pa from 'pareto-core-async'
 
-import * as gtest from "lib-pareto-test"
-import * as gpub from "../../../../../pub"
+import * as g_test from "lib-pareto-test"
+import * as g_pub from "../../../../../pub"
 
-import * as gtostring from "res-pareto-tostring"
-import * as gbuild from "res-pareto-build"
+import * as g_tostring from "res-pareto-tostring"
+import * as g_build from "res-pareto-build"
 
 import { getTestSet } from "../api.generated"
 
 export const $$:getTestSet = () => {
-    const builder = ps.createUnsafeDictionaryBuilder<gtest.T.TestElement>()
+    const builder = ps.createUnsafeDictionaryBuilder<g_test.T.TestElement>()
     function doTest(
         $: {
             readonly "name": string,
             readonly "trim": boolean,
             readonly "expected": string,
         },
-        $c: ($: gpub.B.Block) => void,
+        $c: ($: g_pub.B.Block) => void,
     ): void {
 
         builder.add($.name, {
             type: ['test', {
                 type: ['short string', {
-                    actual: gtostring.$r.getArrayAsString({
+                    actual: g_tostring.$r.getArrayAsString({
                         'separator': "",
                         'maximum': [false],
-                    }, {})(gbuild.$r.buildArray(null, ($i) => {
-                        gpub.$a.fountainPen(
+                    }, {})(g_build.$r.buildArray(null, ($i) => {
+                        g_pub.$a.fountainPen(
                             null,
                             ($i) => {
                                 $c($i)
