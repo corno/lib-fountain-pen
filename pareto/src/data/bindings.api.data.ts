@@ -6,7 +6,7 @@ import * as g_project from "lib-pareto-typescript-project/dist/submodules/projec
 
 const d = pd.d
 
-export const $: g_project.T.Module.api.root<pd.SourceLocation> = {
+export const $: g_project.T.Project._ltype.library.bindings.O.api.root<pd.SourceLocation> = {
     'algorithms': d({
     }),
 }

@@ -9,11 +9,11 @@ export type createAllowedNodeMessage = g_this.F.CreateNodeMessage
 
 export type createDirectoryCreator = ($d: {
     readonly 'report': g_this.B.Report
-}) => ($c: ($b: g_this.B.CreateDirectory) => void) => void
+}) => ($c: g_this.C.CreateDirectory) => void
 
 export type createFileCreator = ($d: {
     readonly 'onWriteFileError': g_this.B.OnWriteFileError
-}) => ($c: ($b: g_this.B.CreateFile) => void) => void
+}) => ($c: g_this.C.CreateFile) => void
 
 export type createSuperfluousNodeMessage = g_this.F.CreateNodeMessage
 
@@ -22,12 +22,12 @@ export type createUnboundDirectoryCreator = ($d: {
     readonly 'getNodes': g_fs.F.ReadDirectoryOrAbort
     readonly 'pipeFountainPen': g_this.F.FountainPen
     readonly 'reportNodes': g_this.B.ReportNodes
-}) => ($c: ($b: g_this.B.CreateDirectory) => void) => void
+}) => ($c: g_this.C.CreateDirectory) => void
 
 export type createUnboundFileCreator = ($d: {
     readonly 'createWriteStream': g_this.B.CreateWriteStream
     readonly 'pipeFountainPen': g_this.F.FountainPen
-}) => ($c: ($b: g_this.B.CreateFile) => void) => void
+}) => ($c: g_this.C.CreateFile) => void
 
 export type createUnboundFountainPen = ($: g_this.T.Configuration, $d: {
     readonly 'getArrayAsString': g_tostring.F.GetArrayAsString

@@ -48,6 +48,31 @@ export namespace B {
     export type WriteString = ($: g_common.T.String, ) => void
 }
 
+export namespace C {
+    
+    export type Block = ($b: B.Block) => void
+    
+    export type CreateDirectory = ($b: B.CreateDirectory) => void
+    
+    export type CreateFile = ($b: B.CreateFile) => void
+    
+    export type CreateWriteStream = ($b: B.CreateWriteStream) => void
+    
+    export type Directory = ($b: B.Directory) => void
+    
+    export type Line = ($b: B.Line) => void
+    
+    export type OnReadDirError = ($b: B.OnReadDirError) => void
+    
+    export type OnWriteFileError = ($b: B.OnWriteFileError) => void
+    
+    export type Report = ($b: B.Report) => void
+    
+    export type ReportNodes = ($b: B.ReportNodes) => void
+    
+    export type WriteString = ($b: B.WriteString) => void
+}
+
 export namespace F {
     
     export type CreateNodeMessage = ($: T.Node) => g_common.T.String
