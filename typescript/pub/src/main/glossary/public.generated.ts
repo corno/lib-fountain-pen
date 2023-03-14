@@ -34,6 +34,12 @@ export namespace B {
     
     export type OnWriteFileError = ($: g_fs.T.AnnotatedWriteFileError, ) => void
     
+    export type Report = {
+        'nodes': B.ReportNodes
+        'onReadDirError': B.OnReadDirError
+        'onWriteFileError': B.OnWriteFileError
+    }
+    
     export type ReportNodes = {
         'manualNode': ($: T.Node, ) => void
         'superfluousNode': ($: T.Node, ) => void

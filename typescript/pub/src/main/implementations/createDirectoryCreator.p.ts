@@ -18,14 +18,14 @@ export const $$: createDirectoryCreator = ($d) => {
         $c(($, $c) => {
             cwc(
                 {
-                    'reportNodes': $d.reportNodes,
+                    'reportNodes': $d.report.nodes,
                     'createWriteStream': ($, $c) => {
                         const fw = g_fsr.$r.createFileWriter(
                             {
                                 path: $,
                                 createContainingDirectories: true,
                             },
-                            $d.onWriteFileError,
+                            $d.report.onWriteFileError,
                         )
                         $c(($) => {
                             fw.data($)
@@ -38,7 +38,7 @@ export const $$: createDirectoryCreator = ($d) => {
                             'onError': ($) => {
                                 return ($) => {
                                     if ($.error[0] !== 'no entity') {
-                                        $d.onReadDirError($)
+                                        $d.report.onReadDirError($)
                                     }
                                 }
                             },

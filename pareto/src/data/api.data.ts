@@ -1,6 +1,6 @@
 import * as pd from 'pareto-core-data'
 
-import { algorithm, bldrRef, constructor, functionReference, typeReference} from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
+import { algorithm, bldrRef, constructor, functionReference, typeReference } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
 
 import * as g_project from "lib-pareto-typescript-project/dist/submodules/project"
 
@@ -25,16 +25,11 @@ export const $: g_project.T.Module.api.root<pd.SourceLocation> = {
         })),
         "createSuperfluousNodeMessage": algorithm(functionReference("this", {}, "CreateNodeMessage")),
         "createAllowedNodeMessage": algorithm(functionReference("this", {}, "CreateNodeMessage")),
-
-
         "createDirectoryCreator": algorithm(bldrRef("this", {}, "CreateDirectory"), constructor(null, {
-            "onWriteFileError":bldrRef("this", {}, "OnWriteFileError"),
-            "onReadDirError":bldrRef("this", {}, "OnReadDirError"),
-            "reportNodes": bldrRef("this", {}, "ReportNodes"),
+            "report": bldrRef("this", {}, "Report"),
         })),
         "createFileCreator": algorithm(bldrRef("this", {}, "CreateFile"), constructor(null, {
-            "onWriteFileError":bldrRef("this", {}, "OnWriteFileError"),
-
+            "onWriteFileError": bldrRef("this", {}, "OnWriteFileError"),
         })),
     }),
 }

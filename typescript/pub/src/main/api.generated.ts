@@ -8,9 +8,7 @@ import * as g_tostring from "res-pareto-tostring"
 export type createAllowedNodeMessage = g_this.F.CreateNodeMessage
 
 export type createDirectoryCreator = ($d: {
-    readonly 'onReadDirError': g_this.B.OnReadDirError
-    readonly 'onWriteFileError': g_this.B.OnWriteFileError
-    readonly 'reportNodes': g_this.B.ReportNodes
+    readonly 'report': g_this.B.Report
 }) => ($c: ($b: g_this.B.CreateDirectory) => void) => void
 
 export type createFileCreator = ($d: {

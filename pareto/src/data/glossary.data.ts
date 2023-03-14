@@ -58,6 +58,13 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     "manualNode": builderMethod(typeReference("Node")),
                 }),
             }],
+            "Report": ['group', {
+                'members': d({
+                    "nodes": ['reference', builderReference("ReportNodes")],
+                    "onWriteFileError": ['reference', builderReference("OnWriteFileError")],
+                    "onReadDirError": ['reference', builderReference("OnReadDirError")],
+                }),
+            }],
             "OnWriteFileError": builderMethod(externalTypeReference("fs", "AnnotatedWriteFileError")),
             "OnReadDirError": builderMethod(externalTypeReference("fs", "AnnotatedReadDirError")),
 
