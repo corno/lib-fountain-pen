@@ -1,6 +1,6 @@
 import * as pd from 'pareto-core-data'
 
-import { algorithm, constructor, functionReference, typeReference} from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
+import { algorithm, bldrRef, constructor, functionReference, typeReference} from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
 
 import * as g_project from "lib-pareto-typescript-project/dist/submodules/project"
 
@@ -13,16 +13,28 @@ export const $: g_project.T.Module.api.root<pd.SourceLocation> = {
             "joinNestedStrings": functionReference("tostring", {}, "JoinNestedStrings"),
             "getArrayAsString": functionReference("tostring", {}, "GetArrayAsString"),
         })),
-        "createUnboundDirectoryCreator": algorithm(functionReference("this", {}, "UnboundCreateDirectory"), constructor(null, {
-            "createWriteStream": functionReference("this", {}, "CreateWriteStream"),
+        "createUnboundDirectoryCreator": algorithm(bldrRef("this", {}, "CreateDirectory"), constructor(null, {
+            "createWriteStream": bldrRef("this", {}, "CreateWriteStream"),
             "pipeFountainPen": functionReference("this", {}, "FountainPen"),
+            "reportNodes": bldrRef("this", {}, "ReportNodes"),
             "getNodes": functionReference("fs", {}, "ReadDirectoryOrAbort"),
         })),
-        "createUnboundFileCreator": algorithm(functionReference("this", {}, "UnboundCreateFile"), constructor(null, {
-            "createWriteStream": functionReference("this", {}, "CreateWriteStream"),
+        "createUnboundFileCreator": algorithm(bldrRef("this", {}, "CreateFile"), constructor(null, {
+            "createWriteStream": bldrRef("this", {}, "CreateWriteStream"),
             "pipeFountainPen": functionReference("this", {}, "FountainPen"),
         })),
         "createSuperfluousNodeMessage": algorithm(functionReference("this", {}, "CreateNodeMessage")),
         "createAllowedNodeMessage": algorithm(functionReference("this", {}, "CreateNodeMessage")),
+
+
+        "createDirectoryCreator": algorithm(bldrRef("this", {}, "CreateDirectory"), constructor(null, {
+            "onWriteFileError":bldrRef("this", {}, "OnWriteFileError"),
+            "onReadDirError":bldrRef("this", {}, "OnReadDirError"),
+            "reportNodes": bldrRef("this", {}, "ReportNodes"),
+        })),
+        "createFileCreator": algorithm(bldrRef("this", {}, "CreateFile"), constructor(null, {
+            "onWriteFileError":bldrRef("this", {}, "OnWriteFileError"),
+
+        })),
     }),
 }

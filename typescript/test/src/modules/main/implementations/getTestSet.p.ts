@@ -10,7 +10,7 @@ import * as g_build from "res-pareto-build"
 
 import { getTestSet } from "../api.generated"
 
-export const $$:getTestSet = () => {
+export const $$: getTestSet = () => {
     const builder = ps.createUnsafeDictionaryBuilder<g_test.T.TestElement>()
     function doTest(
         $: {
@@ -29,10 +29,7 @@ export const $$:getTestSet = () => {
                         'maximum': [false],
                     }, {})(g_build.$r.buildArray(null, ($i) => {
                         g_pub.$a.fountainPen(
-                            null,
-                            ($i) => {
-                                $c($i)
-                            },
+                            $c,
                             $i,
                         )
                     })),

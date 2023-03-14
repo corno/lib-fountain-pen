@@ -4,9 +4,8 @@ import * as g_this from "../glossary"
 
 import { createUnboundFountainPen } from "../api.generated"
 
-export const $$:createUnboundFountainPen = ($x, $d) => {
-    return ($, $c, $i) => {
-        const config = $
+export const $$:createUnboundFountainPen = ($, $d) => {
+    return ($c, $i) => {
         let isFirstLine = true
         function createSubBlock(
             currentIndentation: string,
@@ -20,13 +19,13 @@ export const $$:createUnboundFountainPen = ($x, $d) => {
                 flush({})
                 if (isFirstLine) {
                 } else {
-                    $i($x.newline)
+                    $i($.newline)
                 }
                 isFirstLine = false
                 $$c({
                     'indent': ($c) => {
                         createSubBlock(
-                            $d.joinNestedStrings([currentIndentation, $x.indentation]),
+                            $d.joinNestedStrings([currentIndentation, $.indentation]),
                             () => {
                                 if (currentLine !== null) {
                                     $i($d.getArrayAsString(currentLine.getArray()))
@@ -40,7 +39,7 @@ export const $$:createUnboundFountainPen = ($x, $d) => {
                         if (currentLine !== null) {
                             currentLine.push($2)
                         } else {
-                            $i($x.newline)
+                            $i($.newline)
                             currentLine = ps.createArrayBuilder()
                             currentLine.push(currentIndentation)
                             currentLine.push($2)

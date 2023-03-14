@@ -7,18 +7,29 @@ import * as g_tostring from "res-pareto-tostring"
 
 export type createAllowedNodeMessage = g_this.F.CreateNodeMessage
 
+export type createDirectoryCreator = ($d: {
+    readonly 'onReadDirError': g_this.B.OnReadDirError
+    readonly 'onWriteFileError': g_this.B.OnWriteFileError
+    readonly 'reportNodes': g_this.B.ReportNodes
+}) => ($c: ($b: g_this.B.CreateDirectory) => void) => void
+
+export type createFileCreator = ($d: {
+    readonly 'onWriteFileError': g_this.B.OnWriteFileError
+}) => ($c: ($b: g_this.B.CreateFile) => void) => void
+
 export type createSuperfluousNodeMessage = g_this.F.CreateNodeMessage
 
 export type createUnboundDirectoryCreator = ($d: {
-    readonly 'createWriteStream': g_this.F.CreateWriteStream
+    readonly 'createWriteStream': g_this.B.CreateWriteStream
     readonly 'getNodes': g_fs.F.ReadDirectoryOrAbort
     readonly 'pipeFountainPen': g_this.F.FountainPen
-}) => g_this.F.UnboundCreateDirectory
+    readonly 'reportNodes': g_this.B.ReportNodes
+}) => ($c: ($b: g_this.B.CreateDirectory) => void) => void
 
 export type createUnboundFileCreator = ($d: {
-    readonly 'createWriteStream': g_this.F.CreateWriteStream
+    readonly 'createWriteStream': g_this.B.CreateWriteStream
     readonly 'pipeFountainPen': g_this.F.FountainPen
-}) => g_this.F.UnboundCreateFile
+}) => ($c: ($b: g_this.B.CreateFile) => void) => void
 
 export type createUnboundFountainPen = ($: g_this.T.Configuration, $d: {
     readonly 'getArrayAsString': g_tostring.F.GetArrayAsString
@@ -29,6 +40,8 @@ export type fountainPen = g_this.F.FountainPen
 
 export type API = {
     createAllowedNodeMessage: createAllowedNodeMessage
+    createDirectoryCreator: createDirectoryCreator
+    createFileCreator: createFileCreator
     createSuperfluousNodeMessage: createSuperfluousNodeMessage
     createUnboundDirectoryCreator: createUnboundDirectoryCreator
     createUnboundFileCreator: createUnboundFileCreator

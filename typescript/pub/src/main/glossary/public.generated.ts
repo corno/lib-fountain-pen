@@ -12,6 +12,12 @@ export namespace B {
         'nestedLine': ($c: ($b: B.Line) => void) => void
     }
     
+    export type CreateDirectory = ($: g_common.T.Path, $c: ($b: B.Directory) => void) => void
+    
+    export type CreateFile = ($: g_common.T.Path, $c: ($b: B.Block) => void) => void
+    
+    export type CreateWriteStream = ($: g_common.T.Path, $c: ($b: B.WriteString) => void) => void
+    
     export type Directory = {
         'allowedGenerated': ($: g_common.T.String, ) => void
         'allowedManual': ($: g_common.T.String, ) => void
@@ -28,12 +34,6 @@ export namespace B {
     
     export type OnWriteFileError = ($: g_fs.T.AnnotatedWriteFileError, ) => void
     
-    export type Report = {
-        'nodes': B.ReportNodes
-        'readDirError': B.OnReadDirError
-        'writeFileError': B.OnWriteFileError
-    }
-    
     export type ReportNodes = {
         'manualNode': ($: T.Node, ) => void
         'superfluousNode': ($: T.Node, ) => void
@@ -44,17 +44,7 @@ export namespace B {
 
 export namespace F {
     
-    export type CreateDirectory = ($: g_common.T.Path, $c: ($b: B.Directory) => void, $b: B.Report,) => void
+    export type CreateNodeMessage = ($: T.Node) => g_common.T.String
     
-    export type CreateFile = ($: g_common.T.Path, $c: ($b: B.Block) => void, $b: B.OnWriteFileError,) => void
-    
-    export type CreateNodeMessage = ($: T.Node,) => g_common.T.String
-    
-    export type CreateWriteStream = ($: g_common.T.Path, $c: ($b: B.WriteString) => void,) => void
-    
-    export type FountainPen = ($: g_common.T.Null, $c: ($b: B.Block) => void, $b: B.WriteString,) => void
-    
-    export type UnboundCreateDirectory = ($: g_common.T.Path, $c: ($b: B.Directory) => void, $b: B.ReportNodes,) => void
-    
-    export type UnboundCreateFile = ($: g_common.T.Path, $c: ($b: B.Block) => void,) => void
+    export type FountainPen = ($c: ($b: B.Block) => void, $b: B.WriteString) => void
 }

@@ -6,7 +6,7 @@ import {
     string,
     boolean,
     typeReference,
-    dictionary, group, member, taggedUnion, sfunc, sdata, builderReference, inf, builderMethod, type, imp, ref, externalTypeReference
+    dictionary, group, member, taggedUnion, sfunc, sdata, builderReference, inf, builderMethod, type, imp, ref, externalTypeReference, bldr
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
@@ -58,24 +58,17 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     "manualNode": builderMethod(typeReference("Node")),
                 }),
             }],
-            "Report": ['group', {
-                'members': d({
-                    "nodes": ['reference', builderReference("ReportNodes")],
-                    "writeFileError": ['reference', builderReference("OnWriteFileError")],
-                    "readDirError": ['reference', builderReference("OnReadDirError")],
-                }),
-            }],
             "OnWriteFileError": builderMethod(externalTypeReference("fs", "AnnotatedWriteFileError")),
             "OnReadDirError": builderMethod(externalTypeReference("fs", "AnnotatedReadDirError")),
+
+            "CreateDirectory": builderMethod(externalTypeReference("common", "Path"), ['reference', builderReference("Directory")]),
+            "CreateFile": builderMethod(externalTypeReference("common", "Path"), ['reference', builderReference("Block")]),
+            "CreateWriteStream": builderMethod(externalTypeReference("common", "Path"), ['reference', builderReference("WriteString")]),
+
         }),
         'functions': d({
-            "FountainPen": sfunc(externalTypeReference("common", "Null"), builderReference("Block"), builderReference("WriteString"), null),
-            "CreateNodeMessage": sfunc(typeReference("Node"), null, null, sdata(externalTypeReference("common", "String"))),
-            "CreateDirectory": sfunc(externalTypeReference("common", "Path"), builderReference("Directory"), builderReference("Report"), null),
-            "CreateFile": sfunc(externalTypeReference("common", "Path"), builderReference("Block"), builderReference("OnWriteFileError"), null),
-            "UnboundCreateDirectory": sfunc(externalTypeReference("common", "Path"), builderReference("Directory"), builderReference("ReportNodes"), null),
-            "UnboundCreateFile": sfunc(externalTypeReference("common", "Path"), builderReference("Block"), null, null),
-            "CreateWriteStream": sfunc(externalTypeReference("common", "Path"), builderReference("WriteString"), null, null),
+            "FountainPen": sfunc(bldr(builderReference("Block")), bldr(builderReference("WriteString"))),
+            "CreateNodeMessage": sfunc(sdata(typeReference("Node")), sdata(externalTypeReference("common", "String"))),
         }),
 
     }],
