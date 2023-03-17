@@ -6,7 +6,7 @@ import {
     string,
     boolean,
     typeReference,
-    dictionary, group, member, taggedUnion, sfunc, sdata, builderReference, inf, builderMethod, type, imp, ref, externalTypeReference, bldr
+    dictionary, group, member, taggedUnion, sfunc, data, builderReference, inf, builderMethod, type, imp, ref, externalTypeReference, bldr
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
@@ -75,7 +75,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         }),
         'functions': d({
             "FountainPen": sfunc(bldr(builderReference("Block")), bldr(builderReference("WriteString"))),
-            "CreateNodeMessage": sfunc(sdata(typeReference("Node")), sdata(externalTypeReference("common", "String"))),
+            "CreateNodeMessage": sfunc(data(typeReference("Node")), data(externalTypeReference("common", "String"))),
         }),
 
     }],

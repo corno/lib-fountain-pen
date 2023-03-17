@@ -6,8 +6,8 @@ import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/gloss
 const d = pd.d
 
 import { $ as bindings } from "./bindings.api.data"
-import { $ as api } from "./api.data"
-import { $ as glossary } from "./glossary.data"
+import { $ as api } from "./main/api.data"
+import { $ as glossary } from "./main/glossary.data"
 
 import { external, this_ } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
 
@@ -24,22 +24,24 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
     }),
     'type': ['library', {
         'main': {
-            'glossary': {
-                'root': glossary,
-                'imports': d({
-                    "common": external("glo-pareto-common"),
-                    "fs": external("res-pareto-filesystem"),
-                }),
-            },
-            'api': {
-                'root': api,
+            'definition': {
+                'glossary': {
+                    'root': glossary,
+                    'imports': d({
+                        "common": external("glo-pareto-common"),
+                        "fs": external("res-pareto-filesystem"),
+                    }),
+                },
+                'api': {
+                    'root': api,
 
-                'imports': d({
-                    "common": external("glo-pareto-common"),
-                    "fs": external("lib-pareto-filesystem"),
-                    "tostring": external("res-pareto-tostring"),
-                    "this": this_(),
-                }),
+                    'imports': d({
+                        "common": external("glo-pareto-common"),
+                        "fs": external("lib-pareto-filesystem"),
+                        "tostring": external("res-pareto-tostring"),
+                        "this": this_(),
+                    }),
+                },
             },
             'implementation': ['typescript', null],
 
@@ -48,15 +50,31 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
         }),
 
         'bindings': [true, {
-            'api': {
-                'root': bindings,
+            'definition': {
+                'glossary': {
 
-                'imports': d({
-                    "common": external("glo-pareto-common"),
-                    "fs": external("lib-pareto-filesystem"),
-                    "tostring": external("res-pareto-tostring"),
-                    "this": this_(),
-                }),
+                    'root': {
+                        'parameters': d({}),
+                        'imports': d({}),
+                        'types': d({}),
+                        'type': ['synchronous', {
+                            'builders': d({}),
+                            'functions': d<g_glossary.T.Glossary._ltype.synchronous.functions.D<pd.SourceLocation>>({}),
+                        }],
+                    },
+                    'imports': d({}),
+                },
+                'api': {
+                    'root': bindings,
+
+                    'imports': d({
+                        "common": external("glo-pareto-common"),
+                        "fs": external("lib-pareto-filesystem"),
+                        "tostring": external("res-pareto-tostring"),
+                        "this": this_(),
+                    }),
+                },
+
             },
             'implementation': ['typescript', null],
 
@@ -67,14 +85,25 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
                 "res-pareto-tostring": null,
                 "res-pareto-build": null,
             }),
-            'glossary': {
-                'parameters': d({}),
-                'imports': d({}),
-                'types': d({}),
-                'type': ['synchronous', {
-                    'builders': d({}),
-                    'functions': d<g_glossary.T.Glossary._ltype.synchronous.functions.D<pd.SourceLocation>>({}),
-                }],
+            'definition': {
+                'glossary': {
+                    'root': {
+                        'parameters': d({}),
+                        'imports': d({}),
+                        'types': d({}),
+                        'type': ['synchronous', {
+                            'builders': d({}),
+                            'functions': d<g_glossary.T.Glossary._ltype.synchronous.functions.D<pd.SourceLocation>>({}),
+                        }],
+                    },
+                    'imports': d({}),
+                },
+                'api': {
+                    'root': bindings,
+                    'imports': d({
+                    }),
+                },
+
             },
             'imports': d({}),
         }
