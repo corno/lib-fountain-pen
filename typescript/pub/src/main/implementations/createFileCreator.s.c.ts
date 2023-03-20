@@ -1,15 +1,15 @@
 
-import { createUnboundFileCreator } from "../api.generated"
+import { A } from "../api.generated"
 
-export const $$: createUnboundFileCreator = ($d) => {
-    return ($c) => {
+export const $$: A.createFileCreator = ($d, $se) => {
+    return ({}, $c) => {
         $c(($, $c) => {
-            $d.createWriteStream(
+            $se.createWriteStream(
                 $,
                 ($i) => {
                     $d.pipeFountainPen(
-                        $c,
                         $i,
+                        $c,
                     )
                 },
             )

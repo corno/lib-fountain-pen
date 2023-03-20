@@ -3,11 +3,11 @@ import * as ps from 'pareto-core-state'
 
 import * as g_tostring from "res-pareto-tostring"
 
-import { $$ as cufp } from "./createUnboundFountainPen.p"
+import { $$ as cufp } from "../../main/implementations/createFountainPen.s.c"
 
-import { fountainPen } from "../api.generated"
+import { A } from "../api.generated"
 
-export const $$:fountainPen = cufp(
+export const $$: A.fountainPen = cufp(
     {
         'newline': `\r\n`,
         'indentation': `    `,
@@ -16,11 +16,14 @@ export const $$:fountainPen = cufp(
         joinNestedStrings: g_tostring.$r.joinNestedStrings({
             "maximum": [false],
             "separator": "",
-        }, {}),
+        }, {}, {}),
         getArrayAsString: g_tostring.$r.getArrayAsString({
             "maximum": [false],
             "separator": "",
-        }, {}),
+        }, {}, {}),
     },
+    {
+        
+    }
 
 )

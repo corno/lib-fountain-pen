@@ -1,13 +1,6 @@
 import * as pd from 'pareto-core-data'
 
-import {
-    null_,
-    array,
-    string,
-    boolean,
-    typeReference,
-    dictionary, group, member, taggedUnion, sfunc, data, builderReference, inf, builderMethod, type, imp, ref, externalTypeReference, bldr
-} from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
+import { data, externalTypeReference, group, imp, member, ref, sconstructor, sfunction, sInterfaceMethod, sInterfaceReference, string, type, typeReference } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
 
@@ -18,6 +11,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     'imports': d({
         "common": imp({}),
         "fs": imp({}),
+        "this": imp({}),
     }),
     'types': d({
         "Configuration": type(group({
@@ -29,54 +23,62 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             "name": member(string()),
         })),
     }),
-    'type': ['synchronous', {
-        'builders': d({
+    'asynchronous': {
+        'interfaces': d({}),
+        'algorithms': d({}),
+        
+    },
+    'synchronous': {
+        'interfaces': d({
             "Block": ['group', {
                 'members': d({
-                    "nestedLine": builderMethod(null, ['reference', builderReference("Line")]),
-                    "line": builderMethod(externalTypeReference("common", "String")),
+                    "nestedLine": sInterfaceMethod(null, ['reference', sInterfaceReference("Line")]),
+                    "line": sInterfaceMethod(externalTypeReference("common", "String")),
                 }),
             }],
             "Line": ['group', {
                 'members': d({
-                    "indent": builderMethod(null, ['reference', builderReference("Block")]),
-                    "snippet": builderMethod(externalTypeReference("common", "String")),
+                    "indent": sInterfaceMethod(null, ['reference', sInterfaceReference("Block")]),
+                    "snippet": sInterfaceMethod(externalTypeReference("common", "String")),
                 }),
             }],
             "Directory": ['group', {
                 'members': d({
-                    "allowedManual": builderMethod(externalTypeReference("common", "String")),
-                    "allowedGenerated": builderMethod(externalTypeReference("common", "String")),
-                    "file": builderMethod(externalTypeReference("common", "String"), ['reference', builderReference("Block")]),
-                    "directory": builderMethod(externalTypeReference("common", "String"), ['reference', builderReference("Directory")]),
+                    "allowedManual": sInterfaceMethod(externalTypeReference("common", "String")),
+                    "allowedGenerated": sInterfaceMethod(externalTypeReference("common", "String")),
+                    "file": sInterfaceMethod(externalTypeReference("common", "String"), ['reference', sInterfaceReference("Block")]),
+                    "directory": sInterfaceMethod(externalTypeReference("common", "String"), ['reference', sInterfaceReference("Directory")]),
                 }),
             }],
-            "WriteString": builderMethod(externalTypeReference("common", "String")),
+            //"WriteString": sInterfaceMethod(externalTypeReference("common", "String")),
             "ReportNodes": ['group', {
                 'members': d({
-                    "superfluousNode": builderMethod(typeReference("Node")),
-                    "manualNode": builderMethod(typeReference("Node")),
+                    "superfluousNode": sInterfaceMethod(typeReference("Node")),
+                    "manualNode": sInterfaceMethod(typeReference("Node")),
                 }),
             }],
             "Report": ['group', {
                 'members': d({
-                    "nodes": ['reference', builderReference("ReportNodes")],
-                    "onWriteFileError": ['reference', builderReference("OnWriteFileError")],
-                    "onReadDirError": ['reference', builderReference("OnReadDirError")],
+                    "nodes": ['reference', sInterfaceReference("ReportNodes")],
+                    "onWriteFileError": ['reference', sInterfaceReference("OnWriteFileError")],
+                    "onReadDirError": ['reference', sInterfaceReference("OnReadDirError")],
                 }),
             }],
-            "OnWriteFileError": builderMethod(externalTypeReference("fs", "AnnotatedWriteFileError")),
-            "OnReadDirError": builderMethod(externalTypeReference("fs", "AnnotatedReadDirError")),
+            "OnWriteFileError": sInterfaceMethod(externalTypeReference("fs", "AnnotatedWriteFileError")),
+            "OnReadDirError": sInterfaceMethod(externalTypeReference("fs", "AnnotatedReadDirError")),
 
-            "CreateDirectory": builderMethod(externalTypeReference("common", "Path"), ['reference', builderReference("Directory")]),
-            "CreateFile": builderMethod(externalTypeReference("common", "Path"), ['reference', builderReference("Block")]),
-            "CreateWriteStream": builderMethod(externalTypeReference("common", "Path"), ['reference', builderReference("WriteString")]),
-
+            "CreateDirectory": sInterfaceMethod(externalTypeReference("common", "Path"), ['reference', sInterfaceReference("Directory")]),
+            "CreateFile": sInterfaceMethod(externalTypeReference("common", "Path"), ['reference', sInterfaceReference("Block")]),
+            "CreateWriteStream": sInterfaceMethod(externalTypeReference("common", "Path"), ['reference', sInterfaceReference("common", "String")]),
+            "Nothing": ['group', {
+                'members': d({}),
+            }]
         }),
-        'functions': d({
-            "FountainPen": sfunc(bldr(builderReference("Block")), bldr(builderReference("WriteString"))),
-            "CreateNodeMessage": sfunc(data(typeReference("Node")), data(externalTypeReference("common", "String"))),
+        'algorithms': d({
+            "FountainPen": sconstructor(sInterfaceReference("Block"), sInterfaceReference("common", "String")),
+            "CreateDirectory": sconstructor(sInterfaceReference("CreateDirectory"), sInterfaceReference("Nothing")),
+            "CreateFile": sconstructor(sInterfaceReference("CreateFile"), sInterfaceReference("Nothing")),
+            "CreateNodeMessage": sfunction(externalTypeReference("common", "String"), data(typeReference("Node"))),
         }),
-
-    }],
+    },
 }

@@ -4,22 +4,22 @@ import * as pl from 'pareto-core-lib'
 import * as g_this from "../glossary"
 import * as g_common from "glo-pareto-common"
 
-import { createUnboundDirectoryCreator } from "../api.generated"
+import { A } from "../api.generated"
 
-export const $$: createUnboundDirectoryCreator = ($d) => {
-    return ($c) => {
+export const $$: A.createDirectoryCreator = ($d, $se) => {
+    return ({}, $c) => {
         $c(($, $c) => {
             //const contextPath = $.path
-            function createWriterImp(newPath: g_common.T.Path, $c: ($i: g_this.B.Directory) => void): void {
+            function createWriterImp(newPath: g_common.T.Path, $c: ($i: g_this.SYNC.I.Directory) => void): void {
                 const createdFilesBuilder = ps.createUnsafeDictionaryBuilder<boolean>()
-    
+
                 $c({
                     allowedManual: ($) => {
                         createdFilesBuilder.add($, true)
                     },
                     allowedGenerated: ($) => {
                         createdFilesBuilder.add($, false)
-    
+
                     },
                     directory: ($, $c) => {
                         createdFilesBuilder.add($, false)
@@ -30,12 +30,12 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
                     },
                     file: ($, $c) => {
                         createdFilesBuilder.add($, false)
-                        $d.createWriteStream(
+                        $se.createWriteStream(
                             [newPath, $],
                             ($i) => {
                                 $d.pipeFountainPen(
-                                    $c,
                                     $i,
+                                    $c,
                                 )
                             },
                         )
@@ -53,7 +53,7 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
                                 nodes.__getEntry(
                                     key,
                                     ($) => {
-                                        $d.reportNodes.manualNode({
+                                        $se.reportNodes.manualNode({
                                             path: newPath,
                                             name: key,
                                         })
@@ -64,14 +64,14 @@ export const $$: createUnboundDirectoryCreator = ($d) => {
                             }
                         })
                         $.__forEach(() => false, ($, key) => {
-    
+
                             createdFiles.__getEntry(
                                 key,
                                 ($) => {
                                     //
                                 },
                                 () => {
-                                    $d.reportNodes.superfluousNode({
+                                    $se.reportNodes.superfluousNode({
                                         path: newPath,
                                         name: key,
                                     })

@@ -1,44 +1,24 @@
-import * as pt from 'pareto-core-types'
-import * as pl from 'pareto-core-lib'
-import * as pa from 'pareto-core-async'
-import * as pm from 'pareto-core-map'
-import * as pd from 'pareto-core-dev'
-
 import * as g_fsr from "res-pareto-filesystem"
 import * as g_fs from "lib-pareto-filesystem"
 
-import { $a } from "../.."
+import { $$ as fp } from "./fountainPen.p"
 
-import { $$ as cwc } from "../../main/implementations/createUnboundDirectoryCreator.p"
+import { $a } from "../../main"
 
-import { createDirectoryCreator } from "../api.generated"
+import { A } from "../api.generated"
 
-export const $$: createDirectoryCreator = ($d) => {
-    return ($c) => {
+export const $$: A.createDirectoryCreator = ($d, $se) => {
+    return ($i, $c) => {
         $c(($, $c) => {
-            cwc(
+            $a.createDirectoryCreator(
                 {
-                    'reportNodes': $d.report.nodes,
-                    'createWriteStream': ($, $c) => {
-                        const fw = g_fsr.$r.createFileWriter(
-                            {
-                                path: $,
-                                createContainingDirectories: true,
-                            },
-                            $d.report.onWriteFileError,
-                        )
-                        $c(($) => {
-                            fw.data($)
-                        })
-                        fw.end()
-                    },
-                    'pipeFountainPen': $a.fountainPen,
+                    'pipeFountainPen': fp,
                     'getNodes': ($) => {
                         return g_fs.$a.createReadDirectoryOrAbort({
                             'onError': ($) => {
                                 return ($) => {
                                     if ($.error[0] !== 'no entity') {
-                                        $d.report.onReadDirError($)
+                                        $se.report.onReadDirError($)
                                     }
                                 }
                             },
@@ -61,7 +41,24 @@ export const $$: createDirectoryCreator = ($d) => {
                         // })
                     },
                 },
-            )(($b) => {
+                {
+                    'reportNodes': $se.report.nodes,
+                    'createWriteStream': ($, $c) => {
+                        const fw = g_fsr.$r.createFileWriter(
+                            {
+                                path: $,
+                                createContainingDirectories: true,
+                            },
+                            $se.report.onWriteFileError,
+                        )
+                        $c(($) => {
+                            fw.data($)
+                        })
+                        fw.end()
+                    },
+
+                }
+            )({}, ($b) => {
                 $b($, $c)
             })
 

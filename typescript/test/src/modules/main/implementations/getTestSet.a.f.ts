@@ -10,7 +10,7 @@ import * as g_build from "res-pareto-build"
 
 import { getTestSet } from "../api.generated"
 
-export const $$: getTestSet = () => {
+export const $$: A.getTestSet = () => {
     const builder = ps.createUnsafeDictionaryBuilder<g_test.T.TestElement>()
     function doTest(
         $: {

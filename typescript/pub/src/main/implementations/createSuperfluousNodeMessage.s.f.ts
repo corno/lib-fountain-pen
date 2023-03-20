@@ -1,8 +1,8 @@
 import * as g_tostring from "res-pareto-tostring"
 
-import { createSuperfluousNodeMessage } from "../api.generated"
+import { A } from "../api.generated"
 
-export const $$:createSuperfluousNodeMessage = ($) => {
+export const $$: A.createSuperfluousNodeMessage = ($) => {
 
     const red = "\x1b[31m"
     const green = "\x1b[32m"
@@ -11,5 +11,5 @@ export const $$:createSuperfluousNodeMessage = ($) => {
         separator: "/",
         'maximum': [false],
 
-    }, {})($.path)}/${$.name}${reset}`
+    }, {}, {})($.path)}/${$.name}${reset}`
 }

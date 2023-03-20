@@ -1,6 +1,6 @@
 import * as pd from 'pareto-core-data'
 
-import { algorithm, typeReference, syncFunc, syncFunctionReference } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
+import { afunction, algorithm, dependent, sfunction, sconstructor, sSideEffect, data } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
 
 import * as g_project from "lib-pareto-typescript-project/dist/submodules/project"
 
@@ -8,28 +8,23 @@ const d = pd.d
 
 export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> = {
     'algorithms': d({
-        "fountainPen": algorithm(syncFunc("this", {}, "FountainPen")),
-        "createUnboundFountainPen": algorithm(functionReference("this", {}, "FountainPen"), constructor(typeReference("this", {}, "Configuration"), {
-            "joinNestedStrings": syncFunctionReference("tostring", {}, "JoinNestedStrings"),
-            "getArrayAsString": syncFunctionReference("tostring", {}, "GetArrayAsString"),
+        "createFountainPen": algorithm(sconstructor("this", {}, "FountainPen"), dependent(data("this", {}, "Configuration"), {
+            "joinNestedStrings": sfunction("tostring", {}, "JoinNestedStrings"),
+            "getArrayAsString": sfunction("tostring", {}, "GetArrayAsString"),
+        }, {})),
+        "createDirectoryCreator": algorithm(sconstructor("this", {}, "CreateDirectory"), dependent(null, {
+            "getNodes": afunction("fs", {}, "ReadDirectoryOrAbort"),
+            "pipeFountainPen": sconstructor("this", {}, "FountainPen"),
+        }, {
+            "createWriteStream": sSideEffect("this", {}, "CreateWriteStream"),
+            "reportNodes": sSideEffect("this", {}, "ReportNodes"),
         })),
-        "createUnboundDirectoryCreator": algorithm(bldrRef("this", {}, "CreateDirectory"), constructor(null, {
-            "createWriteStream": bldrRef("this", {}, "CreateWriteStream"),
-            "pipeFountainPen": syncFunctionReference("this", {}, "FountainPen"),
-            "reportNodes": bldrRef("this", {}, "ReportNodes"),
-            "getNodes": syncFunctionReference("fs", {}, "ReadDirectoryOrAbort"),
+        "createFileCreator": algorithm(sconstructor("this", {}, "CreateFile"), dependent(null, {
+            "pipeFountainPen": sconstructor("this", {}, "FountainPen"),
+        }, {
+            "createWriteStream": sSideEffect("this", {}, "CreateWriteStream"),
         })),
-        "createUnboundFileCreator": algorithm(bldrRef("this", {}, "CreateFile"), constructor(null, {
-            "createWriteStream": bldrRef("this", {}, "CreateWriteStream"),
-            "pipeFountainPen": syncFunctionReference("this", {}, "FountainPen"),
-        })),
-        "createSuperfluousNodeMessage": algorithm(functionReference("this", {}, "CreateNodeMessage")),
-        "createAllowedNodeMessage": algorithm(functionReference("this", {}, "CreateNodeMessage")),
-        "createDirectoryCreator": algorithm(bldrRef("this", {}, "CreateDirectory"), constructor(null, {
-            "report": bldrRef("this", {}, "Report"),
-        })),
-        "createFileCreator": algorithm(bldrRef("this", {}, "CreateFile"), constructor(null, {
-            "onWriteFileError": bldrRef("this", {}, "OnWriteFileError"),
-        })),
+        "createSuperfluousNodeMessage": algorithm(sfunction("this", {}, "CreateNodeMessage")),
+        "createAllowedNodeMessage": algorithm(sfunction("this", {}, "CreateNodeMessage")),
     }),
 }

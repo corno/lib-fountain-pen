@@ -9,7 +9,7 @@ import { $ as bindings } from "./bindings.api.data"
 import { $ as api } from "./main/api.data"
 import { $ as glossary } from "./main/glossary.data"
 
-import { external, this_ } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
+import { external, this_, main } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
 
 
 export const $: g_project.T.Project<pd.SourceLocation> = {
@@ -30,6 +30,7 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
                     'imports': d({
                         "common": external("glo-pareto-common"),
                         "fs": external("res-pareto-filesystem"),
+                        //"this": this_(),
                     }),
                 },
                 'api': {
@@ -57,10 +58,16 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
                         'parameters': d({}),
                         'imports': d({}),
                         'types': d({}),
-                        'type': ['synchronous', {
-                            'builders': d({}),
-                            'functions': d<g_glossary.T.Glossary._ltype.synchronous.functions.D<pd.SourceLocation>>({}),
-                        }],
+                        'asynchronous': {
+                            'interfaces': d({}),
+                            'algorithms': d({}),
+                            
+                        },
+                        'synchronous': {
+                            'interfaces': d({}),
+                            'algorithms': d({}),
+                            
+                        },
                     },
                     'imports': d({}),
                 },
@@ -68,10 +75,10 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
                     'root': bindings,
 
                     'imports': d({
-                        "common": external("glo-pareto-common"),
-                        "fs": external("lib-pareto-filesystem"),
-                        "tostring": external("res-pareto-tostring"),
-                        "this": this_(),
+                        // "common": external("glo-pareto-common"),
+                        // "fs": external("lib-pareto-filesystem"),
+                        // "tostring": external("res-pareto-tostring"),
+                        "main": ['main', null],
                     }),
                 },
 
@@ -91,10 +98,16 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
                         'parameters': d({}),
                         'imports': d({}),
                         'types': d({}),
-                        'type': ['synchronous', {
-                            'builders': d({}),
-                            'functions': d<g_glossary.T.Glossary._ltype.synchronous.functions.D<pd.SourceLocation>>({}),
-                        }],
+                        'asynchronous': {
+                            'interfaces': d({}),
+                            'algorithms': d({}),
+                            
+                        },
+                        'synchronous': {
+                            'interfaces': d({}),
+                            'algorithms': d({}),
+                            
+                        },
                     },
                     'imports': d({}),
                 },
