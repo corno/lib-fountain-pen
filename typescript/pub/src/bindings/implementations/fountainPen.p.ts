@@ -23,6 +23,5 @@ export const $$: A.fountainPen = () => {
                 "separator": "",
             }, null, null),
         },
-        null,
     )
 }

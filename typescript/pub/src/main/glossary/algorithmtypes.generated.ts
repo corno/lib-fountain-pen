@@ -62,33 +62,6 @@ export namespace SYNC {
         }
     }
     
-    export namespace IW {
-        
-        export type Block = ($c: ($b: I.Block) => void) => void
-        
-        export type CreateDirectory = ($c: ($b: I.CreateDirectory) => void) => void
-        
-        export type CreateDirectoryHandler = ($c: ($b: I.CreateDirectoryHandler) => void) => void
-        
-        export type CreateFile = ($c: ($b: I.CreateFile) => void) => void
-        
-        export type CreateWriteStream = ($c: ($b: I.CreateWriteStream) => void) => void
-        
-        export type Directory = ($c: ($b: I.Directory) => void) => void
-        
-        export type Line = ($c: ($b: I.Line) => void) => void
-        
-        export type Nothing = ($c: ($b: I.Nothing) => void) => void
-        
-        export type OnReadDirError = ($c: ($b: I.OnReadDirError) => void) => void
-        
-        export type OnWriteFileError = ($c: ($b: I.OnWriteFileError) => void) => void
-        
-        export type Report = ($c: ($b: I.Report) => void) => void
-        
-        export type ReportNodes = ($c: ($b: I.ReportNodes) => void) => void
-    }
-    
     export namespace A {
         
         

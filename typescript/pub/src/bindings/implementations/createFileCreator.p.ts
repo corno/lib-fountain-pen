@@ -6,7 +6,7 @@ import { $a } from "../../main"
 
 import { A } from "../api.generated"
 
-export const $$: A.createFileCreator = ($d, $se) => {
+export const $$: A.createFileCreator = ($se) => {
 
     return ($i, $c) => {
         $c(($, $c) => {
@@ -14,7 +14,6 @@ export const $$: A.createFileCreator = ($d, $se) => {
                 {
                     'pipeFountainPen': fp,
                 },
-                null
             )(($, $c) => {
                 const fw = g_fs.$r.createFileWriter(
                 )({

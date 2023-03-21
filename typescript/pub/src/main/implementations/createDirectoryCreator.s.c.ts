@@ -6,7 +6,7 @@ import * as g_common from "glo-pareto-common"
 
 import { A } from "../api.generated"
 
-export const $$: A.createDirectoryCreator = ($d, $se) => {
+export const $$: A.createDirectoryCreator = ($d) => {
     return ($is, $c) => {
         $c(($, $c) => {
             //const contextPath = $.path

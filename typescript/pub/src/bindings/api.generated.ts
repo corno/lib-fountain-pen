@@ -4,13 +4,13 @@ import * as g_main from "../main"
 
 export namespace A {
     
-    export type createDirectoryCreator = ($d: null, $se: {
+    export type createDirectoryCreator = ($se: {
         readonly 'report': g_main.SYNC.I.Report
-    }) => g_main.SYNC.A.C.CreateDirectory
+    }, ) => g_main.SYNC.A.C.CreateDirectory
     
-    export type createFileCreator = ($d: null, $se: {
+    export type createFileCreator = ($se: {
         readonly 'onWriteFileError': g_main.SYNC.I.OnWriteFileError
-    }) => g_main.SYNC.A.C.CreateFile
+    }, ) => g_main.SYNC.A.C.CreateFile
     
     export type fountainPen = () => g_main.SYNC.A.C.FountainPen
 }

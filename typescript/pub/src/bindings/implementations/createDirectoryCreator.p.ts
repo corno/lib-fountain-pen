@@ -7,7 +7,7 @@ import { $a } from "../../main"
 
 import { A } from "../api.generated"
 
-export const $$: A.createDirectoryCreator = ($d, $se) => {
+export const $$: A.createDirectoryCreator = ($se) => {
     return ($i, $c) => {
         $c(($, $c) => {
             $a.createDirectoryCreator(
@@ -41,7 +41,6 @@ export const $$: A.createDirectoryCreator = ($d, $se) => {
                         // })
                     },
                 },
-                null,
             )({
                 'report': {
                     'nodes': $se.report.nodes,
