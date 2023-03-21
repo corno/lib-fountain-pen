@@ -10,7 +10,7 @@ import * as g_build from "res-pareto-build"
 
 import { getTestSet } from "../api.generated"
 
-export const $$: A.getTestSet = () => {
+export const $$: getTestSet = () => {
     const builder = ps.createUnsafeDictionaryBuilder<g_test.T.TestElement>()
     function doTest(
         $: {
@@ -18,7 +18,7 @@ export const $$: A.getTestSet = () => {
             readonly "trim": boolean,
             readonly "expected": string,
         },
-        $c: ($: g_pub.B.Block) => void,
+        $c: ($: g_pub.SYNC.I.Block) => void,
     ): void {
 
         builder.add($.name, {
@@ -27,10 +27,10 @@ export const $$: A.getTestSet = () => {
                     actual: g_tostring.$r.getArrayAsString({
                         'separator': "",
                         'maximum': [false],
-                    }, {})(g_build.$r.buildArray(null, ($i) => {
-                        g_pub.$a.fountainPen(
-                            $c,
+                    }, null, null)(g_build.$r.buildArray(($i) => {
+                        g_pub.$b.fountainPen()(
                             $i,
+                            $c,
                         )
                     })),
                     expected: $.expected

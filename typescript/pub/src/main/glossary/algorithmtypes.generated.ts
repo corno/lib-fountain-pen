@@ -17,43 +17,48 @@ export namespace SYNC {
     export namespace I {
         
         export type Block = {
-            'line': ($: g_common.T.String, ) => void
-            'nestedLine': ($c: ($b: SYNC.I.Line) => void) => void
+            readonly 'line': ($: g_common.T.String, ) => void
+            readonly 'nestedLine': ($c: ($b: SYNC.I.Line) => void) => void
         }
         
         export type CreateDirectory = ($: g_common.T.Path, $c: ($b: SYNC.I.Directory) => void) => void
+        
+        export type CreateDirectoryHandler = {
+            readonly 'createWriteStream': SYNC.I.CreateWriteStream
+            readonly 'report': SYNC.I.Report
+        }
         
         export type CreateFile = ($: g_common.T.Path, $c: ($b: SYNC.I.Block) => void) => void
         
         export type CreateWriteStream = ($: g_common.T.Path, $c: ($b: g_common.SYNC.I.String) => void) => void
         
         export type Directory = {
-            'allowedGenerated': ($: g_common.T.String, ) => void
-            'allowedManual': ($: g_common.T.String, ) => void
-            'directory': ($: g_common.T.String, $c: ($b: SYNC.I.Directory) => void) => void
-            'file': ($: g_common.T.String, $c: ($b: SYNC.I.Block) => void) => void
+            readonly 'allowedGenerated': ($: g_common.T.String, ) => void
+            readonly 'allowedManual': ($: g_common.T.String, ) => void
+            readonly 'directory': ($: g_common.T.String, $c: ($b: SYNC.I.Directory) => void) => void
+            readonly 'file': ($: g_common.T.String, $c: ($b: SYNC.I.Block) => void) => void
         }
         
         export type Line = {
-            'indent': ($c: ($b: SYNC.I.Block) => void) => void
-            'snippet': ($: g_common.T.String, ) => void
+            readonly 'indent': ($c: ($b: SYNC.I.Block) => void) => void
+            readonly 'snippet': ($: g_common.T.String, ) => void
         }
         
-        export type Nothing = {}
+        export type Nothing = null
         
         export type OnReadDirError = ($: g_fs.T.AnnotatedReadDirError, ) => void
         
         export type OnWriteFileError = ($: g_fs.T.AnnotatedWriteFileError, ) => void
         
         export type Report = {
-            'nodes': SYNC.I.ReportNodes
-            'onReadDirError': SYNC.I.OnReadDirError
-            'onWriteFileError': SYNC.I.OnWriteFileError
+            readonly 'nodes': SYNC.I.ReportNodes
+            readonly 'onReadDirError': SYNC.I.OnReadDirError
+            readonly 'onWriteFileError': SYNC.I.OnWriteFileError
         }
         
         export type ReportNodes = {
-            'manualNode': ($: T.Node, ) => void
-            'superfluousNode': ($: T.Node, ) => void
+            readonly 'manualNode': ($: T.Node, ) => void
+            readonly 'superfluousNode': ($: T.Node, ) => void
         }
     }
     
@@ -62,6 +67,8 @@ export namespace SYNC {
         export type Block = ($c: ($b: I.Block) => void) => void
         
         export type CreateDirectory = ($c: ($b: I.CreateDirectory) => void) => void
+        
+        export type CreateDirectoryHandler = ($c: ($b: I.CreateDirectoryHandler) => void) => void
         
         export type CreateFile = ($c: ($b: I.CreateFile) => void) => void
         
@@ -91,7 +98,17 @@ export namespace SYNC {
         
         
         export namespace C {
+            export type CreateDirectoryCreator = ($i: SYNC.I.CreateDirectoryHandler, $c: ($b: SYNC.I.CreateDirectory) => void) => void
+        }
+        
+        
+        export namespace C {
             export type CreateFile = ($i: SYNC.I.Nothing, $c: ($b: SYNC.I.CreateFile) => void) => void
+        }
+        
+        
+        export namespace C {
+            export type CreateFileCreator = ($i: SYNC.I.CreateWriteStream, $c: ($b: SYNC.I.CreateFile) => void) => void
         }
         
         

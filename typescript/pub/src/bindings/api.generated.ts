@@ -4,19 +4,19 @@ import * as g_main from "../main"
 
 export namespace A {
     
-    export type createDirectoryCreator = ($d: {}, $se: {
+    export type createDirectoryCreator = ($d: null, $se: {
         readonly 'report': g_main.SYNC.I.Report
     }) => g_main.SYNC.A.C.CreateDirectory
     
-    export type createFileCreator = ($d: {}, $se: {
+    export type createFileCreator = ($d: null, $se: {
         readonly 'onWriteFileError': g_main.SYNC.I.OnWriteFileError
     }) => g_main.SYNC.A.C.CreateFile
     
-    export type fountainPen = g_main.SYNC.A.C.FountainPen
+    export type fountainPen = () => g_main.SYNC.A.C.FountainPen
 }
 
 export type API = {
-    createDirectoryCreator: A.createDirectoryCreator
-    createFileCreator: A.createFileCreator
-    fountainPen: A.fountainPen
+    readonly 'createDirectoryCreator': A.createDirectoryCreator
+    readonly 'createFileCreator': A.createFileCreator
+    readonly 'fountainPen': A.fountainPen
 }

@@ -26,7 +26,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     'asynchronous': {
         'interfaces': d({}),
         'algorithms': d({}),
-        
+
     },
     'synchronous': {
         'interfaces': d({
@@ -68,6 +68,12 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             "OnReadDirError": sInterfaceMethod(externalTypeReference("fs", "AnnotatedReadDirError")),
 
             "CreateDirectory": sInterfaceMethod(externalTypeReference("common", "Path"), ['reference', sInterfaceReference("Directory")]),
+            "CreateDirectoryHandler": ['group', {
+                'members': d({
+                    "report": ['reference', sInterfaceReference("Report")],
+                    "createWriteStream": ['reference', sInterfaceReference("CreateWriteStream")],
+                })
+            }],
             "CreateFile": sInterfaceMethod(externalTypeReference("common", "Path"), ['reference', sInterfaceReference("Block")]),
             "CreateWriteStream": sInterfaceMethod(externalTypeReference("common", "Path"), ['reference', sInterfaceReference("common", "String")]),
             "Nothing": ['group', {
@@ -78,6 +84,8 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             "FountainPen": sconstructor(sInterfaceReference("Block"), sInterfaceReference("common", "String")),
             "CreateDirectory": sconstructor(sInterfaceReference("CreateDirectory"), sInterfaceReference("Nothing")),
             "CreateFile": sconstructor(sInterfaceReference("CreateFile"), sInterfaceReference("Nothing")),
+            "CreateDirectoryCreator": sconstructor(sInterfaceReference("CreateDirectory"), sInterfaceReference("CreateDirectoryHandler")),
+            "CreateFileCreator": sconstructor(sInterfaceReference("CreateFile"), sInterfaceReference("CreateWriteStream")),
             "CreateNodeMessage": sfunction(externalTypeReference("common", "String"), data(typeReference("Node"))),
         }),
     },

@@ -15,14 +15,14 @@ export const $$: A.createDirectoryCreator = ($d, $se) => {
                     'pipeFountainPen': fp,
                     'getNodes': ($) => {
                         return g_fs.$a.createReadDirectoryOrAbort({
+                            'readDirectory': g_fsr.$r.readDirectory(),
+                        }, {
                             'onError': ($) => {
-                                return ($) => {
-                                    if ($.error[0] !== 'no entity') {
-                                        $se.report.onReadDirError($)
-                                    }
+                                if ($.error[0] !== 'no entity') {
+                                    $se.report.onReadDirError($)
                                 }
                             },
-                            'readDirectory': g_fsr.$r.readDirectory,
+
                         })({
                             'path': $.path
                         })
@@ -41,24 +41,31 @@ export const $$: A.createDirectoryCreator = ($d, $se) => {
                         // })
                     },
                 },
-                {
-                    'reportNodes': $se.report.nodes,
-                    'createWriteStream': ($, $c) => {
-                        const fw = g_fsr.$r.createFileWriter(
-                            {
-                                path: $,
-                                createContainingDirectories: true,
-                            },
-                            $se.report.onWriteFileError,
-                        )
-                        $c(($) => {
-                            fw.data($)
-                        })
-                        fw.end()
-                    },
+                null,
+            )({
+                'report': {
+                    'nodes': $se.report.nodes,
+                    'onReadDirError': $se.report.onReadDirError,
+                    'onWriteFileError': $se.report.onWriteFileError,
+                },
+                'createWriteStream': ($, $c) => {
+                    const fw = g_fsr.$r.createFileWriter()(
+                        {
+                            'onWriteFileError': $se.report.onWriteFileError,
 
-                }
-            )({}, ($b) => {
+                        },
+
+                    )({
+                        path: $,
+                        createContainingDirectories: true,
+                    })
+                    $c(($) => {
+                        fw.data($)
+                    })
+                    fw.end()
+                },
+
+            }, ($b) => {
                 $b($, $c)
             })
 

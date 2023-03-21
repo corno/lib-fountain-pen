@@ -2,9 +2,9 @@
 import { A } from "../api.generated"
 
 export const $$: A.createFileCreator = ($d, $se) => {
-    return ({}, $c) => {
+    return ($is, $c) => {
         $c(($, $c) => {
-            $se.createWriteStream(
+            $is(
                 $,
                 ($i) => {
                     $d.pipeFountainPen(

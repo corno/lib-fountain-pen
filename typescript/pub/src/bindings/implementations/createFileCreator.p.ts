@@ -12,24 +12,22 @@ export const $$: A.createFileCreator = ($d, $se) => {
         $c(($, $c) => {
             $a.createFileCreator(
                 {
-                    pipeFountainPen: fp,
+                    'pipeFountainPen': fp,
                 },
-                {
-                    createWriteStream: ($, $c) => {
-                        const fw = g_fs.$r.createFileWriter(
-                            {
-                                path: $,
-                                createContainingDirectories: true,
-                            },
-                            $se.onWriteFileError,
-                        )
-                        $c(($) => {
-                            fw.data($)
-                        })
-                        fw.end()
-                    },
-                }
-            )({}, ($b) => {
+                null
+            )(($, $c) => {
+                const fw = g_fs.$r.createFileWriter(
+                )({
+                    'onWriteFileError': $se.onWriteFileError,
+                })({
+                    'path': $,
+                    'createContainingDirectories': true,
+                })
+                $c(($) => {
+                    fw.data($)
+                })
+                fw.end()
+            }, ($b) => {
                 $b($, $c)
             })
         })

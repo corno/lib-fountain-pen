@@ -112,7 +112,9 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
                     'imports': d({}),
                 },
                 'api': {
-                    'root': bindings,
+                    'root': {
+                        'algorithms': d({}),
+                    },
                     'imports': d({
                     }),
                 },
