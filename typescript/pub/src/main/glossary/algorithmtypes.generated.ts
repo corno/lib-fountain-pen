@@ -65,23 +65,23 @@ export namespace SYNC {
     export namespace A {
         
         
-        export namespace B {
-            export type CreateDirectory = ($c: ($b: SYNC.I.CreateDirectory) => void, $i: SYNC.I.Nothing) => void
+        export namespace P {
+            export type CreateDirectory = ($c: ($i: SYNC.I.CreateDirectory) => void, $i: SYNC.I.Nothing) => void
         }
         
         
-        export namespace B {
-            export type CreateDirectoryCreator = ($c: ($b: SYNC.I.CreateDirectory) => void, $i: SYNC.I.CreateDirectoryHandler) => void
+        export namespace P {
+            export type CreateDirectoryCreator = ($c: ($i: SYNC.I.CreateDirectory) => void, $i: SYNC.I.CreateDirectoryHandler) => void
         }
         
         
-        export namespace B {
-            export type CreateFile = ($c: ($b: SYNC.I.CreateFile) => void, $i: SYNC.I.Nothing) => void
+        export namespace P {
+            export type CreateFile = ($c: ($i: SYNC.I.CreateFile) => void, $i: SYNC.I.Nothing) => void
         }
         
         
-        export namespace B {
-            export type CreateFileCreator = ($c: ($b: SYNC.I.CreateFile) => void, $i: SYNC.I.CreateWriteStream) => void
+        export namespace P {
+            export type CreateFileCreator = ($c: ($i: SYNC.I.CreateFile) => void, $i: SYNC.I.CreateWriteStream) => void
         }
         
         
@@ -90,8 +90,8 @@ export namespace SYNC {
         }
         
         
-        export namespace B {
-            export type FountainPen = ($c: ($b: SYNC.I.Block) => void, $i: g_common.SYNC.I.String) => void
+        export namespace P {
+            export type FountainPen = ($c: ($i: SYNC.I.Block) => void, $i: g_common.SYNC.I.String) => void
         }
     }
 }

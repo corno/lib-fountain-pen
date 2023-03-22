@@ -3,7 +3,7 @@ import * as ps from 'pareto-core-state'
 
 import * as g_tostring from "res-pareto-tostring"
 
-import { $$ as cufp } from "../../main/implementations/createFountainPen.s.b"
+import { $$ as cufp } from "../../main/implementations/createFountainPen.s.p"
 
 import { A } from "../api.generated"
 

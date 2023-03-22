@@ -6,13 +6,13 @@ export namespace A {
     
     export type createDirectoryCreator = ($se: {
         readonly 'report': g_main.SYNC.I.Report
-    }, ) => g_main.SYNC.A.B.CreateDirectory
+    }, ) => g_main.SYNC.A.P.CreateDirectory
     
     export type createFileCreator = ($se: {
         readonly 'onWriteFileError': g_main.SYNC.I.OnWriteFileError
-    }, ) => g_main.SYNC.A.B.CreateFile
+    }, ) => g_main.SYNC.A.P.CreateFile
     
-    export type fountainPen = () => g_main.SYNC.A.B.FountainPen
+    export type fountainPen = () => g_main.SYNC.A.P.FountainPen
 }
 
 export type API = {

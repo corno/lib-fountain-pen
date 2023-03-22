@@ -1,6 +1,6 @@
 import * as pd from 'pareto-core-data'
 
-import { data, externalTypeReference, group, imp, inf, member, ref, sbuilder, sconstructor, sfunction, sInterfaceMethod, sInterfaceReference, string, type, typeReference } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
+import { data, externalTypeReference, group, imp, inf, member, ref, procedure, sfunction, sInterfaceMethod, sInterfaceReference, string, type, typeReference } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
 
@@ -81,11 +81,11 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             }]
         }),
         'algorithms': d({
-            "FountainPen": sbuilder(inf(sInterfaceReference("Block")), sInterfaceReference("common", "String")),
-            "CreateDirectory": sbuilder(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("Nothing")),
-            "CreateFile": sbuilder(inf(sInterfaceReference("CreateFile")), sInterfaceReference("Nothing")),
-            "CreateDirectoryCreator": sbuilder(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("CreateDirectoryHandler")),
-            "CreateFileCreator": sbuilder(inf(sInterfaceReference("CreateFile")), sInterfaceReference("CreateWriteStream")),
+            "FountainPen": procedure(inf(sInterfaceReference("Block")), sInterfaceReference("common", "String")),
+            "CreateDirectory": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("Nothing")),
+            "CreateFile": procedure(inf(sInterfaceReference("CreateFile")), sInterfaceReference("Nothing")),
+            "CreateDirectoryCreator": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("CreateDirectoryHandler")),
+            "CreateFileCreator": procedure(inf(sInterfaceReference("CreateFile")), sInterfaceReference("CreateWriteStream")),
             "CreateNodeMessage": sfunction(externalTypeReference("common", "String"), data(typeReference("Node"))),
         }),
     },
