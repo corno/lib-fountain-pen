@@ -27,7 +27,7 @@ export const $$: A.getTestSet = () => {
                     actual: g_tostring.$r.getArrayAsString({
                         'separator': "",
                         'maximum': [false],
-                    }, null, null)(g_build.$r.buildArray(($i) => {
+                    })(g_build.$r.buildArray(($i) => {
                         g_pub.$b.fountainPen()(
                             $i,
                             $c,

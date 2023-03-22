@@ -12,6 +12,6 @@ export const $$: A.createSuperfluousNodeMessage = () => {
             separator: "/",
             'maximum': [false],
 
-        }, null, null)($.path)}/${$.name}${reset}`
+        })($.path)}/${$.name}${reset}`
     }
 }

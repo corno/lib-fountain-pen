@@ -17,11 +17,11 @@ export const $$: A.fountainPen = () => {
             joinNestedStrings: g_tostring.$r.joinNestedStrings({
                 "maximum": [false],
                 "separator": "",
-            }, null, null),
+            }),
             getArrayAsString: g_tostring.$r.getArrayAsString({
                 "maximum": [false],
                 "separator": "",
-            }, null, null),
+            }),
         },
     )
 }
