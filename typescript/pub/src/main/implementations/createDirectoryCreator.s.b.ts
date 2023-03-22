@@ -7,7 +7,7 @@ import * as g_common from "glo-pareto-common"
 import { A } from "../api.generated"
 
 export const $$: A.createDirectoryCreator = ($d) => {
-    return ($i, $c) => {
+    return ($c, $i) => {
         $c(($, $c) => {
             //const contextPath = $.path
             function createWriterImp(newPath: g_common.T.Path, $c: ($i: g_this.SYNC.I.Directory) => void): void {

@@ -65,23 +65,23 @@ export namespace SYNC {
     export namespace A {
         
         
-        export namespace C {
-            export type CreateDirectory = ($i: SYNC.I.Nothing, $c: ($b: SYNC.I.CreateDirectory) => void) => void
+        export namespace B {
+            export type CreateDirectory = ($c: ($b: SYNC.I.CreateDirectory) => void, $i: SYNC.I.Nothing) => void
         }
         
         
-        export namespace C {
-            export type CreateDirectoryCreator = ($i: SYNC.I.CreateDirectoryHandler, $c: ($b: SYNC.I.CreateDirectory) => void) => void
+        export namespace B {
+            export type CreateDirectoryCreator = ($c: ($b: SYNC.I.CreateDirectory) => void, $i: SYNC.I.CreateDirectoryHandler) => void
         }
         
         
-        export namespace C {
-            export type CreateFile = ($i: SYNC.I.Nothing, $c: ($b: SYNC.I.CreateFile) => void) => void
+        export namespace B {
+            export type CreateFile = ($c: ($b: SYNC.I.CreateFile) => void, $i: SYNC.I.Nothing) => void
         }
         
         
-        export namespace C {
-            export type CreateFileCreator = ($i: SYNC.I.CreateWriteStream, $c: ($b: SYNC.I.CreateFile) => void) => void
+        export namespace B {
+            export type CreateFileCreator = ($c: ($b: SYNC.I.CreateFile) => void, $i: SYNC.I.CreateWriteStream) => void
         }
         
         

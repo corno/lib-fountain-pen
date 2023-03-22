@@ -8,10 +8,10 @@ const d = pd.d
 
 export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> = {
     'algorithms': d({
-        "createDirectoryCreator": algorithm(sconstructor("main", {}, "CreateDirectory"), {}, dependent(null, {}, {
+        "createDirectoryCreator": algorithm(sbuilder("main", {}, "CreateDirectory"), {}, dependent(null, {}, {
             "report": sSideEffect("main", {}, "Report"),
         })),
-        "createFileCreator": algorithm(sconstructor("main", {}, "CreateFile"), {}, dependent(null, { }, {
+        "createFileCreator": algorithm(sbuilder("main", {}, "CreateFile"), {}, dependent(null, { }, {
             "onWriteFileError": sSideEffect("main", {}, "OnWriteFileError"),
         })),
         "fountainPen": algorithm(sbuilder("main", {}, "FountainPen")),

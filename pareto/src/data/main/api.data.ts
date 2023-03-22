@@ -12,11 +12,11 @@ export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> = {
             "joinNestedStrings": sfunction("tostring", {}, "JoinNestedStrings"),
             "getArrayAsString": sfunction("tostring", {}, "GetArrayAsString"),
         }, {})),
-        "createDirectoryCreator": algorithm(sconstructor("this", {}, "CreateDirectoryCreator"), {}, dependent(null, {
+        "createDirectoryCreator": algorithm(sbuilder("this", {}, "CreateDirectoryCreator"), {}, dependent(null, {
             "getNodes": afunction("fs", {}, "ReadDirectoryOrAbort"),
             "pipeFountainPen": sbuilder("this", {}, "FountainPen"),
         }, {})),
-        "createFileCreator": algorithm(sconstructor("this", {}, "CreateFileCreator"), {}, dependent(null, {
+        "createFileCreator": algorithm(sbuilder("this", {}, "CreateFileCreator"), {}, dependent(null, {
             "pipeFountainPen": sbuilder("this", {}, "FountainPen"),
         }, {
         })),

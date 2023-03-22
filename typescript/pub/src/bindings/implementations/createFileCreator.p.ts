@@ -8,27 +8,30 @@ import { A } from "../api.generated"
 
 export const $$: A.createFileCreator = ($se) => {
 
-    return ($i, $c) => {
+    return ($c, $i) => {
         $c(($, $c) => {
             $a.createFileCreator(
                 {
                     'pipeFountainPen': fp,
                 },
-            )(($, $c) => {
-                const fw = g_fs.$r.createFileWriter(
-                )({
-                    'onWriteFileError': $se.onWriteFileError,
-                })({
-                    'path': $,
-                    'createContainingDirectories': true,
-                })
-                $c(($) => {
-                    fw.data($)
-                })
-                fw.end()
-            }, ($b) => {
-                $b($, $c)
-            })
+            )(
+                ($b) => {
+                    $b($, $c)
+                },
+                ($, $c) => {
+                    const fw = g_fs.$r.createFileWriter(
+                    )({
+                        'onWriteFileError': $se.onWriteFileError,
+                    })({
+                        'path': $,
+                        'createContainingDirectories': true,
+                    })
+                    $c(($) => {
+                        fw.data($)
+                    })
+                    fw.end()
+                },
+            )
         })
     }
 }

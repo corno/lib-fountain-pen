@@ -8,7 +8,7 @@ import { $a } from "../../main"
 import { A } from "../api.generated"
 
 export const $$: A.createDirectoryCreator = ($se) => {
-    return ($i, $c) => {
+    return ($c, $i) => {
         $c(($, $c) => {
             $a.createDirectoryCreator(
                 {
@@ -41,32 +41,34 @@ export const $$: A.createDirectoryCreator = ($se) => {
                         // })
                     },
                 },
-            )({
-                'report': {
-                    'nodes': $se.report.nodes,
-                    'onReadDirError': $se.report.onReadDirError,
-                    'onWriteFileError': $se.report.onWriteFileError,
+            )(
+                ($b) => {
+                    $b($, $c)
                 },
-                'createWriteStream': ($, $c) => {
-                    const fw = g_fsr.$r.createFileWriter()(
-                        {
-                            'onWriteFileError': $se.report.onWriteFileError,
+                {
+                    'report': {
+                        'nodes': $se.report.nodes,
+                        'onReadDirError': $se.report.onReadDirError,
+                        'onWriteFileError': $se.report.onWriteFileError,
+                    },
+                    'createWriteStream': ($, $c) => {
+                        const fw = g_fsr.$r.createFileWriter()(
+                            {
+                                'onWriteFileError': $se.report.onWriteFileError,
 
-                        },
+                            },
 
-                    )({
-                        path: $,
-                        createContainingDirectories: true,
-                    })
-                    $c(($) => {
-                        fw.data($)
-                    })
-                    fw.end()
-                },
+                        )({
+                            path: $,
+                            createContainingDirectories: true,
+                        })
+                        $c(($) => {
+                            fw.data($)
+                        })
+                        fw.end()
+                    },
 
-            }, ($b) => {
-                $b($, $c)
-            })
+                })
 
         })
     }
