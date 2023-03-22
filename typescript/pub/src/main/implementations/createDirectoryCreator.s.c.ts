@@ -7,7 +7,7 @@ import * as g_common from "glo-pareto-common"
 import { A } from "../api.generated"
 
 export const $$: A.createDirectoryCreator = ($d) => {
-    return ($is, $c) => {
+    return ($i, $c) => {
         $c(($, $c) => {
             //const contextPath = $.path
             function createWriterImp(newPath: g_common.T.Path, $c: ($i: g_this.SYNC.I.Directory) => void): void {
@@ -30,12 +30,12 @@ export const $$: A.createDirectoryCreator = ($d) => {
                     },
                     file: ($, $c) => {
                         createdFilesBuilder.add($, false)
-                        $is.createWriteStream(
+                        $i.createWriteStream(
                             [newPath, $],
                             ($i) => {
                                 $d.pipeFountainPen(
-                                    $i,
                                     $c,
+                                    $i,
                                 )
                             },
                         )
@@ -53,7 +53,7 @@ export const $$: A.createDirectoryCreator = ($d) => {
                                 nodes.__getEntry(
                                     key,
                                     ($) => {
-                                        $is.report.nodes.manualNode({
+                                        $i.report.nodes.manualNode({
                                             path: newPath,
                                             name: key,
                                         })
@@ -71,7 +71,7 @@ export const $$: A.createDirectoryCreator = ($d) => {
                                     //
                                 },
                                 () => {
-                                    $is.report.nodes.superfluousNode({
+                                    $i.report.nodes.superfluousNode({
                                         path: newPath,
                                         name: key,
                                     })

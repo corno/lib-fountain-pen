@@ -81,7 +81,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             }]
         }),
         'algorithms': d({
-            "FountainPen": sconstructor(sInterfaceReference("Block"), sInterfaceReference("common", "String")),
+            "FountainPen": sbuilder(inf(sInterfaceReference("Block")), sInterfaceReference("common", "String")),
             "CreateDirectory": sconstructor(sInterfaceReference("CreateDirectory"), sInterfaceReference("Nothing")),
             "CreateFile": sconstructor(sInterfaceReference("CreateFile"), sInterfaceReference("Nothing")),
             "CreateDirectoryCreator": sconstructor(sInterfaceReference("CreateDirectory"), sInterfaceReference("CreateDirectoryHandler")),

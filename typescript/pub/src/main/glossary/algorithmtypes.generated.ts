@@ -90,8 +90,8 @@ export namespace SYNC {
         }
         
         
-        export namespace C {
-            export type FountainPen = ($i: g_common.SYNC.I.String, $c: ($b: SYNC.I.Block) => void) => void
+        export namespace B {
+            export type FountainPen = ($c: ($b: SYNC.I.Block) => void, $i: g_common.SYNC.I.String) => void
         }
     }
 }

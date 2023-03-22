@@ -12,7 +12,7 @@ export namespace A {
         readonly 'onWriteFileError': g_main.SYNC.I.OnWriteFileError
     }, ) => g_main.SYNC.A.C.CreateFile
     
-    export type fountainPen = () => g_main.SYNC.A.C.FountainPen
+    export type fountainPen = () => g_main.SYNC.A.B.FountainPen
 }
 
 export type API = {

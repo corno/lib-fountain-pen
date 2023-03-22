@@ -11,17 +11,17 @@ export namespace A {
     
     export type createDirectoryCreator = ($d: {
         readonly 'getNodes': g_fs.ASYNC.A.F.ReadDirectoryOrAbort
-        readonly 'pipeFountainPen': g_this.SYNC.A.C.FountainPen
+        readonly 'pipeFountainPen': g_this.SYNC.A.B.FountainPen
     }, ) => g_this.SYNC.A.C.CreateDirectoryCreator
     
     export type createFileCreator = ($d: {
-        readonly 'pipeFountainPen': g_this.SYNC.A.C.FountainPen
+        readonly 'pipeFountainPen': g_this.SYNC.A.B.FountainPen
     }, ) => g_this.SYNC.A.C.CreateFileCreator
     
     export type createFountainPen = ($: g_this.T.Configuration, $d: {
         readonly 'getArrayAsString': g_tostring.SYNC.A.F.GetArrayAsString
         readonly 'joinNestedStrings': g_tostring.SYNC.A.F.JoinNestedStrings
-    }, ) => g_this.SYNC.A.C.FountainPen
+    }, ) => g_this.SYNC.A.B.FountainPen
     
     export type createSuperfluousNodeMessage = () => g_this.SYNC.A.F.CreateNodeMessage
 }

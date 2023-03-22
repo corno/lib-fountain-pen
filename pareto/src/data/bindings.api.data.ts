@@ -1,6 +1,6 @@
 import * as pd from 'pareto-core-data'
 
-import { algorithm, dependent, sconstructor, sSideEffect } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
+import { algorithm, dependent, sbuilder, sconstructor, sSideEffect } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
 
 import * as g_project from "lib-pareto-typescript-project/dist/submodules/project"
 
@@ -14,6 +14,6 @@ export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> = {
         "createFileCreator": algorithm(sconstructor("main", {}, "CreateFile"), {}, dependent(null, { }, {
             "onWriteFileError": sSideEffect("main", {}, "OnWriteFileError"),
         })),
-        "fountainPen": algorithm(sconstructor("main", {}, "FountainPen")),
+        "fountainPen": algorithm(sbuilder("main", {}, "FountainPen")),
     }),
 }

@@ -29,8 +29,8 @@ export const $$: A.getTestSet = () => {
                         'maximum': [false],
                     })(g_build.$r.buildArray(($i) => {
                         g_pub.$b.fountainPen()(
-                            $i,
                             $c,
+                            $i,
                         )
                     })),
                     expected: $.expected

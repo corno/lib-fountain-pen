@@ -8,8 +8,8 @@ export const $$: A.createFileCreator = ($d) => {
                 $,
                 ($i) => {
                     $d.pipeFountainPen(
-                        $i,
                         $c,
+                        $i,
                     )
                 },
             )
