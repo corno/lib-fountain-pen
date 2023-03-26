@@ -1,5 +1,6 @@
-import * as g_fsr from "res-pareto-filesystem"
-import * as g_fs from "lib-pareto-filesystem"
+import * as a_fsr from "res-pareto-filesystem"
+import * as a_fse from "lib-pareto-filesystem/dist/submodules/errormessagecreators"
+import * as a_fs from "lib-pareto-filesystem"
 
 import { $$ as fp } from "./fountainPen.p"
 
@@ -7,19 +8,19 @@ import { $a } from "../../main"
 
 import { A } from "../api.generated"
 
-export const $$: A.createDirectoryCreator = ($se) => {
+export const $$: A.createDirectory = () => {
     return ($c, $i) => {
         $c(($, $c) => {
             $a.createDirectoryCreator(
                 {
                     'pipeFountainPen': fp,
                     'getNodes': ($) => {
-                        return g_fs.$a.createReadDirectoryOrAbort({
-                            'readDirectory': g_fsr.$r.readDirectory(),
+                        return a_fs.$a.createReadDirectoryOrAbort({
+                            'readDirectory': a_fsr.$r.readDirectory(),
                         }, {
                             'onError': ($) => {
                                 if ($.error[0] !== 'no entity') {
-                                    $se.report.onReadDirError($)
+                                    $i.logError(a_fse.$a.readDir()($.error))
                                 }
                             },
 
@@ -47,24 +48,32 @@ export const $$: A.createDirectoryCreator = ($se) => {
                 },
                 {
                     'report': {
-                        'nodes': $se.report.nodes,
-                        'onReadDirError': $se.report.onReadDirError,
-                        'onWriteFileError': $se.report.onWriteFileError,
+                        'manualNode': ($) => {
+                            $i.log($a.createAllowedNodeMessage()($))
+                        },
+                        'superfluousNode': ($) => {
+                            $i.log($a.createSuperfluousNodeMessage()($))
+
+                        },
                     },
                     'createWriteStream': ($, $c) => {
-                        const fw = g_fsr.$r.createFileWriter()(
+                        //before
+                        const fw = a_fsr.$r.createFileWriter()(
                             {
-                                'onWriteFileError': $se.report.onWriteFileError,
-
+                                'onWriteFileError': ($) => {
+                                    $i.logError(a_fse.$a.writeFile()($.error))
+                                },
                             },
 
                         )({
                             path: $,
                             createContainingDirectories: true,
                         })
+                        //callback
                         $c(($) => {
                             fw.data($)
                         })
+                        //after
                         fw.end()
                     },
 

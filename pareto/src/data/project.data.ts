@@ -5,7 +5,7 @@ import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/gloss
 
 const d = pd.d
 
-import { $ as bindings } from "./bindings.api.data"
+import { $ as bindings } from "./bindings/moduledefintion.data"
 import { $ as api } from "./main/api.data"
 import { $ as glossary } from "./main/glossary.data"
 
@@ -51,38 +51,7 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
         }),
 
         'bindings': [true, {
-            'definition': {
-                'glossary': {
-
-                    'root': {
-                        'parameters': d({}),
-                        'imports': d({}),
-                        'types': d({}),
-                        'asynchronous': {
-                            'interfaces': d({}),
-                            'algorithms': d({}),
-                            
-                        },
-                        'synchronous': {
-                            'interfaces': d({}),
-                            'algorithms': d({}),
-                            
-                        },
-                    },
-                    'imports': d({}),
-                },
-                'api': {
-                    'root': bindings,
-
-                    'imports': d({
-                        // "common": external("glo-pareto-common"),
-                        // "fs": external("lib-pareto-filesystem"),
-                        // "tostring": external("res-pareto-tostring"),
-                        "main": ['main', null],
-                    }),
-                },
-
-            },
+            'definition': bindings,
             'implementation': ['typescript', null],
 
         }],

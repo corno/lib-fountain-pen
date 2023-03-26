@@ -25,7 +25,7 @@ export namespace SYNC {
         
         export type CreateDirectoryHandler = {
             readonly 'createWriteStream': SYNC.I.CreateWriteStream
-            readonly 'report': SYNC.I.Report
+            readonly 'report': SYNC.I.ReportNodes
         }
         
         export type CreateFile = ($: g_common.T.Path, $c: ($b: SYNC.I.Block) => void) => void
@@ -44,17 +44,9 @@ export namespace SYNC {
             readonly 'snippet': ($: g_common.T.String, ) => void
         }
         
-        export type Nothing = null
-        
         export type OnReadDirError = ($: g_fs.T.AnnotatedReadDirError, ) => void
         
         export type OnWriteFileError = ($: g_fs.T.AnnotatedWriteFileError, ) => void
-        
-        export type Report = {
-            readonly 'nodes': SYNC.I.ReportNodes
-            readonly 'onReadDirError': SYNC.I.OnReadDirError
-            readonly 'onWriteFileError': SYNC.I.OnWriteFileError
-        }
         
         export type ReportNodes = {
             readonly 'manualNode': ($: T.Node, ) => void
@@ -66,17 +58,7 @@ export namespace SYNC {
         
         
         export namespace P {
-            export type CreateDirectory = ($c: ($i: SYNC.I.CreateDirectory) => void, $i: SYNC.I.Nothing) => void
-        }
-        
-        
-        export namespace P {
             export type CreateDirectoryCreator = ($c: ($i: SYNC.I.CreateDirectory) => void, $i: SYNC.I.CreateDirectoryHandler) => void
-        }
-        
-        
-        export namespace P {
-            export type CreateFile = ($c: ($i: SYNC.I.CreateFile) => void, $i: SYNC.I.Nothing) => void
         }
         
         

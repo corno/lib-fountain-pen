@@ -1,22 +1,16 @@
 import * as pt from 'pareto-core-types'
 
 import * as g_main from "../main"
+import * as g_this from "./glossary"
 
 export namespace A {
     
-    export type createDirectoryCreator = ($se: {
-        readonly 'report': g_main.SYNC.I.Report
-    }, ) => g_main.SYNC.A.P.CreateDirectory
-    
-    export type createFileCreator = ($se: {
-        readonly 'onWriteFileError': g_main.SYNC.I.OnWriteFileError
-    }, ) => g_main.SYNC.A.P.CreateFile
+    export type createDirectory = () => g_this.SYNC.A.P.CreateDirectory
     
     export type fountainPen = () => g_main.SYNC.A.P.FountainPen
 }
 
 export type API = {
-    readonly 'createDirectoryCreator': A.createDirectoryCreator
-    readonly 'createFileCreator': A.createFileCreator
+    readonly 'createDirectory': A.createDirectory
     readonly 'fountainPen': A.fountainPen
 }

@@ -57,33 +57,29 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     "manualNode": sInterfaceMethod(typeReference("Node")),
                 }),
             }]),
-            "Report": sInterface(['group', {
-                'members': d({
-                    "nodes": ['reference', sInterfaceReference("ReportNodes")],
-                    "onWriteFileError": ['reference', sInterfaceReference("OnWriteFileError")],
-                    "onReadDirError": ['reference', sInterfaceReference("OnReadDirError")],
-                }),
-            }]),
+            // "Report": sInterface(['group', {
+            //     'members': d({
+            //         "nodes": ['reference', sInterfaceReference("ReportNodes")],
+            //         "onWriteFileError": ['reference', sInterfaceReference("OnWriteFileError")],
+            //         "onReadDirError": ['reference', sInterfaceReference("OnReadDirError")],
+            //     }),
+            // }]),
             "OnWriteFileError": sInterface(sInterfaceMethod(externalTypeReference("fs", "AnnotatedWriteFileError"))),
             "OnReadDirError": sInterface(sInterfaceMethod(externalTypeReference("fs", "AnnotatedReadDirError"))),
 
             "CreateDirectory": sInterface(sInterfaceMethod(externalTypeReference("common", "Path"), ['reference', sInterfaceReference("Directory")])),
             "CreateDirectoryHandler": sInterface(['group', {
                 'members': d({
-                    "report": ['reference', sInterfaceReference("Report")],
+                    "report": ['reference', sInterfaceReference("ReportNodes")],
                     "createWriteStream": ['reference', sInterfaceReference("CreateWriteStream")],
                 })
             }]),
             "CreateFile": sInterface(sInterfaceMethod(externalTypeReference("common", "Path"), ['reference', sInterfaceReference("Block")])),
             "CreateWriteStream": sInterface(sInterfaceMethod(externalTypeReference("common", "Path"), ['reference', sExternalInterfaceReference("common", "String")])),
-            "Nothing": sInterface(['group', {
-                'members': d({}),
-            }]),
         }),
         'algorithms': d({
             "FountainPen": procedure(inf(sInterfaceReference("Block")), sExternalInterfaceReference("common", "String")),
-            "CreateDirectory": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("Nothing")),
-            "CreateFile": procedure(inf(sInterfaceReference("CreateFile")), sInterfaceReference("Nothing")),
+            //"CreateFile": procedure(inf(sInterfaceReference("CreateFile")), sInterfaceReference("Nothing")),
             "CreateDirectoryCreator": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("CreateDirectoryHandler")),
             "CreateFileCreator": procedure(inf(sInterfaceReference("CreateFile")), sInterfaceReference("CreateWriteStream")),
             "CreateNodeMessage": sfunction(externalTypeReference("common", "String"), data(typeReference("Node"))),

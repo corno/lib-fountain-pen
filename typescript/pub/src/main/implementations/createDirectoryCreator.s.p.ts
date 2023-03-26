@@ -53,7 +53,7 @@ export const $$: A.createDirectoryCreator = ($d) => {
                                 nodes.__getEntry(
                                     key,
                                     ($) => {
-                                        $i.report.nodes.manualNode({
+                                        $i.report.manualNode({
                                             path: newPath,
                                             name: key,
                                         })
@@ -71,7 +71,7 @@ export const $$: A.createDirectoryCreator = ($d) => {
                                     //
                                 },
                                 () => {
-                                    $i.report.nodes.superfluousNode({
+                                    $i.report.superfluousNode({
                                         path: newPath,
                                         name: key,
                                     })
