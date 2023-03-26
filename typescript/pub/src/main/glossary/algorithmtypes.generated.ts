@@ -44,12 +44,14 @@ export namespace SYNC {
             readonly 'snippet': ($: g_common.T.String, ) => void
         }
         
-        export type Log = {
+        export type LogAndLogError = {
             readonly 'log': g_common.SYNC.I.String
             readonly 'logError': g_common.SYNC.I.String
         }
         
-        export type LogError = g_common.SYNC.I.String
+        export type LogError = {
+            readonly 'logError': g_common.SYNC.I.String
+        }
         
         export type OnReadDirError = ($: g_fs.T.AnnotatedReadDirError, ) => void
         
@@ -65,7 +67,7 @@ export namespace SYNC {
         
         
         export namespace P {
-            export type CreateDirectory = ($c: ($i: SYNC.I.CreateDirectory) => void, $i: SYNC.I.Log) => void
+            export type CreateDirectory = ($c: ($i: SYNC.I.CreateDirectory) => void, $i: SYNC.I.LogAndLogError) => void
         }
         
         

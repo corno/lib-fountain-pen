@@ -24,7 +24,7 @@ export const $$: A.createFile = () => {
                     const fw = a_fsr.$r.createFileWriter()(
                         {
                             'onWriteFileError': ($) => {
-                                $i(a_fse.$a.writeFile()($.error))
+                                $i.logError(a_fse.$a.writeFile()($.error))
                             },
                         },
 

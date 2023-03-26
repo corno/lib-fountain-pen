@@ -30,13 +30,17 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     },
     'synchronous': {
         'interfaces': d({
-            "Log": sInterface(['group', {
+            "LogAndLogError": sInterface(['group', {
                 'members': d({
                     "log": ['reference', sExternalInterfaceReference("common", "String")],
                     "logError": ['reference', sExternalInterfaceReference("common", "String")],
                 }),
             }]),
-            "LogError": sInterface(['reference', sExternalInterfaceReference("common", "String")]),
+            "LogError": sInterface(['group', {
+                'members': d({
+                    "logError": ['reference', sExternalInterfaceReference("common", "String")],
+                }),
+            }]),
             "Block": sInterface(['group', {
                 'members': d({
                     "nestedLine": sInterfaceMethod(null, ['reference', sInterfaceReference("Line")]),
@@ -85,7 +89,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             "CreateWriteStream": sInterface(sInterfaceMethod(externalTypeReference("common", "Path"), ['reference', sExternalInterfaceReference("common", "String")])),
         }),
         'algorithms': d({
-            "CreateDirectory": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("Log")),
+            "CreateDirectory": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("LogAndLogError")),
             "CreateFile": procedure(inf(sInterfaceReference("CreateFile")), sInterfaceReference("LogError")),
 
             "FountainPen": procedure(inf(sInterfaceReference("Block")), sExternalInterfaceReference("common", "String")),
