@@ -14,22 +14,23 @@ export const $$: A.createDirectoryCreator = ($d) => {
                 const createdFilesBuilder = ps.createUnsafeDictionaryBuilder<boolean>()
 
                 $c({
-                    allowedManual: ($) => {
+                    'allowedManual': ($) => {
                         createdFilesBuilder.add($, true)
                     },
-                    allowedGenerated: ($) => {
+                    'allowedGenerated': ($) => {
                         createdFilesBuilder.add($, false)
 
                     },
-                    directory: ($, $c) => {
+                    'directory': ($, $c) => {
                         createdFilesBuilder.add($, false)
                         createWriterImp(
                             [newPath, $],
                             $c,
                         )
                     },
-                    file: ($, $c) => {
+                    'file': ($, $c) => {
                         createdFilesBuilder.add($, false)
+
                         $i.createWriteStream(
                             [newPath, $],
                             ($i) => {

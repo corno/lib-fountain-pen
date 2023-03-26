@@ -1,3 +1,4 @@
+import * as pd from 'pareto-core-dev'
 
 import * as ps from 'pareto-core-state'
 import * as pa from 'pareto-core-async'
@@ -10,7 +11,28 @@ import * as g_build from "res-pareto-build"
 
 import { A } from "../api.generated"
 
-export const $$: A.getTestSet = () => {
+export const $$: A.getTestSet = ($) => {
+
+
+    g_pub.$b.createDirectory()(
+        ($i) => {
+            $i([$.testDirectory, "FOOOO"], ($i) => {
+                $i.file("BAAAR.generated", ($i) => {
+                    $i.line(`TESTME`)
+                })
+            })
+        },
+        {
+            'log': () => {
+                pd.logDebugMessage(`safsfds`)
+            },
+            'logError': () => {
+
+                pd.logDebugMessage(`ssssss`)
+            }
+        }
+    )
+
     const builder = ps.createUnsafeDictionaryBuilder<g_test.T.TestElement>()
     function doTest(
         $: {

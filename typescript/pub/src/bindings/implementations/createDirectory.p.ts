@@ -13,7 +13,7 @@ export const $$: A.createDirectory = () => {
         $c(($, $c) => {
             $a.createDirectoryCreator(
                 {
-                    'pipeFountainPen': fp,
+                    'pipeFountainPen': fp(),
                     'getNodes': ($) => {
                         return a_fs.$a.createReadDirectoryOrAbort({
                             'readDirectory': a_fsr.$r.readDirectory(),
@@ -57,7 +57,7 @@ export const $$: A.createDirectory = () => {
                         },
                     },
                     'createWriteStream': ($, $c) => {
-                        //before
+                        //before                    
                         const fw = a_fsr.$r.createFileWriter()(
                             {
                                 'onWriteFileError': ($) => {
