@@ -36,6 +36,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     "logError": ['reference', sExternalInterfaceReference("common", "String")],
                 }),
             }]),
+            "LogError": sInterface(['reference', sExternalInterfaceReference("common", "String")]),
             "Block": sInterface(['group', {
                 'members': d({
                     "nestedLine": sInterfaceMethod(null, ['reference', sInterfaceReference("Line")]),
@@ -85,6 +86,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         }),
         'algorithms': d({
             "CreateDirectory": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("Log")),
+            "CreateFile": procedure(inf(sInterfaceReference("CreateFile")), sInterfaceReference("LogError")),
 
             "FountainPen": procedure(inf(sInterfaceReference("Block")), sExternalInterfaceReference("common", "String")),
             "CreateDirectoryCreator": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("CreateDirectoryHandler")),

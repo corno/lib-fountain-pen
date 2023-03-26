@@ -27,19 +27,6 @@ export const $$: A.createDirectory = () => {
                         })({
                             'path': $.path
                         })
-                        // .map<pt.Dictionary<string>>(($) => {
-                        //     switch ($[0]) {
-                        //         case 'error':
-                        //             return pl.cc($[1], ($) => {
-                        //                 return pa.asyncValue(pm.wrapRawDictionary({}))
-                        //             })
-                        //         case 'success':
-                        //             return pl.cc($[1], ($) => {
-                        //                 return pa.asyncValue($.__mapWithKey(($, key) => key))
-                        //             })
-                        //         default: return pl.au($[0])
-                        //     }
-                        // })
                     },
                 },
             )(
