@@ -2,7 +2,7 @@ import * as a_fsr from "res-pareto-filesystem"
 import * as a_fse from "lib-pareto-filesystem/dist/submodules/errormessagecreators"
 import * as a_fs from "lib-pareto-filesystem"
 
-import { $$ as fp } from "./fountainPen.p"
+import { $$ as fp } from "./fountainPen.b"
 
 import { $a } from "../../main"
 
