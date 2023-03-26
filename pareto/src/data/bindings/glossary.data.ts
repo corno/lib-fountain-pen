@@ -9,8 +9,6 @@ const d = pd.d
 export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     'parameters': d({}),
     'imports': d({
-        "main": imp({}),
-        "common": imp({}),
     }),
     'types': d({}),
     'asynchronous': {
@@ -19,15 +17,8 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     },
     'synchronous': {
         'interfaces': d({
-            "Log": sInterface(['group', {
-                'members': d({
-                    "log": ['reference', sExternalInterfaceReference("common", "String")],
-                    "logError": ['reference', sExternalInterfaceReference("common", "String")],
-                }),
-            }]),
         }),
         'algorithms': d({
-            "CreateDirectory": procedure(inf(sExternalInterfaceReference("main", "CreateDirectory")), sInterfaceReference("Log")),
         }),
 
     },

@@ -30,6 +30,12 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     },
     'synchronous': {
         'interfaces': d({
+            "Log": sInterface(['group', {
+                'members': d({
+                    "log": ['reference', sExternalInterfaceReference("common", "String")],
+                    "logError": ['reference', sExternalInterfaceReference("common", "String")],
+                }),
+            }]),
             "Block": sInterface(['group', {
                 'members': d({
                     "nestedLine": sInterfaceMethod(null, ['reference', sInterfaceReference("Line")]),
@@ -78,8 +84,9 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             "CreateWriteStream": sInterface(sInterfaceMethod(externalTypeReference("common", "Path"), ['reference', sExternalInterfaceReference("common", "String")])),
         }),
         'algorithms': d({
+            "CreateDirectory": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("Log")),
+
             "FountainPen": procedure(inf(sInterfaceReference("Block")), sExternalInterfaceReference("common", "String")),
-            //"CreateFile": procedure(inf(sInterfaceReference("CreateFile")), sInterfaceReference("Nothing")),
             "CreateDirectoryCreator": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("CreateDirectoryHandler")),
             "CreateFileCreator": procedure(inf(sInterfaceReference("CreateFile")), sInterfaceReference("CreateWriteStream")),
             "CreateNodeMessage": sfunction(externalTypeReference("common", "String"), data(typeReference("Node"))),

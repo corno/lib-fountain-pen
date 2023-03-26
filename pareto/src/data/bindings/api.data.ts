@@ -8,7 +8,7 @@ const d = pd.d
 
 export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> = {
     'algorithms': d({
-        "createDirectory": algorithm(procedure("this", {}, "CreateDirectory")),
+        "createDirectory": algorithm(procedure("main", {}, "CreateDirectory")),
         // "createFileCreator": algorithm(procedure("main", {}, "CreateFile")),
          "fountainPen": algorithm(procedure("main", {}, "FountainPen")),
     }),
