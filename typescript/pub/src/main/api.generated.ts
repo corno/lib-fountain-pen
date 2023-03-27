@@ -5,23 +5,34 @@ import * as g_fs from "lib-pareto-filesystem"
 import * as g_this from "./glossary"
 import * as g_tostring from "res-pareto-tostring"
 
+export namespace D {
+    
+    
+    export type createDirectoryCreator = {
+        readonly 'getNodes': g_fs.ASYNC.A.F.ReadDirectoryOrAbort
+        readonly 'pipeFountainPen': g_this.SYNC.A.P.FountainPen
+    }
+    
+    export type createFileCreator = {
+        readonly 'pipeFountainPen': g_this.SYNC.A.P.FountainPen
+    }
+    
+    export type createFountainPen = {
+        readonly 'getArrayAsString': g_tostring.SYNC.A.F.GetArrayAsString
+        readonly 'joinNestedStrings': g_tostring.SYNC.A.F.JoinNestedStrings
+    }
+    
+}
+
 export namespace A {
     
     export type createAllowedNodeMessage = () => g_this.SYNC.A.F.CreateNodeMessage
     
-    export type createDirectoryCreator = ($d: {
-        readonly 'getNodes': g_fs.ASYNC.A.F.ReadDirectoryOrAbort
-        readonly 'pipeFountainPen': g_this.SYNC.A.P.FountainPen
-    }, ) => g_this.SYNC.A.P.CreateDirectoryCreator
+    export type createDirectoryCreator = ($d: D.createDirectoryCreator, ) => g_this.SYNC.A.P.CreateDirectoryCreator
     
-    export type createFileCreator = ($d: {
-        readonly 'pipeFountainPen': g_this.SYNC.A.P.FountainPen
-    }, ) => g_this.SYNC.A.P.CreateFileCreator
+    export type createFileCreator = ($d: D.createFileCreator, ) => g_this.SYNC.A.P.CreateFileCreator
     
-    export type createFountainPen = ($: g_this.T.Configuration, $d: {
-        readonly 'getArrayAsString': g_tostring.SYNC.A.F.GetArrayAsString
-        readonly 'joinNestedStrings': g_tostring.SYNC.A.F.JoinNestedStrings
-    }, ) => g_this.SYNC.A.P.FountainPen
+    export type createFountainPen = ($: g_this.T.Configuration, $d: D.createFountainPen, ) => g_this.SYNC.A.P.FountainPen
     
     export type createSuperfluousNodeMessage = () => g_this.SYNC.A.F.CreateNodeMessage
 }
