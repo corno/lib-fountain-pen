@@ -13,16 +13,19 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         "fs": imp({}),
         "this": imp({}),
     }),
-    'types': d({
-        "Configuration": type(group({
-            "indentation": member(string()),
-            "newline": member(string()),
-        })),
-        "Node": type(group({
-            "path": member(ref(externalTypeReference("common", "Path"))),
-            "name": member(string()),
-        })),
-    }),
+    'root': {
+        'namespaces': d({}),
+        'types': d({
+            "Configuration": type(group({
+                "indentation": member(string()),
+                "newline": member(string()),
+            })),
+            "Node": type(group({
+                "path": member(ref(externalTypeReference("common", "Path"))),
+                "name": member(string()),
+            })),
+        }),
+    },
     'asynchronous': {
         'interfaces': d({}),
         'algorithms': d({}),

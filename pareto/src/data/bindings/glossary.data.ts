@@ -10,7 +10,10 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     'parameters': d({}),
     'imports': d({
     }),
-    'types': d({}),
+    'root': {
+        'namespaces': d({}),
+        'types': d({}),
+    },
     'asynchronous': {
         'interfaces': d({}),
         'algorithms': d({}),
