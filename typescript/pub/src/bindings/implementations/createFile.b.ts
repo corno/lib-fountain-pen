@@ -21,7 +21,7 @@ export const $$: A.createFile = () => {
                 },
                 ($, $c) => {
                     //before                    
-                    const fw = a_fsr.$r.createFileWriter()(
+                    const fw = a_fsr.$r.createFileWriter().construct(
                         {
                             'onWriteFileError': ($) => {
                                 $i.logError(a_fse.$a.writeFile()($.error))
@@ -29,8 +29,9 @@ export const $$: A.createFile = () => {
                         },
 
                     )({
-                        path: $,
-                        createContainingDirectories: true,
+                        'path': $,
+                        'create containing directories': true,
+                        'overwrite if exists': true,
                     })
                     //callback
                     $c(($) => {

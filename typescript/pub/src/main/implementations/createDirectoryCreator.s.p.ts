@@ -32,7 +32,26 @@ export const $$: A.createDirectoryCreator = ($d) => {
                         createdFilesBuilder.add($, false)
 
                         $i.createWriteStream(
-                            [newPath, $],
+                            {
+                                'overwrite': true,
+                                path: [newPath, $]
+                            },
+                            ($i) => {
+                                $d.pipeFountainPen(
+                                    $c,
+                                    $i,
+                                )
+                            },
+                        )
+                    },
+                    'template': ($, $c) => {
+                        createdFilesBuilder.add($, false)
+
+                        $i.createWriteStream(
+                            {
+                                'overwrite': false,
+                                path: [newPath, $]
+                            },
                             ($i) => {
                                 $d.pipeFountainPen(
                                     $c,

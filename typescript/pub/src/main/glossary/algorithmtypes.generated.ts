@@ -30,13 +30,14 @@ export namespace SYNC {
         
         export type CreateFile = ($: g_common.T.Path, $c: ($b: SYNC.I.Block) => void) => void
         
-        export type CreateWriteStream = ($: g_common.T.Path, $c: ($b: g_common.SYNC.I.String) => void) => void
+        export type CreateWriteStream = ($: T.WriteStreamParameters, $c: ($b: g_common.SYNC.I.String) => void) => void
         
         export type Directory = {
             readonly 'allowedGenerated': ($: g_common.T.String, ) => void
             readonly 'allowedManual': ($: g_common.T.String, ) => void
             readonly 'directory': ($: g_common.T.String, $c: ($b: SYNC.I.Directory) => void) => void
             readonly 'file': ($: g_common.T.String, $c: ($b: SYNC.I.Block) => void) => void
+            readonly 'template': ($: g_common.T.String, $c: ($b: SYNC.I.Block) => void) => void
         }
         
         export type Line = {

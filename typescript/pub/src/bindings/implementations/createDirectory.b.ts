@@ -14,20 +14,18 @@ export const $$: A.createDirectory = () => {
             $a.createDirectoryCreator(
                 {
                     'pipeFountainPen': fp(),
-                    'getNodes': ($) => {
-                        return a_fs.$a.createReadDirectoryOrAbort({
-                            'readDirectory': a_fsr.$r.readDirectory(),
-                        }, {
-                            'onError': ($) => {
-                                if ($.error[0] !== 'no entity') {
-                                    $i.logError(a_fse.$a.readDir()($.error))
-                                }
-                            },
+                    'getNodes': ($) => a_fs.$a.createReadDirectoryOrAbort({
+                        'readDirectory': a_fsr.$r.readDirectory(),
+                    }, {
+                        'onError': ($) => {
+                            if ($.error[0] !== 'no entity') {
+                                $i.logError(a_fse.$a.readDir()($.error))
+                            }
+                        },
 
-                        })({
-                            'path': $.path
-                        })
-                    },
+                    })({
+                        'path': $.path
+                    }),
                 },
             )(
                 ($b) => {
@@ -45,7 +43,7 @@ export const $$: A.createDirectory = () => {
                     },
                     'createWriteStream': ($, $c) => {
                         //before                    
-                        const fw = a_fsr.$r.createFileWriter()(
+                        const fw = a_fsr.$r.createFileWriter().construct(
                             {
                                 'onWriteFileError': ($) => {
                                     $i.logError(a_fse.$a.writeFile()($.error))
@@ -53,8 +51,9 @@ export const $$: A.createDirectory = () => {
                             },
 
                         )({
-                            path: $,
-                            createContainingDirectories: true,
+                            path: $.path,
+                            'create containing directories': true,
+                            'overwrite if exists': $.overwrite,
                         })
                         //callback
                         $c(($) => {

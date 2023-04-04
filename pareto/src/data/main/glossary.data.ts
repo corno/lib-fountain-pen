@@ -1,6 +1,6 @@
 import * as pd from 'pareto-core-data'
 
-import { data, externalTypeReference, group, imp, inf, member, ref, procedure, sfunction, sInterfaceMethod, sInterfaceReference, string, type, typeReference, sInterface, sExternalInterfaceReference } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
+import { data, externalTypeReference, group, imp, inf, member, ref, procedure, sfunction, sInterfaceMethod, sInterfaceReference, string, type, typeReference, sInterface, sExternalInterfaceReference, boolean } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
 
@@ -24,6 +24,10 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                 "path": member(ref(externalTypeReference("common", "Path"))),
                 "name": member(string()),
             })),
+            "WriteStreamParameters": type(group({
+                "path": member(ref(externalTypeReference("common", "Path"))),
+                "overwrite": member(boolean()),
+            }))
         }),
     },
     'asynchronous': {
@@ -61,6 +65,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     "allowedManual": sInterfaceMethod(externalTypeReference("common", "String")),
                     "allowedGenerated": sInterfaceMethod(externalTypeReference("common", "String")),
                     "file": sInterfaceMethod(externalTypeReference("common", "String"), ['reference', sInterfaceReference("Block")]),
+                    "template": sInterfaceMethod(externalTypeReference("common", "String"), ['reference', sInterfaceReference("Block")]),
                     "directory": sInterfaceMethod(externalTypeReference("common", "String"), ['reference', sInterfaceReference("Directory")]),
                 }),
             }]),
@@ -89,7 +94,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                 })
             }]),
             "CreateFile": sInterface(sInterfaceMethod(externalTypeReference("common", "Path"), ['reference', sInterfaceReference("Block")])),
-            "CreateWriteStream": sInterface(sInterfaceMethod(externalTypeReference("common", "Path"), ['reference', sExternalInterfaceReference("common", "String")])),
+            "CreateWriteStream": sInterface(sInterfaceMethod(typeReference("WriteStreamParameters"), ['reference', sExternalInterfaceReference("common", "String")])),
         }),
         'algorithms': d({
             "CreateDirectory": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("LogAndLogError")),

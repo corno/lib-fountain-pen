@@ -30,4 +30,16 @@ export namespace T {
         readonly 'name': string
         readonly 'path': g_common.T.Path
     }
+    
+    export namespace WriteStreamParameters {
+        
+        export type overwrite = boolean
+        
+        export type path = g_common.T.Path
+    }
+    
+    export type WriteStreamParameters = {
+        readonly 'overwrite': boolean
+        readonly 'path': g_common.T.Path
+    }
 }
