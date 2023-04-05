@@ -45,7 +45,7 @@ export const $$: A.createDirectoryCreator = ($d) => {
                         )
                     },
                     'template': ($, $c) => {
-                        createdFilesBuilder.add($, false)
+                        createdFilesBuilder.add($, true)
 
                         $i.createWriteStream(
                             {
