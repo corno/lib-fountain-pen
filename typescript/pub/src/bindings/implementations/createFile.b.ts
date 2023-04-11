@@ -29,9 +29,9 @@ export const $$: A.createFile = () => {
                         },
 
                     )({
-                        'path': $,
+                        'path': $.path,
                         'create containing directories': true,
-                        'overwrite if exists': true,
+                        'overwrite if exists': $.overwrite,
                     })
                     //callback
                     $c(($) => {
