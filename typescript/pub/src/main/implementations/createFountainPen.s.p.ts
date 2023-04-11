@@ -1,4 +1,6 @@
 import * as ps from 'pareto-core-state'
+import * as pt from 'pareto-core-types'
+import * as pl from 'pareto-core-lib'
 
 import * as g_this from "../glossary"
 
@@ -16,8 +18,8 @@ export const $$: A.createFountainPen = ($, $d) => {
         ): void {
             function line($$c: ($i: g_this.SYNC.I.Line) => void) {
 
-                let currentLine: null | ps.ArrayBuilder<string> = ps.createArrayBuilder()
-                currentLine.push(currentIndentation)
+                let currentLine: pt.OptionalValue<ps.ArrayBuilder<string>> = [true, ps.createArrayBuilder()]
+                currentLine[1].push(currentIndentation)
                 flush({})
                 if (isFirstLine) {
                 } else {
@@ -29,28 +31,36 @@ export const $$: A.createFountainPen = ($, $d) => {
                         createSubBlock(
                             $d.joinNestedStrings([currentIndentation, $.indentation]),
                             () => {
-                                if (currentLine !== null) {
-                                    $i($d.getArrayAsString(currentLine.getArray()))
-                                    currentLine = null
+                                if (currentLine[0] === true) {
+                                    $i($d.getArrayAsString(currentLine[1].getArray()))
+                                    currentLine = [false]
                                 }
                             },
                             $c
                         )
                     },
                     'snippet': ($2) => {
-                        if (currentLine !== null) {
-                            currentLine.push($2)
-                        } else {
-                            $i($.newline)
-                            currentLine = ps.createArrayBuilder()
-                            currentLine.push(currentIndentation)
-                            currentLine.push($2)
-                        }
+                        pl.optional(
+                            currentLine,
+                            ($) => {
+                                $.push($2)
+                            },
+                            () => {
+                                $i($.newline)
+                                currentLine = [true, ps.createArrayBuilder()]
+                                currentLine[1].push(currentIndentation)
+                                currentLine[1].push($2)
+                            }
+                        )
                     },
                 })
-                if (currentLine !== null) {
-                    $i($d.getArrayAsString(currentLine.getArray()))
-                }
+                pl.optional(
+                    currentLine,
+                    ($) => {
+                        $i($d.getArrayAsString($.getArray()))
+                    },
+                    () => { }
+                )
             }
             $c({
                 'line': ($) => {
