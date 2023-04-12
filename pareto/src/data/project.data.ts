@@ -6,10 +6,11 @@ import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/gloss
 const d = pd.d
 
 import { $ as bindings } from "./bindings/moduledefintion.data"
-import { $ as api } from "./main/api.data"
-import { $ as glossary } from "./main/glossary.data"
+import { $ as main } from "./main/module.data"
+import { $ as fountainpen } from "./submodules/fountainpen/module.data"
+import { $ as serialize } from "./submodules/serialize/module.data"
 
-import { external, this_, main } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
+import { external, this_ } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
 
 
 export const $: g_project.T.Project<pd.SourceLocation> = {
@@ -23,37 +24,14 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
         "res-pareto-tostring": null,
     }),
     'type': ['library', {
-        'main': {
-            'definition': {
-                'glossary': {
-                    'root': glossary,
-                    'imports': d({
-                        "common": external("glo-pareto-common"),
-                        "fs": external("res-pareto-filesystem"),
-                        //"this": this_(),
-                    }),
-                },
-                'api': {
-                    'root': api,
-
-                    'imports': d({
-                        "common": external("glo-pareto-common"),
-                        "fs": external("lib-pareto-filesystem"),
-                        "tostring": external("res-pareto-tostring"),
-                        "this": this_(),
-                    }),
-                },
-            },
-            'implementation': ['typescript', null],
-
-        },
+        'main': main,
         'submodules': d({
+            "fountainpen": fountainpen,
+            "serialize": serialize,
         }),
-
         'bindings': [true, {
             'definition': bindings,
             'implementation': ['typescript', null],
-
         }],
         'executables': d({}),
         'test': {

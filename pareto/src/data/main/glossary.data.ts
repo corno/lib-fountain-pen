@@ -12,6 +12,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         "common": imp({}),
         "fs": imp({}),
         "this": imp({}),
+        "fountainpen": imp({ }),
     }),
     'root': {
         'namespaces': d({}),
@@ -104,6 +105,6 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             "CreateDirectoryCreator": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("CreateDirectoryHandler")),
             "CreateFileCreator": procedure(inf(sInterfaceReference("CreateFile")), sInterfaceReference("CreateWriteStream")),
             "CreateNodeMessage": sfunction(externalTypeReference("common", "String"), data(typeReference("Node"))),
-        }),
+      }),
     },
 }
