@@ -10,9 +10,8 @@ export const $: g_liana.T.CompileParameters<pd.SourceLocation> = {
             'path': `../../pareto/src/data/submodules/fountainpen/glossary.generated.ts`,
             'data': {
                 'settings': {
+                    'annotations': true,
                     'datamodel': [true, {
-                        'annotations': true,
-                        'properties optional': false,
                         'reference mapping': ['string', null],
                     }],
                     'visitor interface': [false],

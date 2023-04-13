@@ -34,6 +34,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             "Indent": sfunction(externalTypeReference("fountainpen", "LineElement"), data(externalTypeReference("fountainpen", "Block"))),
             "NestedLine": sfunction(externalTypeReference("fountainpen", "BlockElement"), data(externalTypeReference("fountainpen", "NestedLine"))),
             "Line": sfunction(externalTypeReference("fountainpen", "BlockElement"), data(externalTypeReference("common", "String"))),
+            "Directory": sfunction(externalTypeReference("fountainpen", "Node"), data(externalTypeReference("fountainpen", "Directory"))),
             "File": sfunction(externalTypeReference("fountainpen", "Node"), data(externalTypeReference("fountainpen", "Block"))),
             "Template": sfunction(externalTypeReference("fountainpen", "Node"), data(externalTypeReference("fountainpen", "Block"))),
             "AllowedGenerated": sfunction(externalTypeReference("fountainpen", "Node"), data(externalTypeReference("common", "Null"))),

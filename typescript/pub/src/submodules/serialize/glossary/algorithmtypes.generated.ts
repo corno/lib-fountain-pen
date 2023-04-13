@@ -29,6 +29,11 @@ export namespace SYNC {
         
         
         export namespace F {
+            export type Directory<GAnnotation> = ($: g_fountainpen.T.Directory<GAnnotation>) => g_fountainpen.T.Node<GAnnotation>
+        }
+        
+        
+        export namespace F {
             export type File<GAnnotation> = ($: g_fountainpen.T.Block<GAnnotation>) => g_fountainpen.T.Node<GAnnotation>
         }
         

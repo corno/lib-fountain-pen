@@ -6,7 +6,7 @@ import * as g_main from "../../../main"
 
 import { A } from "../api.generated"
 
-export const $$: A.serializeBock = <Annotation>() => {
+export const $$: A.serializeBlock = <Annotation>() => {
     function serializeBlock($: g_fp.T.Block<Annotation>, $i: g_main.SYNC.I.Block) {
         $.__forEach(($) => {
             switch ($[0]) {

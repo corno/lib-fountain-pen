@@ -8,12 +8,13 @@ const d = pd.d
 
 export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> = {
     'algorithms': d({
-        "serializeBock": algorithm(procedure("this", { }, "SerializeBlock"), { "Annotation": "Annotation" }),
+        "serializeBlock": algorithm(procedure("this", { }, "SerializeBlock"), { "Annotation": "Annotation" }),
         "serializeDirectory": algorithm(procedure("this", { }, "SerializeDirectory"), { "Annotation": "Annotation" }),
         "nestedLine": algorithm(sfunction("this", {}, "NestedLine"), { "Annotation": "Annotation" }),
         "line": algorithm(sfunction("this", {}, "Line"), { "Annotation": "Annotation" }),
         "indent": algorithm(sfunction("this", {}, "Indent"), { "Annotation": "Annotation" }),
         "snippet": algorithm(sfunction("this", {}, "Snippet"), { "Annotation": "Annotation" }),
+        "directory": algorithm(sfunction("this", {}, "Directory"), { "Annotation": "Annotation" }),
         "file": algorithm(sfunction("this", {}, "File"), { "Annotation": "Annotation" }),
         "template": algorithm(sfunction("this", {}, "Template"), { "Annotation": "Annotation" }),
         "allowedManual": algorithm(sfunction("this", {}, "AllowedManual"), { "Annotation": "Annotation" }),
