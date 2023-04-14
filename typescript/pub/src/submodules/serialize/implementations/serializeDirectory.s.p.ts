@@ -4,7 +4,7 @@ import * as pd from 'pareto-core-dev'
 import * as g_fp from "../../fountainpen"
 import * as g_main from "../../../main"
 
-import { $$ as serializeBlock } from "./serializeBock.s.p"
+import { $$ as serializeBlock } from "./serializeBlock.s.p"
 
 import { A } from "../api.generated"
 
