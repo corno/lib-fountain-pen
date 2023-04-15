@@ -21,6 +21,7 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
     'dependencies': d({
         "glo-pareto-common": null,
         "lib-pareto-filesystem": null,
+        "res-pareto-array": null,
         "res-pareto-tostring": null,
         "res-pareto-string": null,
     }),

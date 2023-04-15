@@ -14,6 +14,7 @@ export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> = {
         "createDirectoryCreator": algorithm(procedure("this", {}, "CreateDirectoryCreator"), {}, dependent(null, {
             "getNodes": afunction("fs", {}, "ReadDirectoryOrAbort"),
             "pipeFountainPen": procedure("this", {}, "FountainPen"),
+            "push": sfunction("array", {}, "Push"),
         }, {})),
         "createFileCreator": algorithm(procedure("this", {}, "CreateFileCreator"), {}, dependent(null, {
             "pipeFountainPen": procedure("this", {}, "FountainPen"),

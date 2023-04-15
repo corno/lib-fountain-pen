@@ -1,5 +1,6 @@
 import * as pt from 'pareto-core-types'
 
+import * as g_array from "res-pareto-array"
 import * as g_common from "glo-pareto-common"
 import * as g_fs from "lib-pareto-filesystem"
 import * as g_string from "res-pareto-string"
@@ -11,6 +12,7 @@ export namespace D {
     export type createDirectoryCreator = {
         readonly 'getNodes': g_fs.ASYNC.A.F.ReadDirectoryOrAbort
         readonly 'pipeFountainPen': g_this.SYNC.A.P.FountainPen
+        readonly 'push': g_array.SYNC.A.F.Push
     }
     
     export type createFileCreator = {

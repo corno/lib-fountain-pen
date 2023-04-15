@@ -1,7 +1,7 @@
 import * as pl from 'pareto-core-lib'
 import * as pd from 'pareto-core-dev'
 
-import * as g_fp from "../../fountainpen"
+import * as g_fp from "../../typelibrary"
 import * as g_main from "../../../main"
 
 import { $$ as serializeBlock } from "./serializeBlock.s.p"

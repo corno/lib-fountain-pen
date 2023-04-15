@@ -24,7 +24,10 @@ export const $$: A.createDirectoryCreator = ($d) => {
                     'directory': ($, $c) => {
                         createdFilesBuilder.add($, false)
                         createWriterImp(
-                            [newPath, $],
+                            $d.push({
+                                'array': newPath,
+                                'element': $,
+                            }),
                             $c,
                         )
                     },
@@ -34,7 +37,10 @@ export const $$: A.createDirectoryCreator = ($d) => {
                         $i.createWriteStream(
                             {
                                 'overwrite': true,
-                                path: [newPath, $]
+                                path: $d.push({
+                                    'array': newPath,
+                                    'element': $,
+                                })
                             },
                             ($i) => {
                                 $d.pipeFountainPen(
@@ -50,7 +56,10 @@ export const $$: A.createDirectoryCreator = ($d) => {
                         $i.createWriteStream(
                             {
                                 'overwrite': false,
-                                path: [newPath, $]
+                                path: $d.push({
+                                    'array': newPath,
+                                    'element': $,
+                                })
                             },
                             ($i) => {
                                 $d.pipeFountainPen(
@@ -101,7 +110,7 @@ export const $$: A.createDirectoryCreator = ($d) => {
                     }
                 )
             }
-            createWriterImp([$], $c)
+            createWriterImp($, $c)
         })
     }
 }

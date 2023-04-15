@@ -12,7 +12,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         "common": imp({}),
         "fs": imp({}),
         "this": imp({}),
-        "fountainpen": imp({ }),
+        //"typelibrary": imp({ }),
     }),
     'root': {
         'namespaces': d({}),

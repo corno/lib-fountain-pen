@@ -2,6 +2,7 @@ import * as pd from 'pareto-core-dev'
 
 import * as ps from 'pareto-core-state'
 import * as pa from 'pareto-core-async'
+import * as pm from 'pareto-core-map'
 
 import * as g_test from "lib-pareto-test"
 import * as g_pub from "../../../../../pub"
@@ -16,7 +17,7 @@ export const $$: A.getTestSet = ($) => {
 
     g_pub.$b.createDirectory()(
         ($i) => {
-            $i([$.testDirectory, "FOOOO"], ($i) => {
+            $i(pm.wrapRawArray([$.testDirectory, "FOOOO"]), ($i) => {
                 $i.file("BAAAR.generated", ($i) => {
                     $i.line(`TESTME`)
                 })

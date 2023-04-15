@@ -1,3 +1,4 @@
+import * as a_array from "res-pareto-array"
 import * as a_fsr from "res-pareto-filesystem"
 import * as a_fse from "lib-pareto-filesystem/dist/submodules/errormessagecreators"
 import * as a_fs from "lib-pareto-filesystem"
@@ -26,6 +27,7 @@ export const $$: A.createDirectory = () => {
                     })({
                         'path': $.path
                     }),
+                    'push': a_array.$r.push()
                 },
             )(
                 ($b) => {

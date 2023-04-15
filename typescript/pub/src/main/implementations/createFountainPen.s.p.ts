@@ -46,7 +46,7 @@ export const $$: A.createFountainPen = ($, $d) => {
                             currentLine,
                             ($) => {
                                 currentLine[1] = $d.join({
-                                    'first': currentLine[1],
+                                    'first': $,
                                     'second': $2,
                                 })
                             },
