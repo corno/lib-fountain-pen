@@ -1,3 +1,4 @@
+
 import * as a_array from "res-pareto-array"
 import * as a_fsr from "res-pareto-filesystem"
 import * as a_fse from "lib-pareto-filesystem/dist/submodules/errormessagecreators"
@@ -24,9 +25,7 @@ export const $$: A.createDirectory = () => {
                             }
                         },
 
-                    })({
-                        'path': $.path
-                    }),
+                    })($),
                     'push': a_array.$r.push()
                 },
             )(
@@ -44,7 +43,7 @@ export const $$: A.createDirectory = () => {
                         },
                     },
                     'createWriteStream': ($, $c) => {
-                        //before                    
+                        //before
                         const fw = a_fsr.$r.createFileWriter().construct(
                             {
                                 'onWriteFileError': ($) => {
