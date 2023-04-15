@@ -8,7 +8,7 @@ export const $$: A.createSuperfluousNodeMessage = () => {
         const red = "\x1b[31m"
         const green = "\x1b[32m"
         const reset = "\x1b[0m"
-        return `${green}allowed node: ${g_tostring.$r.joinNestedStrings({
+        return `${green}allowed node: ${g_tostring.$r.getArrayAsString({
             separator: "/",
             'maximum': [false],
 

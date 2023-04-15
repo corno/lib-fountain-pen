@@ -18,8 +18,7 @@ export const $$: A.createFountainPen = ($, $d) => {
         ): void {
             function line($$c: ($i: g_this.SYNC.I.Line) => void) {
 
-                let currentLine: pt.OptionalValue<ps.ArrayBuilder<string>> = [true, ps.createArrayBuilder()]
-                currentLine[1].push(currentIndentation)
+                let currentLine: pt.OptionalValue<string> = [true, currentIndentation]
                 flush({})
                 if (isFirstLine) {
                 } else {
@@ -29,10 +28,13 @@ export const $$: A.createFountainPen = ($, $d) => {
                 $$c({
                     'indent': ($c) => {
                         createSubBlock(
-                            $d.joinNestedStrings([currentIndentation, $.indentation]),
+                            $d.join({
+                                'first': currentIndentation,
+                                'second': $.indentation,
+                            }),
                             () => {
                                 if (currentLine[0] === true) {
-                                    $i($d.getArrayAsString(currentLine[1].getArray()))
+                                    $i(currentLine[1])
                                     currentLine = [false]
                                 }
                             },
@@ -43,13 +45,17 @@ export const $$: A.createFountainPen = ($, $d) => {
                         pl.optional(
                             currentLine,
                             ($) => {
-                                $.push($2)
+                                currentLine[1] = $d.join({
+                                    'first': currentLine[1],
+                                    'second': $2,
+                                })
                             },
                             () => {
                                 $i($.newline)
-                                currentLine = [true, ps.createArrayBuilder()]
-                                currentLine[1].push(currentIndentation)
-                                currentLine[1].push($2)
+                                currentLine = [true, $d.join({
+                                    'first': currentIndentation,
+                                    'second': $2,
+                                })]
                             }
                         )
                     },
@@ -57,7 +63,7 @@ export const $$: A.createFountainPen = ($, $d) => {
                 pl.optional(
                     currentLine,
                     ($) => {
-                        $i($d.getArrayAsString($.getArray()))
+                        $i($)
                     },
                     () => { }
                 )

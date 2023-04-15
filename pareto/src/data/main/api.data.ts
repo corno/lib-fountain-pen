@@ -9,8 +9,7 @@ const d = pd.d
 export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> = {
     'algorithms': d({
         "createFountainPen": algorithm(procedure("this", {}, "FountainPen"), {}, dependent(data("this", {}, "Configuration"), {
-            "joinNestedStrings": sfunction("tostring", {}, "JoinNestedStrings"),
-            "getArrayAsString": sfunction("tostring", {}, "GetArrayAsString"),
+            "join": sfunction("string", {}, "Join"),
         }, {})),
         "createDirectoryCreator": algorithm(procedure("this", {}, "CreateDirectoryCreator"), {}, dependent(null, {
             "getNodes": afunction("fs", {}, "ReadDirectoryOrAbort"),

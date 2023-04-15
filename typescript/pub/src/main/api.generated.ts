@@ -2,8 +2,8 @@ import * as pt from 'pareto-core-types'
 
 import * as g_common from "glo-pareto-common"
 import * as g_fs from "lib-pareto-filesystem"
+import * as g_string from "res-pareto-string"
 import * as g_this from "./glossary"
-import * as g_tostring from "res-pareto-tostring"
 
 export namespace D {
     
@@ -18,8 +18,7 @@ export namespace D {
     }
     
     export type createFountainPen = {
-        readonly 'getArrayAsString': g_tostring.SYNC.A.F.GetArrayAsString
-        readonly 'joinNestedStrings': g_tostring.SYNC.A.F.JoinNestedStrings
+        readonly 'join': g_string.SYNC.A.F.Join
     }
     
 }

@@ -5,10 +5,10 @@ import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/gloss
 
 const d = pd.d
 
-import { $ as bindings } from "./bindings/moduledefintion.data"
-import { $ as main } from "./main/module.data"
-import { $ as fountainpen } from "./submodules/fountainpen/module.data"
-import { $ as serialize } from "./submodules/serialize/module.data"
+import { $ as m_bindings } from "./bindings/moduledefintion.data"
+import { $ as m_main } from "./main/module.data"
+import { $ as m_typelibrary } from "./submodules/typelibrary/module.data"
+import { $ as m_serialize } from "./submodules/serialize/module.data"
 
 import { external, this_ } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
 
@@ -22,15 +22,16 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
         "glo-pareto-common": null,
         "lib-pareto-filesystem": null,
         "res-pareto-tostring": null,
+        "res-pareto-string": null,
     }),
     'type': ['library', {
-        'main': main,
+        'main': m_main,
         'submodules': d({
-            "fountainpen": fountainpen,
-            "serialize": serialize,
+            "typelibrary": m_typelibrary,
+            "serialize": m_serialize,
         }),
         'bindings': [true, {
-            'definition': bindings,
+            'definition': m_bindings,
             'implementation': ['typescript', null],
         }],
         'executables': d({}),
