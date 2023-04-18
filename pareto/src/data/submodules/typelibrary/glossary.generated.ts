@@ -17,6 +17,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                 'type': <g_glossary.T.Type<pd.SourceLocation>>['array', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                     'context': <g_glossary.T.Context<pd.SourceLocation>>['local', null],
                     'type': "BlockElement",
+                    'tail': a([]),
                     'arguments': d({}),
                 }]]]
             },
@@ -27,6 +28,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     "nestedLine": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                         'context': <g_glossary.T.Context<pd.SourceLocation>>['local', null],
                         'type': "NestedLine",
+                        'tail': a([]),
                         'arguments': d({}),
                     }]],
                 })]
@@ -36,6 +38,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                 'type': <g_glossary.T.Type<pd.SourceLocation>>['dictionary', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                     'context': <g_glossary.T.Context<pd.SourceLocation>>['local', null],
                     'type': "Node",
+                    'tail': a([]),
                     'arguments': d({}),
                 }]]]
             },
@@ -45,6 +48,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     "indent": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                         'context': <g_glossary.T.Context<pd.SourceLocation>>['local', null],
                         'type': "Block",
+                        'tail': a([]),
                         'arguments': d({}),
                     }]],
                     "snippet": <g_glossary.T.Type<pd.SourceLocation>>['string', null],
@@ -55,6 +59,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                 'type': <g_glossary.T.Type<pd.SourceLocation>>['array', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                     'context': <g_glossary.T.Context<pd.SourceLocation>>['local', null],
                     'type': "LineElement",
+                    'tail': a([]),
                     'arguments': d({}),
                 }]]]
             },
@@ -66,16 +71,19 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     "directory": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                         'context': <g_glossary.T.Context<pd.SourceLocation>>['local', null],
                         'type': "Directory",
+                        'tail': a([]),
                         'arguments': d({}),
                     }]],
                     "file": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                         'context': <g_glossary.T.Context<pd.SourceLocation>>['local', null],
                         'type': "Block",
+                        'tail': a([]),
                         'arguments': d({}),
                     }]],
                     "template": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                         'context': <g_glossary.T.Context<pd.SourceLocation>>['local', null],
                         'type': "Block",
+                        'tail': a([]),
                         'arguments': d({}),
                     }]],
                 })]
