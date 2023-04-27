@@ -15,9 +15,11 @@ const d = pd.d
 
 export const $: g_liana.T.Type__Library<pd.SourceLocation> = {
     'imports': d({}),
-    'terminal types': d({
-        "text": null
-    }),
+    'labels': {
+        'atom types': d({
+            "text": null
+        }),
+    },
     'global types': d({
         "Block": globalType({}, array(component("BlockElement", {}))),
         "BlockElement": globalType({}, taggedUnion({
