@@ -5,7 +5,8 @@ import {
     array,
     component,
     dictionary,
-    globalType,
+    globalTypeDeclaration,
+    globalTypeDefinition,
     group, option, prop, r,
     taggedUnion,
     terminal
@@ -20,24 +21,34 @@ export const $: g_liana.T.Type__Library<pd.SourceLocation> = {
             "text": null
         }),
     },
-    'global types': d({
-        "Block": globalType({}, array(component("BlockElement", {}))),
-        "BlockElement": globalType({}, taggedUnion({
-            "line": option(terminal("text")),
-            "nestedLine": option(component("NestedLine", {})),
-        })),
-        "LineElement": globalType({}, taggedUnion({
-            "snippet": option(terminal("text")),
-            "indent": option(component("Block", {})),
-        })),
-        "NestedLine": globalType({}, array(component("LineElement", {}))),
-        "Directory": globalType({}, dictionary(component("Node", {}))),
-        "Node": globalType({}, taggedUnion({
-            "directory": option(component("Directory", {})),
-            "file": option(component("Block", {})),
-            "allowedGenerated": option(group({})),
-            "allowedManual": option(group({})),
-            "template": option(component("Block", {})),
-        })),
-    }),
+    'global types': {
+        'declarations': d({
+            "Block": globalTypeDeclaration({}),
+            "BlockElement": globalTypeDeclaration({}),
+            "LineElement": globalTypeDeclaration({}),
+            "NestedLine": globalTypeDeclaration({}),
+            "Directory": globalTypeDeclaration({}),
+            "Node": globalTypeDeclaration({}),
+        }),
+        'definitions': d({
+            "Block": globalTypeDefinition(array(component("BlockElement", {}))),
+            "BlockElement": globalTypeDefinition(taggedUnion({
+                "line": option(terminal("text")),
+                "nestedLine": option(component("NestedLine", {})),
+            })),
+            "LineElement": globalTypeDefinition(taggedUnion({
+                "snippet": option(terminal("text")),
+                "indent": option(component("Block", {})),
+            })),
+            "NestedLine": globalTypeDefinition(array(component("LineElement", {}))),
+            "Directory": globalTypeDefinition(dictionary(component("Node", {}))),
+            "Node": globalTypeDefinition(taggedUnion({
+                "directory": option(component("Directory", {})),
+                "file": option(component("Block", {})),
+                "allowedGenerated": option(group({})),
+                "allowedManual": option(group({})),
+                "template": option(component("Block", {})),
+            })),
+        }),
+    }
 }
