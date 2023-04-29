@@ -8,39 +8,37 @@ const a = pd.a
 
 export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     'imports': d({
-        "typelibrary": imp({ "Annotation": glossaryParameter("Annotation") }),
-        "main": imp({}),
-        "common": imp({}),
+        "typelibrary": imp(),
+        "main": imp(),
+        "common": imp(),
     }),
-    'core': {
-        'parameters': d({
-            "Annotation": null,
+    'glossary parameters': d({
+        "Annotation": null,
+    }),
+    'root': {
+        'types': d({
         }),
-        'root': {
-            'types': d({
-            }),
-            'namespaces': d({
-            }),
-        },
-        'asynchronous': {
-            'interfaces': d({}),
-            'algorithms': d({}),
-        },
-        'synchronous': {
-            'interfaces': d({}),
-            'algorithms': d({
-                "SerializeDirectory": procedure(data(externalTypeReference("typelibrary", "Directory")), sExternalInterfaceReference("main", "Directory")),
-                "SerializeBlock": procedure(data(externalTypeReference("typelibrary", "Block")), sExternalInterfaceReference("main", "Block")),
-                "Snippet": sfunction(externalTypeReference("typelibrary", "LineElement"), data(externalTypeReference("common", "String"))),
-                "Indent": sfunction(externalTypeReference("typelibrary", "LineElement"), data(externalTypeReference("typelibrary", "Block"))),
-                "NestedLine": sfunction(externalTypeReference("typelibrary", "BlockElement"), data(externalTypeReference("typelibrary", "NestedLine"))),
-                "Line": sfunction(externalTypeReference("typelibrary", "BlockElement"), data(externalTypeReference("common", "String"))),
-                "Directory": sfunction(externalTypeReference("typelibrary", "Node"), data(externalTypeReference("typelibrary", "Directory"))),
-                "File": sfunction(externalTypeReference("typelibrary", "Node"), data(externalTypeReference("typelibrary", "Block"))),
-                "Template": sfunction(externalTypeReference("typelibrary", "Node"), data(externalTypeReference("typelibrary", "Block"))),
-                "AllowedGenerated": sfunction(externalTypeReference("typelibrary", "Node"), data(externalTypeReference("common", "Null"))),
-                "AllowedManual": sfunction(externalTypeReference("typelibrary", "Node"), data(externalTypeReference("common", "Null"))),
-            }),
-        },
+        'namespaces': d({
+        }),
+    },
+    'asynchronous': {
+        'interfaces': d({}),
+        'algorithms': d({}),
+    },
+    'synchronous': {
+        'interfaces': d({}),
+        'algorithms': d({
+            "SerializeDirectory": procedure(data(externalTypeReference("typelibrary", "Directory", { "Annotation": glossaryParameter("Annotation") })), sExternalInterfaceReference("main", "Directory")),
+            "SerializeBlock": procedure(data(externalTypeReference("typelibrary", "Block", { "Annotation": glossaryParameter("Annotation") })), sExternalInterfaceReference("main", "Block")),
+            "Snippet": sfunction(externalTypeReference("typelibrary", "LineElement", { "Annotation": glossaryParameter("Annotation") }), data(externalTypeReference("common", "String"))),
+            "Indent": sfunction(externalTypeReference("typelibrary", "LineElement", { "Annotation": glossaryParameter("Annotation") }), data(externalTypeReference("typelibrary", "Block", { "Annotation": glossaryParameter("Annotation") }))),
+            "NestedLine": sfunction(externalTypeReference("typelibrary", "BlockElement", { "Annotation": glossaryParameter("Annotation") }), data(externalTypeReference("typelibrary", "NestedLine", { "Annotation": glossaryParameter("Annotation") }))),
+            "Line": sfunction(externalTypeReference("typelibrary", "BlockElement", { "Annotation": glossaryParameter("Annotation") }), data(externalTypeReference("common", "String"))),
+            "Directory": sfunction(externalTypeReference("typelibrary", "Node", { "Annotation": glossaryParameter("Annotation") }), data(externalTypeReference("typelibrary", "Directory", { "Annotation": glossaryParameter("Annotation") }))),
+            "File": sfunction(externalTypeReference("typelibrary", "Node", { "Annotation": glossaryParameter("Annotation") }), data(externalTypeReference("typelibrary", "Block", { "Annotation": glossaryParameter("Annotation") }))),
+            "Template": sfunction(externalTypeReference("typelibrary", "Node", { "Annotation": glossaryParameter("Annotation") }), data(externalTypeReference("typelibrary", "Block", { "Annotation": glossaryParameter("Annotation") }))),
+            "AllowedGenerated": sfunction(externalTypeReference("typelibrary", "Node", { "Annotation": glossaryParameter("Annotation") }), data(externalTypeReference("common", "Null"))),
+            "AllowedManual": sfunction(externalTypeReference("typelibrary", "Node", { "Annotation": glossaryParameter("Annotation") }), data(externalTypeReference("common", "Null"))),
+        }),
     },
 }
