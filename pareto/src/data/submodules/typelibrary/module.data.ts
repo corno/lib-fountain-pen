@@ -8,7 +8,7 @@ import { external, tempSubmodule, this_ } from 'lib-pareto-typescript-project/di
 
 const d = pd.d
 
-export const $: g_project.T.Module<pd.SourceLocation> = {
+export const $: g_project.T.Module<null> = {
     'definition': {
         'glossary': {
             'root': glossary,

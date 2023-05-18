@@ -13,7 +13,7 @@ import { $ as m_serialize } from "./submodules/serialize/module.data"
 import { external, this_ } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
 
 
-export const $: g_project.T.Project<pd.SourceLocation> = {
+export const $: g_project.T.Project<pd.SourceLocation | null> = {
     'author': "Corno",
     'description': "makes it straightforward to generate properly indented source code files",
     'license': "TBD",

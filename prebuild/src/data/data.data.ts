@@ -8,7 +8,7 @@ export const $: g_liana.T.CompileParameters<pd.SourceLocation> = {
     'outputs': pd.a([
         {
             'path': pd.a([`../../pareto/src/data/submodules/typelibrary/glossary.generated.ts`]),
-            'data': {
+            'data': ['liana', {
                 'settings': {
                     'annotations': true,
                     'datamodel': [true, {
@@ -29,7 +29,7 @@ export const $: g_liana.T.CompileParameters<pd.SourceLocation> = {
                         "text": ['string', null],
                     }),
                 },
-            }
+            }],
         }
     ])
 }

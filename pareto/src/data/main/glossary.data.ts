@@ -1,6 +1,6 @@
 import * as pd from 'pareto-core-data'
 
-import { data, externalTypeReference, group, imp, inf, member, ref, procedure, sfunction, sInterfaceMethod, sInterfaceReference, string, type, typeReference, sInterface, sExternalInterfaceReference, boolean } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
+import { data, externalTypeReference, group, imp, sInf, member, ref, procedure, sfunction, sInterfaceMethod, sInterfaceReference, string, type, typeReference, sInterface, sExternalInterfaceReference, boolean } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
 
@@ -98,12 +98,12 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             "CreateWriteStream": sInterface(sInterfaceMethod(typeReference("WriteStreamParameters"), ['reference', sExternalInterfaceReference("common", "String")])),
         }),
         'algorithms': d({
-            "CreateDirectory": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("LogAndLogError")),
-            "CreateFile": procedure(inf(sInterfaceReference("CreateFile")), sInterfaceReference("LogError")),
+            "CreateDirectory": procedure(sInf(sInterfaceReference("CreateDirectory")), sInterfaceReference("LogAndLogError")),
+            "CreateFile": procedure(sInf(sInterfaceReference("CreateFile")), sInterfaceReference("LogError")),
 
-            "FountainPen": procedure(inf(sInterfaceReference("Block")), sExternalInterfaceReference("common", "String")),
-            "CreateDirectoryCreator": procedure(inf(sInterfaceReference("CreateDirectory")), sInterfaceReference("CreateDirectoryHandler")),
-            "CreateFileCreator": procedure(inf(sInterfaceReference("CreateFile")), sInterfaceReference("CreateWriteStream")),
+            "FountainPen": procedure(sInf(sInterfaceReference("Block")), sExternalInterfaceReference("common", "String")),
+            "CreateDirectoryCreator": procedure(sInf(sInterfaceReference("CreateDirectory")), sInterfaceReference("CreateDirectoryHandler")),
+            "CreateFileCreator": procedure(sInf(sInterfaceReference("CreateFile")), sInterfaceReference("CreateWriteStream")),
             "CreateNodeMessage": sfunction(externalTypeReference("common", "String"), data(typeReference("Node"))),
         }),
     },

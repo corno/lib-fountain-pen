@@ -1,6 +1,6 @@
 import * as pd from 'pareto-core-data'
 
-import { imp, inf, procedure, sExternalInterfaceReference, sInterface, sInterfaceReference } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
+import { imp, procedure, sExternalInterfaceReference, sInterface, sInterfaceReference } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
 

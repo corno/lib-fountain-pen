@@ -5,7 +5,7 @@ import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/gloss
 const d = pd.d
 const a = pd.a
 
-export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
+export const $: g_glossary.T.Glossary<null> = {
     'imports': d({}),
     'glossary parameters': d({
         "Annotation": null,
@@ -14,7 +14,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         'types': d({
             "Block": {
                 'parameters': d({}),
-                'type': <g_glossary.T.Type<pd.SourceLocation>>['array', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                'type': <g_glossary.T.Type<null>>['array', <g_glossary.T.Type<null>>['reference', ['type', {
                     'context': ['local', null],
                     'typeXX': "BlockElement",
                     'tailXX': a([]),
@@ -23,9 +23,9 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             },
             "BlockElement": {
                 'parameters': d({}),
-                'type': <g_glossary.T.Type<pd.SourceLocation>>['taggedUnion', d({
-                    "line": <g_glossary.T.Type<pd.SourceLocation>>['string', null],
-                    "nestedLine": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                    "line": <g_glossary.T.Type<null>>['string', null],
+                    "nestedLine": <g_glossary.T.Type<null>>['reference', ['type', {
                         'context': ['local', null],
                         'typeXX': "NestedLine",
                         'tailXX': a([]),
@@ -35,7 +35,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             },
             "Directory": {
                 'parameters': d({}),
-                'type': <g_glossary.T.Type<pd.SourceLocation>>['dictionary', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['reference', ['type', {
                     'context': ['local', null],
                     'typeXX': "Node",
                     'tailXX': a([]),
@@ -44,19 +44,19 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             },
             "LineElement": {
                 'parameters': d({}),
-                'type': <g_glossary.T.Type<pd.SourceLocation>>['taggedUnion', d({
-                    "indent": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                    "indent": <g_glossary.T.Type<null>>['reference', ['type', {
                         'context': ['local', null],
                         'typeXX': "Block",
                         'tailXX': a([]),
                         'type arguments': d({}),
                     }]],
-                    "snippet": <g_glossary.T.Type<pd.SourceLocation>>['string', null],
+                    "snippet": <g_glossary.T.Type<null>>['string', null],
                 })]
             },
             "NestedLine": {
                 'parameters': d({}),
-                'type': <g_glossary.T.Type<pd.SourceLocation>>['array', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                'type': <g_glossary.T.Type<null>>['array', <g_glossary.T.Type<null>>['reference', ['type', {
                     'context': ['local', null],
                     'typeXX': "LineElement",
                     'tailXX': a([]),
@@ -65,22 +65,22 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             },
             "Node": {
                 'parameters': d({}),
-                'type': <g_glossary.T.Type<pd.SourceLocation>>['taggedUnion', d({
-                    "allowedGenerated": <g_glossary.T.Type<pd.SourceLocation>>['group', d({})],
-                    "allowedManual": <g_glossary.T.Type<pd.SourceLocation>>['group', d({})],
-                    "directory": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                    "allowedGenerated": <g_glossary.T.Type<null>>['group', d({})],
+                    "allowedManual": <g_glossary.T.Type<null>>['group', d({})],
+                    "directory": <g_glossary.T.Type<null>>['reference', ['type', {
                         'context': ['local', null],
                         'typeXX': "Directory",
                         'tailXX': a([]),
                         'type arguments': d({}),
                     }]],
-                    "file": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                    "file": <g_glossary.T.Type<null>>['reference', ['type', {
                         'context': ['local', null],
                         'typeXX': "Block",
                         'tailXX': a([]),
                         'type arguments': d({}),
                     }]],
-                    "template": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                    "template": <g_glossary.T.Type<null>>['reference', ['type', {
                         'context': ['local', null],
                         'typeXX': "Block",
                         'tailXX': a([]),
