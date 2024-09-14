@@ -18,7 +18,7 @@ export const $$: A.createFountainPen = ($, $d) => {
         ): void {
             function line($$c: ($i: g_this.SYNC.I.Line) => void) {
 
-                let currentLine: pt.OptionalValue<string> = [true, currentIndentation]
+                let currentLine: pt.OptionalValue<string> = pl.set(currentIndentation)
                 flush({})
                 if (isFirstLine) {
                 } else {
@@ -33,39 +33,41 @@ export const $$: A.createFountainPen = ($, $d) => {
                                 'second': $.indentation,
                             }),
                             () => {
-                                if (currentLine[0] === true) {
-                                    $i(currentLine[1])
-                                    currentLine = [false]
-                                }
+                                currentLine.map(
+                                    ($) => {
+                                        $i($)
+                                        currentLine = pl.notSet()
+                                    },
+                                    () => {
+                                    }
+                                )
                             },
                             $c
                         )
                     },
                     'snippet': ($2) => {
-                        pl.optional(
-                            currentLine,
+                        currentLine.map(
                             ($) => {
-                                currentLine[1] = $d.join({
+                                currentLine = pl.set($d.join({
                                     'first': $,
                                     'second': $2,
-                                })
+                                }))
                             },
                             () => {
                                 $i($.newline)
-                                currentLine = [true, $d.join({
+                                currentLine = pl.set($d.join({
                                     'first': currentIndentation,
                                     'second': $2,
-                                })]
+                                }))
                             }
                         )
                     },
                 })
-                pl.optional(
-                    currentLine,
+                currentLine.map(
                     ($) => {
                         $i($)
                     },
-                    () => { }
+                    () => {}
                 )
             }
             $c({
