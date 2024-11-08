@@ -2,8 +2,8 @@
 /scripts/scripts/
 /prebuild/dist/
 /prebuild/node_modules/
-/pareto/dist/
-/pareto/node_modules/
+/.pareto/dist/
+/.pareto/node_modules/
 /typescript/pub/dist/
 /typescript/pub/node_modules/
 /typescript/pub/package.json

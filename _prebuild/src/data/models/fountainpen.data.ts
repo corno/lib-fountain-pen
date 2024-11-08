@@ -36,6 +36,9 @@ export const $: g_liana.T.Type__Library<pd.SourceLocation> = {
             "directory": option(resolvedSiblingComponent("Directory", {})),
             "file": option(resolvedSiblingComponent("Block", {})),
             "allowedGenerated": option(group({})),
+            /**
+             * 
+             */
             "allowedManual": option(group({})),
             "template": option(resolvedSiblingComponent("Block", {})),
         })),
